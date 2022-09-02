@@ -28,7 +28,8 @@
     .alegria2 {
         color: rgb(0, 189, 50);
     }
-    .orcamento{
+
+    .orcamento {
         font-size: larger;
     }
 </style>
@@ -53,17 +54,20 @@
         var instalacao = Arduino + (qtdArduino * 100);
         var paralisacao = 5.24 * 5600 * 30;
         var paralisacaoMes = paralisacao * 30;
-        var economiaMes1 = paralisacaoMes - (instalacao + 25000);
+        var precoProjeto = (instalacao + 25000);
+        var economiaMes1 = paralisacaoMes - precoProjeto;
         var economiaMes = paralisacaoMes - 25000;
         var economiaAno = (economiaMes * 11) + economiaMes1;
         var precoMax = Number(in_precoMax.value);
-        var orcamento = precoMax - (instalacao + 25000)
+        var orcamento = precoMax - precoProjeto;
 
         if (qtdCPU == 0 | precoMax == 0) {
             alert("Por favor, insira um valor maior que zero!");
-        } else {
-            if (precoMax < (instalacao + 25000)) {
+        } else {    
+            if (precoMax < precoProjeto) {
                 var frase = `Pelo seu orçamento, faltam R$${-orcamento}.00 para começarmos essa jornada!`;
+            } else if (precoMax == precoProjeto) {
+                var frase = `Pelo seu oçamento, estamos exatamente de acordo!`;
             } else {
                 var frase = `Pelo seu orçamento, estamos de acordo e ainda sombram R$${orcamento}.00!`;
             }
@@ -95,7 +99,7 @@
                 </div>
 
                 <div class="alegria">
-                    Em um mês que você desembolsaria <b>R$${paralisacaoMes},00</b> passará para <b>R$${25000 + instalacao},00</b> no primeiro mês (mensal + instalação) e apenas <b>R$25000,00</b> nos próximos!<br><br>
+                    Em um mês que você desembolsaria <b>R$${paralisacaoMes},00</b> passará para <b>R$${precoProjeto},00</b> no primeiro mês (mensal + instalação) e apenas <b>R$25000,00</b> nos próximos!<br><br>
                 </div>
 
                 <div class="alegria2">
