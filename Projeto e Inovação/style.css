@@ -1,0 +1,31 @@
+*{
+    padding: 0;
+    margin: 0;
+    background-color: black;
+    color: #f1f1f1;
+}
+.header{
+    padding: 15px;
+    border-bottom:2px solid #32b9cd;
+}
+.container{
+    margin: 0px auto;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+h1{
+    color: #32b9cd;
+    font-weight: 900;
+}
+ul{
+    display: flex;
+    width: 350px;
+    justify-content: space-between;
+    list-style: none;
+    
+}
+li{
+    color: #e3b062;
+}
