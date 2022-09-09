@@ -1,0 +1,130 @@
+/* 
+Exercicio 01
+
+No MySQL Workbench, utilizando o banco de dados ‘sprint1’:
+Fazer a modelagem lógica conforme a regra de negócio:
+• 1 professor leciona 1 ou muitas disciplinas;
+• 1 disciplina é lecionada por apenas 1 professor;
+Criar a tabela chamada Professor para conter os dados: idProfessor, nome
+(tamanho 50), sobrenome (tamanho 30), especialidade1 (tamanho 40),
+especialidade2 (tamanho 40), sendo que idProfessor é a chave primária da tabela.
+Inserir pelo menos uns 6 professores.
+Criar a tabela chamada Disciplina para conter os dados: idDisc, nomeDisc
+(tamanho 45), sendo que idDisc é a chave primária da tabela.
+Inserir pelo menos 3 disciplinas. */
+
+create database sprint1;
+
+use sprint1;
+
+create table Professor(
+idProfessor int primary key auto_increment,
+nome varchar(50),
+sobrenome varchar(30),
+especialidade1 varchar(40),
+especialidade2 varchar(40)
+);
+
+insert into Professor values 
+(null,'Yoshi','Yoshihiro','Javascript','Java'),
+(null,'Fernanda','Caramico','HTML','CSS'),
+(null,'João','Teodoro','HTML','CSS'),
+(null,'Monica','Herrero','Sistema da Informação','Tecnologia da Informação'),
+(null,'João Pedro','Paula','Javascript','Java'),
+(null,'Vivian','Silva','Mysql','SQLServer'); 
+
+create table Disciplina (
+idDisc int primary key auto_increment,
+nomeDisc varchar(45)
+);
+
+insert into Disciplina (idDisc,nomeDisc) values (null,'Algoritmo'),(null,'Pesquisa e Inovação'),(null,'Banco de Dados');
+-- Escreva e execute os comandos para:
+-- • Configurar a chave estrangeira na tabela conforme sua modelagem (Pode fazer no comando CREATE TABLE);
+alter table Disciplina add column fkProfessor int;
+alter table Disciplina add foreign key (fkProfessor) references Professor(idProfessor);
+
+select * from Professor;
+select * from Disciplina;
+
+update Disciplina set fkProfessor = 1 where idDisc = 1;
+update Disciplina set fkProfessor = 1 where idDisc = 2;
+update Disciplina set fkProfessor = 6 where idDisc = 3;
+
+-- • Exibir os professores e suas respectivas disciplinas;
+select * from Professor join Disciplina
+	on fkProfessor = idProfessor;
+    
+-- • Exibir apenas o nome da disciplina e o nome do respectivo professor;
+select p.nome as Professor, d.nomeDisc as Disciplina from Disciplina as d join Professor as p
+	on fkProfessor = idProfessor;
+    
+-- • Exibir os dados dos professores, suas respectivas disciplinas de um determinado sobrenome;
+select p.*, d.nomeDisc from professor as p join Disciplina as d 
+	on fkProfessor = idProfessor
+    where p.sobrenome = 'Silva';
+    
+-- • Exibir apenas a especialidade1 e o nome da disciplina, de um determinado professor, ordenado de forma crescente pela especialidade1;
+select p.especialidade1 as Especialidade1, d.nomeDisc as Disciplina from Disciplina as d join Professor as p
+	on fkProfessor = idProfessor
+    where p.nome = 'Yoshi' order by especialidade1;
+    
+
+/* 
+Exercicio 02
+No MySQL Workbench, utilizando o banco de dados ‘sprint2’:
+Criar a tabela chamada Curso para conter os dados: idCurso, nome (tamanho 50),
+sigla (tamanho 3), coordenador, sendo que idCurso é a chave primária da tabela.
+Inserir dados na tabela, procure inserir pelo menos 3 cursos.
+Crie uma regra de negócio com uma nova tabela a sua escolha. Relacione a tabela
+que você criou com a tabela curso e insira ou atualize os dados; */
+
+create database sprint2;
+use sprint2;
+
+create table curso (
+idCurso int primary key auto_increment,
+nome varchar(50),
+sigla char(3),
+coordenador varchar(50)
+);
+
+insert into curso values 
+(null,'Analise e Desenvolvimento de Sistemas','ADS','Paulo Ricardo'),
+(null,'Ciencias da Computação','CCO','Monica Fagundes'),
+(null,'Sistema da Informação','SSI','Carlos Silva');
+
+create table aluno(
+ra char(8) primary key,
+nome varchar(45),
+email varchar(60),
+constraint chkEmail CHECK (email like '%@sptech.school' and email not like '@%'),
+fkCurso int,
+foreign key (fkCurso) references Curso(idCurso)
+);
+
+insert into aluno values 
+('01222077','Murilo','murilo.barbosa@sptech.school','1'),
+('01222777','Jose','jose.oliveira@sptech.school','1'),
+('01222177','Marcos','marcos.silva@sptech.school','2'),
+('01222277','Maria','maria.silva@sptech.school','2'),
+('01222377','Estela','estela.santos@sptech.school','3'),
+('01222477','Igor','igor.flores@sptech.school','3');
+
+-- Execute os comandos para:
+-- a) Crie a Modelagem Lógica;
+-- Criado!
+
+-- b) Faça um JOIN entre as duas tabelas;
+select a.ra, a.nome, a.email, c.nome from aluno as a join curso as c
+	on fkCurso = idCurso;
+    
+-- c) Faça um JOIN com WHERE entre as duas tabelas;
+select a.ra, a.nome, a.email, c.nome from aluno as a join curso as c
+	on fkCurso = idCurso
+    where c.nome = 'Sistema da Informação';
+    
+-- d) Crie um campo com a restrição (constraint) de CHECK;
+-- Criado na Tabela!
+
+

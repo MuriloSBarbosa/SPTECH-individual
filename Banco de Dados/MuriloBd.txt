@@ -1,0 +1,325 @@
+/* Exercicio 01
+Criar a tabela chamada Atleta para conter os dados: idAtleta (int e chave primária da
+tabela), nome (varchar, tamanho 40), modalidade (varchar, tamanho 40), qtdMedalha
+(int, representando a quantidade de medalhas que o atleta possui)
+Inserir dados na tabela, procurando colocar mais de um atleta para cada modalidade
+*/
+
+create database sprint1;
+
+use sprint1;
+
+create table Atleta (
+idAtleta int primary key,
+nome varchar(40),
+modalidade varchar (40),
+qtdMedalha int);
+
+insert into Atleta values ('1','Marcos','atletismo','3'),('2','Murilo','futebol','1'),('3','Leandro','natação','6'),('4','Ricardo','futebol','2'),('5','João','natação','10');
+
+-- Exibir todos os dados da tabela.
+select * from Atleta;
+
+-- Exibir apenas os nomes e quantidade de medalhas dos atletas.
+select nome, qtdMedalha from Atleta;
+
+-- Exibir apenas os dados dos atletas de uma determinada modalidade.
+select * from Atleta where modalidade = 'futebol';
+
+-- Exibir os dados da tabela ordenados pela modalidade.
+select * from Atleta order by modalidade;
+
+-- Exibir os dados da tabela, ordenados pela quantidade de medalhas, em ordem decrescente.
+select * from Atleta order by qtdMedalha desc;
+
+-- Exibir os dados da tabela, dos atletas cujo nome contenha a letra s
+select * from Atleta where nome like '%s%';
+
+-- Exibir os dados da tabela, dos atletas cujo nome comece com uma determinada letra.
+select * from Atleta where nome like 'M%';
+
+-- Exibir os dados da tabela, dos atletas cujo nome termine com a letra o.
+select * from Atleta where nome like '%o';
+
+-- Exibir os dados da tabela, dos atletas cujo nome tenha a penúltima letra r
+select * from Atleta where nome like '%r_';
+
+-- Eliminar a tabela.
+drop table Atleta;
+
+
+
+/* Exercicio 02
+Criar a tabela chamada Musica para conter os dados: idMusica, titulo (tamanho 40), artista
+(tamanho 40), genero (tamanho 40), sendo que idMusica é a chave primária da tabela.
+Inserir dados na tabela, procurando colocar um gênero de música que tenha mais de uma
+música, e um artista, que tenha mais de uma música cadastrada. Procure inserir pelo
+menos umas 7 músicas.
+*/
+use sprint1;
+
+create table Musica (
+idMusica int primary key,
+titulo varchar(40),
+artista varchar (40),
+genero varchar(40));
+
+insert into Musica values ('1','Natural','Imagine Dragons','indie rock'),('2','Enemy','Imagine Dragons','indie rock'),('3','Circles','Post Malone','pop rap'),
+('4','Psycho','Post Malone','pop rap'),('5','Pillowtalk','Zayn','pop'),('6','Bohemian Rhapsody','Queen','rock'),('7','I want to Break Free','Queen','rock');
+
+-- a) Exibir todos os dados da tabela.
+select * from Musica;
+
+ -- b) Exibir apenas os títulos e os artistas das músicas.
+select titulo,artista from Musica;
+
+-- c) Exibir apenas os dados das músicas de um determinado gênero.
+select * from Musica where genero = 'rock';
+
+ -- d) Exibir apenas os dados das músicas de um determinado artista.
+select * from Musica where artista = 'Imagine Dragons';
+
+ -- e) Exibir os dados da tabela ordenados pelo título da música.
+select * from Musica order by titulo;
+
+ -- f) Exibir os dados da tabela ordenados pelo artista em ordem decrescente.
+select * from Musica order by artista desc;
+
+ -- g) Exibir os dados da tabela, das músicas cujo título comece com uma determinada letra.
+select * from Musica where titulo like 'p%';
+
+ -- h) Exibir os dados da tabela, das músicas cujo artista termine com uma determinada letra.
+select * from Musica where artista like '%n';
+
+-- i) Exibir os dados da tabela, das músicas cujo gênero tenha como segunda letra uma determinada letra.
+select * from Musica where genero like '_o%';
+
+ -- -- j)Exibir os dados da tabela, das músicas cujo título tenha como penúltima letra uma determinada letra.
+select * from Musica where titulo like '%d_';
+
+-- k) Elimine a tabela.
+drop table musica;
+
+
+-- Exercicio 03
+
+/* No MySQL Workbench, utilizando o banco de dados ‘sprint1’:
+Criar a tabela chamada Filme para conter os dados: idFilme, título (tamanho 50), genero
+(tamanho 40), diretor (tamanho 40), sendo que idFilme é a chave primária da tabela.
+Inserir dados na tabela, procurando colocar um gênero de filme que tenha mais de um
+filme, e um diretor, que tenha mais de um filme cadastrado. Procure inserir pelo menos 
+uns 7 filmes. */
+
+use sprint1;
+
+create table Filme (
+idFilme int primary key,
+titulo varchar(50),
+genero varchar(40),
+diretor varchar (40)
+);
+
+insert into Filme values ('1','Vingadores: Guerra Infinita','ação','Irmãos Russo'),('2','Cherry - Inocência Perdida','drama','Irmãos Russo'),('3','A Cinco Passos de Você','drama','Justin Baldoni'),
+('4','Nunca Deixe de Lembrar','drama','Florian Henckel'),('5','Dumbo','fantasia','Tim Burton'),('6','A Noiva-Cadáver','aventura','Tim Burton'),('7','O Lar das Crianças Peculiares','fantasia','Tim Burton');
+
+-- Execute os comandos para:
+-- • Exibir todos os dados da tabela.
+select * from Filme;
+
+-- • Exibir apenas os títulos e os diretores dos filmes.
+select titulo,diretor from Filme;
+
+-- • Exibir apenas os dados dos filmes de um determinado gênero.
+select * from Filme where genero = 'drama';
+
+-- • Exibir apenas os dados dos filmes de um determinado diretor.
+select * from Filme where diretor = 'Tim Burton';
+
+-- • Exibir os dados da tabela ordenados pelo título do filme.
+select * from Filme order by titulo;
+
+-- • Exibir os dados da tabela ordenados pelo diretor em ordem decrescente.
+select * from Filme order by diretor desc;
+
+-- • Exibir os dados da tabela, dos filmes cujo título comece com uma determinada letra.
+select * from Filme where titulo like 'a%';
+
+-- • Exibir os dados da tabela, dos filmes cujo artista (diretor?) termine com uma determinada letra.
+select * from Filme where diretor like '%l';
+
+-- • Exibir os dados da tabela, dos filmes cujo gênero tenha como segunda letra uma determinada letra.
+select * from Filme where genero like '_v%';
+
+-- • Exibir os dados da tabela, dos filmes cujo título tenha como penúltima letra uma determinada letra.
+select * from Filme where titulo like '%b_';
+
+-- • Elimine a tabela
+drop table Filme;
+
+
+/* Exercicio 04
+
+No MySQL Workbench, utilizando o banco de dados ‘sprint1’:
+Criar a tabela chamada Professor para conter os dados: idProfessor, nome (tamanho 50), 
+especialidade (tamanho 40), dtNasc (date), sendo que idProfessor é a chave primária da tabela.
+Exemplo do campo data: ‘AAAA-MM-DD’ - ‘1983-10-13’.
+Inserir dados na tabela, procurando colocar uma especialista para mais de um professor. 
+Procure inserir pelo menos uns 6 professores.
+*/
+
+use sprint1;
+
+create table Professor (
+idProfessor int primary key,
+nome varchar(50),
+especialidade varchar(40),
+dtNasc date
+);
+
+insert into Professor values ('1','Vivian','Banco de Dados',19831019),('2','Fernanda','Pesquisa e Inovação',19960123),
+('3','Chola','Arquitetura Computacional',19801230),('4','Dan','Socioemocional',19860312),('5','Thiago','Socioemocional',19860825),
+('6','Vera','Socioemocional',19701108);
+
+-- Execute os comandos para:
+-- a) Exibir todos os dados da tabela.
+select * from professor;
+
+-- b) Exibir apenas as especialidades dos professores.
+select especialidade from professor;
+
+-- c) Exibir apenas os dados dos professores de uma determinada especialidade.
+select * from professor where especialidade = 'Socioemocional';
+
+-- d) Exibir os dados da tabela ordenados pelo nome do professor.
+select * from professor order by nome;
+
+-- e) Exibir os dados da tabela ordenados pela data de nascimento do professor em ordem decrescente.
+select * from professor order by dtNasc desc;
+
+-- f) Exibir os dados da tabela, dos professores cujo nome comece com uma determinada letra.
+select * from professor where nome like 'V%';
+
+-- g) Exibir os dados da tabela, dos professores cujo nome termine com uma determinada letra.
+select * from professor where nome like '%n';
+
+-- g) Exibir os dados da tabela, dos professores cujo nome tenha como segunda letra uma determinada letra.
+select * from professor where nome like '_h%';
+
+-- i) Exibir os dados da tabela, dos professores cujo nome tenha como penúltima letra uma determinada letra.
+select * from professor where nome like '%a_';
+
+-- j)Elimine a tabela.
+drop table professor;
+
+
+/* Exercicio 05
+
+No MySQL Workbench, utilizando o banco de dados ‘sprint1’:
+Criar a tabela chamada Curso para conter os dados: idCurso, nome (tamanho 50), sigla 
+(tamanho 3), coordenador, sendo que idCurso é a chave primária da tabela.
+Inserir dados na tabela, procure inserir pelo menos 3 cursos. */
+
+use sprint1;
+
+create table Curso (
+idCurso int primary key,
+nome char(50),
+coordenador varchar(50),
+sigla char(3)
+);
+
+insert into Curso values ('1','Analise e Desenvolvimento de Sistemas','Gerson','ADS'),('2','Ciência da Computação','Paulo','CCO'),
+('3','Sistemas da Informação','Vera','SIS');
+
+-- Execute os comandos para:
+-- a) Exibir todos os dados da tabela.
+select * from curso;
+
+-- b) Exibir apenas os coordenadores dos cursos.
+select coordenador from curso;
+
+-- c) Exibir apenas os dados dos cursos de uma determinada sigla.  
+select * from curso where sigla = 'ADS';
+
+-- d) Exibir os dados da tabela ordenados pelo nome do curso.
+select * from curso order by nome;
+
+-- e) Exibir os dados da tabela ordenados pelo nome do coordenador em ordem decrescente.
+select * from curso order by coordenador desc;
+
+-- f) Exibir os dados da tabela, dos cursos cujo nome comece com uma determinada letra.
+select * from curso where nome like 'a%';
+
+-- g) Exibir os dados da tabela, dos cursos cujo nome termine com uma determinada letra.
+select * from curso where nome like '%o';
+
+-- g) Exibir os dados da tabela, dos cursos cujo nome tenha como segunda letra uma determinada letra.
+select * from curso where nome like '_i%';
+
+-- i) Exibir os dados da tabela, dos cursos cujo nome tenha como penúltima letra uma determinada letra.
+select * from curso where nome like '%a_';
+
+-- j)Elimine a tabela
+drop table curso;
+
+
+/* Exercicio 06
+No MySQL Workbench, utilizando o banco de dados ‘sprint1’:
+Você vai criar uma tabela para armazenar os dados de revistas (como por ex: Veja, Isto é, 
+Epoca, Quatro Rodas, Claudia, etc).
+Escreva e execute os comandos para:
+• Criar a tabela chamada Revista para conter os campos: idRevista (int e chave 
+primária da tabela), nome (varchar, tamanho 40), categoria (varchar, tamanho 30). Os 
+valores de idRevista devem iniciar com o valor 1 e ser incrementado automaticamente pelo sistema.
+• Inserir 4 registros na tabela, mas sem informar a categoria.*/
+
+use sprint1;
+
+create table Revista (
+idRevista int primary key auto_increment,
+nome varchar(40),
+categoria varchar(30) 
+);
+
+insert into Revista (nome) values ('Veja'),('Isto é'),('Época'),('Quatro Rodas');
+
+-- Escreva e execute os comandos para:
+-- • Exibir todos os dados da tabela.
+select * from Revista;
+
+-- • Atualize os dados das categorias das 3 revistas inseridas. Exibir os dados da tabela 
+-- novamente para verificar se atualizou corretamente.
+update Revista set categoria = 'gerais' where idRevista = 1;
+update Revista set categoria = 'noticias' where idRevista = 2;
+update Revista set categoria = 'noticias' where idRevista = 3;
+update Revista set categoria = 'automóveis' where idRevista = 4;
+
+select * from Revista;
+
+-- • Insira mais 3 registros completos.
+insert into Revista (nome,categoria) values ('Vogue','moda'),('Science','ciência'),('Época Negócios','negócios');
+
+-- • Exibir novamente os dados da tabela.
+select * from Revista;
+
+-- • Exibir a descrição da estrutura da tabela.
+desc Revista;
+
+-- • Alterar a tabela para que a coluna categoria possa ter no máximo 40 caracteres.
+alter table Revista modify column categoria varchar(40);
+
+-- • Exibir novamente a descrição da estrutura da tabela, para verificar se alterou o tamanho da coluna categoria
+desc Revista;
+
+-- • Acrescentar a coluna periodicidade à tabela, que é varchar(15).
+alter table Revista add column periodicidade varchar(15);
+
+-- • Exibir os dados da tabela.
+select * from Revista;
+
+-- • Excluir a coluna periodicidade da tabela.
+alter table Revista drop column periodicidade;
+
+
+-- EXCLUIR O BANCO DE DADOS SPRINT1
+drop database sprint1;
