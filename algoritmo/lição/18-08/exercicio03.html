@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio 03</title>
+    <style>
+        body {
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            text-align: center;
+        }
+
+        input {
+            background-color: rgb(163, 163, 255);
+        } 
+
+        button {
+            background-color: aqua;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+
+    </style>
+</head>
+
+<body>
+    
+    Exercicio 03 <br><br><br>
+    Digite a primeira nota: <input id="in_nota1"> <br> <br>
+    Digite a segunda nota: <input id="in_nota2"> <br> <br>
+    <button onclick="media()">Ver média</button> <br><br>
+    <br>
+    <div id="div_resultado"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function media() {
+        div_resultado.innerHTML = `Sua média foi de ${(Number(in_nota1.value) + Number(in_nota2.value))/2}`
+    }
+    
+</script>

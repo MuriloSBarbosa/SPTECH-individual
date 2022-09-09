@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio 11</title>
+    <style>
+        body {
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            text-align: center;
+        }
+
+        input {
+            background-color: rgb(163, 163, 255);
+        }
+
+        button {
+            background-color: aqua;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+
+    Exercicio 11 <br><br><br>
+    Qual a quantidade de ingressos de estudante vendidos?: <input id="in_qtdEst"> <br> <br>
+    Qual a quantidade de ingressos comuns vendidos?: <input id="in_qtdCom"> <br> <br>
+    Qual o valor do ingresso comum?: <input id="in_valorCom"> <br> <br>
+    <button onclick="calcular()">Calcule a arrecadação</button> <br><br>
+    <br>
+
+</body>
+
+</html>
+
+<script>
+
+     function calcular() {
+        alert(`A arrecadação foi de R$${(Number(in_qtdEst.value)/(Number(in_valorCom.value)/2)) 
+            + (Number(in_qtdCom.value) * Number(in_valorCom.value))}`)
+    };
+
+</script>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio 03</title>
+    <style>
+        body {
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            text-align: center;
+        }
+
+        input {
+            background-color: rgb(163, 163, 255);
+        }
+
+        button {
+            background-color: aqua;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+
+    Exercicio 03 <br><br><br>
+    Digite o primeiro número: <input id="in_numero1"> <br> <br>
+    Digite o segundo número: <input id="in_numero2"> <br> <br>
+    <button onclick="somar()">somar</button> <br><br>
+    <button onclick="subtrair()">subtrair</button> <br><br>
+    <button onclick="multiplicar()">multiplicar</button> <br><br>
+    <button onclick="dividir()">dividir</button> <br><br>
+        <br>
+        <div id="div_resultado"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function somar() {
+        console.log();
+        var n1 = Number(in_numero1.value);
+        var n2 = Number(in_numero2.value);;
+        var soma = (n1 + n2);
+
+        div_resultado.innerHTML = `A soma entre ${n1.toFixed(2)} e ${n2.toFixed(2)} é ${soma.toFixed(2)}`
+    }
+
+    function subtrair() {
+        var n1 = Number(in_numero1.value);;
+        var n2 = Number(in_numero2.value);;
+        var diferenca = (n1 - n2);
+        
+        div_resultado.innerHTML = `A diferença entre ${n1.toFixed(2)} e ${n2.toFixed(2)} é ${diferenca.toFixed(2)}`
+    }
+
+    function multiplicar() {
+        var n1 = Number(in_numero1.value);;
+        var n2 = Number(in_numero2.value);;
+        var produto = (n1 * n2);
+        
+        div_resultado.innerHTML = `O produtro entre ${n1.toFixed(2)} e ${n2.toFixed(2)} é ${produto.toFixed(2)}`
+    }
+
+    function dividir() {
+        var n1 = Number(in_numero1.value);;
+        var n2 = Number(in_numero2.value);;
+        var razao = (n1 / n2);
+        
+        div_resultado.innerHTML = `A razão entre ${n1.toFixed(2)} e ${n2.toFixed(2)} é ${razao.toFixed(2)}`
+    }
+
+</script>

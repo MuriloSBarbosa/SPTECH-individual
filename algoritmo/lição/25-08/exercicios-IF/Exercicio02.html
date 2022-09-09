@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 02</title>
+</head>
+
+<body>
+    <h2>Exercicio 02</h2>
+    Quantas latinhas de refrigerante bebe por dia? <input type="text" id="in_qtdRefri"> <br><br>
+    <button onclick="refri_consumido()">Quantos refris</button>
+    <div id="div_resultado"></div>
+</body>
+
+</html>
+
+<script>
+
+    function refri_consumido() {
+        var qtdRefri = Number(in_qtdRefri.value);
+        var qtdRefriAno = qtdRefri * 365;
+        div_resultado.innerHTML = `Você consome ${qtdRefriAno} refris por ano`
+        if (qtdRefriAno >= 500) {
+            div_resultado.innerHTML += `<br> Cuidado com a diabetes.`;
+        }
+    }
+
+    /* Uma outra opção
+    
+     function refri_consumido() {
+         var qtdRefri = Number(in_qtdRefri.value);
+         var qtdRefriAno = qtdRefri * 365;
+         var frase = "";
+         if (qtdRefriAno >= 500) {
+             frase = "Cuidado com diabets!";
+         }
+         div_resultado.innerHTML = `Você consome ${qtdRefriAno} refris por ano <br> ${frase}`
+     } */
+
+</script>

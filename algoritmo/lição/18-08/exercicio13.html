@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio 13</title>
+    <style>
+        body {
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            text-align: center;
+        }
+
+        input {
+            background-color: rgb(163, 163, 255);
+        }
+
+        button {
+            background-color: aqua;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+
+    Exercicio 13 <br><br><br>
+    Digite o valor do seu salário bruto: <br>
+    <input id="in_bruto"> <br> <br>
+    <button onclick="calcular()">Calcular o deconto</button> <br><br>
+    <br>
+
+</body>
+
+</html>
+
+<script>
+
+    function calcular() {
+        alert(`Apesar de seu bruto ser R$${Number(in_bruto.value)}, após os descontos, você receberá somente R$${(Number (in_bruto.value)
+            - ((Number(in_bruto.value) * 0.1))
+            - ((Number(in_bruto.value) * 0.2))
+            - ((Number(in_bruto.value) / 30))).toFixed(2)}`)
+    }
+</script>

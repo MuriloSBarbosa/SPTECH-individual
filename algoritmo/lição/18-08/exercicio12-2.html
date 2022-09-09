@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio 12</title>
+    <style>
+        body {
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            text-align: center;
+        }
+
+        input {
+            background-color: rgb(163, 163, 255);
+        }
+
+        button {
+            background-color: aqua;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+
+    Exercicio 12 <br><br><br>
+    Qual é seu peso?: <input id="in_peso"> <br> <br>
+    Qual é sua altura?: <input id="in_altura"> <br> <br>
+    <button onclick="imc_homem()">IMC Homem</button> <br><br>
+    <button onclick="imc_mulher()">IMC Mulher</button> <br><br>
+    <br>
+    <div id="div_resultado"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function imc_homem() {
+        var peso = Number(in_peso.value);
+        var altura = Number(in_altura.value)
+        var imc = (peso / (altura * altura));
+        if (parseInt(imc) != parseFloat(imc)) {
+            div_resultado.innerHTML = `Seu IMC é de ${imc.toFixed(1)}`;
+        } else {
+            div_resultado.innerHTML = `Seu IMC é de ${imc}`;
+        }
+    };
+    function imc_mulher() {
+        var peso = Number(in_peso.value);
+        var altura = Number(in_altura.value)
+        var imc = ((peso / (altura * altura)) * 0.9);
+        if (parseInt(imc) != parseFloat(imc)) {
+            div_resultado.innerHTML = `Seu IMC é de ${imc.toFixed(1)}`;
+        } else {
+            div_resultado.innerHTML = `Seu IMC é de ${imc}`;
+        }
+    };
+
+
+</script>

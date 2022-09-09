@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 13</title>
+</head>
+
+<body>
+    <h2>Exercicio 13</h2>
+    Digite sua primeira nota:<input type="text" id="in_nota1"> <br><br>
+    Digite sua segunda nota:<input type="text" id="in_nota2"> <br><br>
+    <button onclick="situacao()">Verificar Situação</button>
+</body>
+
+</html>
+
+<script>
+
+    function situacao() {
+        var n1 = Number(in_nota1.value);
+        var n2 = Number(in_nota2.value);
+        var media = (n1 + n2) / 2;
+        if (media >= 6) {
+            alert("Parabéns, aprovado!");
+        }
+        if (media < 6) {
+            alert("Tente outra vez...");
+        }
+    };
+
+</script>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio 06</title>
+    <style>
+        body {
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            text-align: center;
+        }
+
+        input {
+            background-color: rgb(163, 163, 255);
+        }
+
+        button {
+            background-color: aqua;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+
+    Exercicio 06 <br><br><br>
+    Qual o valor da passagem?: <input id="in_valor"> <br> <br>
+    Quantas viagens fará por mês?: <input id="in_viagens"> <br> <br>
+    <button onclick="economia()">Ver economia</button> <br><br>
+    <br>
+
+</body>
+
+</html>
+
+<script>
+
+     function economia() {
+        alert(`Você economizará ${(Number(in_valor.value) * Number(in_viagens.value)) / 2} reais`)
+    };
+
+</script>

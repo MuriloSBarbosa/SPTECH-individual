@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 01</title>
+    <style>
+        body {
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            text-align: center;
+        }
+
+        input {
+            background-color: rgb(163, 163, 255);
+        }
+
+        button {
+            background-color: aqua;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+
+    Exercicio 01 <br><br><br>
+    Qual o sabor da pizza?: <input id="in_sabor"> <br> <br>
+    Qual o preço da pizza?: <input id="in_preco"> <br> <br>
+    Quantos amigos vai rachar a conta?: <input id="in_rachar"> <br> <br>
+    <button onclick="pedir()">Pedir Pizza</button> <br><br>
+    <br>
+    <div id="div_resultado"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function pedir() {
+        var pizza = in_sabor.value;
+    var preco = Number(in_preco.value);
+    var amigos = Number(in_rachar.value);
+    var total = preco/amigos;
+        div_resultado.innerHTML = `A pizza de ${pizza} custa R$${preco.toFixed(2)} e cada amigo vai pagar R$${total.toFixed(2)}`
+    }
+
+</script>

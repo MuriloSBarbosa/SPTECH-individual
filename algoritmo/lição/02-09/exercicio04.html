@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 04</title>
+</head>
+
+<body>
+    <h1>Exercicio 04</h1>
+    Qual valor de referência por grama de sorvete? <input type="text" id="in_valor"> <br><br>
+    Qual o peso do sorvete (quantidade de gramas)? <input type="text" id="in_peso"> <br><br>
+    Qual o o tipo de cobertura? <input type="text" id="in_cobertura"> <br><br>
+    Qual o tipo de sorvete? <input type="text" id="in_tipo"> <br><br>
+    <button onclick="calc_custo()">Calculcar Custo</button> <br><br>
+    <div id="div_resultado"></div>
+
+</body>
+
+</html>
+<script>
+    function calc_custo() {
+        var valor = Number(in_valor.value);
+        var peso = Number(in_peso.value);
+        var cobertura = in_cobertura.value;
+        var tipo = in_tipo.value;
+
+        if (tipo == "G") {
+            valor += (valor * 0.11);
+
+        } else {
+            valor -= (valor * 0.1);
+
+        }
+        if (cobertura != "C") {
+            valor +=  0.01;
+        }
+
+        var preco = valor * peso;
+
+        if (preco > 10) {
+            div_resultado.innerHTML = `<div style="color:green">O seu sorvete vai custar R$${preco.toFixed(2)} e vai comprometer a mesada </div>`
+        } else {
+            div_resultado.innerHTML = `<div style=color:blue>Hoje você está maneirando hoje, gastou somente R$${preco.toFixed(2)}</div>`
+        }
+    }
+</script>

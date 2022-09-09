@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 04</title>
+</head>
+
+<body>
+    <h2>Exercicio 04</h2>
+    Qual a frequência do aluno?<input type="text" id="in_freq"> <br><br>
+    <button onclick="analise_freq()">Analisar Frequência</button>
+    <div id="div_resultado"></div> 
+</body>
+
+</html>
+
+<script>
+
+    function analise_freq() {
+        var freq = Number(in_freq.value); 
+        if (freq < 50) {
+    
+            div_resultado.innerHTML = ` <br><img src="https://portalc3.net/wp-content/uploads/2021/06/Dia-do-Turista.jpg" alt="turista" height="200px"> `;
+        } else {
+            div_resultado.innerHTML = ` <br><img src="https://cdn.xxl.thumbs.canstockphoto.com.br/tabela-aluno-senta-se-homework-foto_csp83367014.jpg" alt="estudioso" height="200px"> `;
+        }
+    }
+
+</script>

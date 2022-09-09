@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 04-A</title>
+</head>
+
+<body>
+    <h2>Exercicio 04-A</h2>
+    Qual o valor da pizza? <input type="text" id="in_pizza"> <br><br>
+    Qual a quantidade de amigos reunidos? <input type="text" id="in_qtdAmigos"> <br><br>
+    <button onclick="calc_pizza()">Rola pizza?</button>
+    <div id="div_resultado"></div>
+    <!-- <div id="div_deuruim" style="color:blue;"></div> -->
+</body>
+
+</html>
+
+<script>
+
+    function calc_pizza() {
+        var pizza = Number(in_pizza.value);
+        var qtdAmigos = Number(in_qtdAmigos.value);
+        var rola_pizza = pizza / qtdAmigos;
+        div_resultado.innerHTML = `Cada amigo vai pagar R$${rola_pizza} pela pizza.`;
+        if (rola_pizza > 20) {
+            div_resultado.innerHTML += `<div style="color:blue;"> <u><b>Deu ruim! Pizza muito cara!</u></b></div>`
+;
+        }
+    }
+
+    /*
+    Opção 2
+    function calc_pizza() {
+        var pizza = Number(in_pizza.value);
+        var qtdAmigos = Number(in_qtdAmigos.value);
+        var rola_pizza = pizza / qtdAmigos;
+        div_resultado.innerHTML = `Cada amigo vai pagar R$${rola_pizza} pela pizza.`;
+        div_deuruim.innerHTML = "";
+        if (rola_pizza > 20) {
+            div_deuruim.innerHTML = `<i><b>Deu ruim! Pizza muito cara!</b></i>`;
+        }
+    }
+    */
+</script>

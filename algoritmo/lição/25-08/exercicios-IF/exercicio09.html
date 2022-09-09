@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 09</title>
+</head>
+
+<body>
+    <h2>Exercicio 09</h2>
+    Quantos homens entraram no elevador?<input type="text" id="in_homens"> <br><br>
+    Quantas mulheres entraram no elevador?<input type="text" id="in_mulheres"> <br><br>
+    <button onclick="analisar_peso()">Analisar peso</button>
+    <div id="div_resultado"></div>
+    <!-- <div id="div_resultado2"></div> -->
+</body>
+
+</html>
+
+<script>
+
+    function analisar_peso() {
+        var homens = Number(in_homens.value);
+        var mulheres = Number(in_mulheres.value);
+        var conta = (homens * 80) + (mulheres * 60);
+        div_resultado.innerHTML = `Este elevador suporta 800 Kg e o peso estimado desta lotação é de ${conta}kg`;
+        if (conta > 800 && conta < 1000) {
+            div_resultado.innerHTML += `<div style="color:blue">Será necessário descer alguém para que o elevador se movimente</div>`;
+        }
+        if (conta >= 1000) {
+            div_resultado.innerHTML += `<div style="color:red">Será necessário descer alguém para que o elevador se movimente</div>`;
+        }
+    }
+
+    /* opção 2
+
+    function analisar_peso() {
+        var homens = Number(in_homens.value);
+        var mulheres = Number(in_mulheres.value);
+        var conta = (homens * 80) + (mulheres * 60);
+        div_resultado.innerHTML = `Este elevador suporta 800 Kg e o peso estimado desta lotação é de ${conta}kg`;
+        if (conta > 800 && conta < 1000) {
+            div_resultado2.innerHTML = `<div style="color:blue">Será necessário descer alguém para que o elevador se movimente</div>`;
+        }
+        if (conta >= 1000) {
+            div_resultado2.innerHTML = `<div style="color:red">Será necessário descer alguém para que o elevador se movimente</div>`;
+        }
+    }
+    */
+
+</script>

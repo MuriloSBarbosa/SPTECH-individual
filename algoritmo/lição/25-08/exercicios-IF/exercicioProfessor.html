@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Cálculo de Área e perímetro do Quadrado</h1> 
+    Qual o lado do Quadrado? <br><br>
+    <input id="in_lado">  <br><br> <br>
+    <button onclick="calc_area()">Área</button>    
+    <button onclick="calc_peri()">Perímetro</button>  
+    <div id="resultado"></div>  
+</body>
+</html>
+<script>
+    function calc_area(){
+        var lado = Number(in_lado.value);
+        alert (`Área do quadrado = ${lado*lado}`);
+    }
+    function calc_peri(){
+        var lado = Number(in_lado.value);
+        resultado.innerHTML= `Perímetro do quadrado = ${lado*4}`
+    }
+</script>

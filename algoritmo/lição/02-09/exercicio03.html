@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 03</title>
+</head>
+<body>
+    <h1>Exercicio 03</h1>
+    Qual o valor por grama de sorvete? <input type="text" id="in_valor"> <br><br>
+    Qual o peso do sorvete? (em gramas) <input type="text" id="in_peso"> <br><br>
+    <button onclick="calc_custo()">Calculcar custo do sorvete</button>
+</body>
+</html>
+<script>
+    function calc_custo(){
+        var valor = Number(in_valor.value);
+        var peso = Number(in_peso.value);
+        var custo = valor * peso;
+
+        if (custo > 10) {
+            alert("Esse sorvete vai comprometer a mesada.")
+        } else {
+            alert("Hoje você está maneirando...")
+        }
+
+
+    }
+</script>

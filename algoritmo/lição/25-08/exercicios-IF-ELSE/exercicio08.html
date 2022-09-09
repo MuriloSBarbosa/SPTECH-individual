@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 08</title>
+</head>
+
+<body>
+    <h2>Exercicio 08)</h2>
+    Quantos homens entraram no elevador?<input type="text" id="in_homens"> <br><br>
+    Quantas mulheres entraram no elevador?<input type="text" id="in_mulheres"> <br><br>
+    <button onclick="ligar_elevador()">Ligar Elevador</button>
+    <div id="div_resultado"></div>
+</body>
+
+</html>
+
+<script>
+
+    function ligar_elevador() {
+        var homens = Number(in_homens.value);
+        var mulheres = Number(in_mulheres.value);
+        var peso = (homens * 90) + (mulheres * 70);
+        if (peso < 500) {
+            div_resultado.innerHTML = `<div style="color:green">Elevador vai se mover, pois está com ${peso}kg </div>`;
+        } else {
+            var pesonovo = peso - 500;
+            div_resultado.innerHTML = `<div style="color:red">Alguém precisa descer. Precisa perder ${pesonovo}kg para mover o elevador </div>`;
+        }
+    }
+
+</script>

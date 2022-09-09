@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 06</title>
+</head>
+
+<body>
+    <h2>Exercicio 06</h2>
+    Qual a renda familiar? <input type="text" id="in_renda"> <br><br>
+    Qual o valor da prestação? <input type="text" id="in_prestacao"> <br><br>
+    <button onclick="financiamento()">Verificar Financiamento</button>
+    <div id="div_resultado"></div>
+    <!-- <div id="div_rendamenor" style="color:red"></div> -->
+</body>
+
+</html>
+
+<script>
+    function financiamento() {
+        var renda = Number(in_renda.value);
+        var prestacao = Number(in_prestacao.value);
+        var financiamento = (prestacao/renda) * 100;
+        div_resultado.innerHTML = `A prestação corresponde a ${financiamento}% da renda familiar`
+        if (financiamento > 30) {
+        div_resultado.innerHTML += `<div style="color:red;"> <b>Será necessário complementar a renda familiar</b></div>`
+            
+        }
+    }
+
+    /*
+    Opção 2
+    function financiamento() {
+        var renda = Number(in_renda.value);
+        var prestacao = Number(in_prestacao.value);
+        var financiamento = (prestacao/renda) * 100;
+        div_resultado.innerHTML = `A prestação corresponde a ${financiamento}% da renda familiar`
+        if (financiamento > 30) {
+        div_rendamenor.innerHTML = `<b>Será necessário complementar a renda familiar</b>`;   
+        }
+    }
+    */
+</script>

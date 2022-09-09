@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 10</title>
+</head>
+
+<body>
+    <h2>Exercicio 10</h2>
+    Qual o valor do seu saldo na conta do banco?<input type="text" id="in_saldo"> <br><br>
+    <button onclick="financas()">Verificar Finanças</button>
+    <div id="div_resultado"></div>
+</body>
+
+</html>
+
+<script>
+
+    function financas() {
+        var saldo = Number(in_saldo.value);
+        if (saldo == 0) {
+            div_resultado.innerHTML = "Conta zerada";
+            div_resultado.style.color = "black";
+        }
+        if (saldo < 0) {
+            div_resultado.style.color = "red";
+            div_resultado.innerHTML = "Está devendo";
+        }
+        if (saldo > 0) {
+            div_resultado.style.color = "blue";
+            div_resultado.innerHTML = "Saldo positivo! :)";
+        }
+
+    }
+
+    /* opção 2
+    function financas() {
+        var saldo = Number(in_saldo.value);
+        if (saldo == 0) {
+            div_resultado.innerHTML = `<div style="color:black">Conta zerada</div>`;
+        }
+        if (saldo < 0) {
+            div_resultado.innerHTML = `<div style="color:red">Está devendo</div>`;
+        }
+        if (saldo > 0) {
+            div_resultado.innerHTML = `<div style="color:blue">Saldo positivo</div>`;
+        }
+    }
+    */
+
+</script>

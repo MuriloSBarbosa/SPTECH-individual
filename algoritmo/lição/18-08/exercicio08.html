@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio 08</title>
+    <style>
+        body {
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            text-align: center;
+        }
+
+        input {
+            background-color: rgb(163, 163, 255);
+        }
+
+        button {
+            background-color: aqua;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+
+    Exercicio 08 <br><br><br>
+    Digite seu nome: <input id="in_nome"> <br> <br>
+    Digite sua nota continuada: <input id="in_nco"> <br> <br>
+    Digite sua nota semestral: <input id="in_nse"> <br> <br>
+    <button onclick="calc_media()">Calcular média</button> <br><br>
+    <br>
+    <div id="div_resultado"></div>
+
+</body>
+
+</html>
+
+<script>
+
+     function calc_media() {
+        div_resultado.innerHTML = `A média de ${in_nome.value} será de  ${(Number(in_nco.value)*0.4) + (Number(in_nse.value) * 0.6)}`
+    };
+
+</script>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 09-A</title>
+</head>
+
+<body>
+    <h2>Exercicio 09-A</h2>
+    Qual a última série (SITCOM) que assistiu?<input type="text" id="in_serie"> <br><br>
+    Quantos episódios você já assistiu?<input type="text" id="in_qtdEp"> <br><br>
+    <button onclick="verificar_nivel()">Verificar Nível</button>
+    <div id="div_resultado"></div>
+</body>
+
+</html>
+
+<script>
+
+    function verificar_nivel(){
+        var serie = in_serie.value;
+        var qtdEp = Number(in_qtdEp.value);
+        var horas_assistidas = (qtdEp * 22)/60;
+        div_resultado.innerHTML = `Vejo que você gosta da série ${serie}`;
+        if (horas_assistidas > 30){
+        div_resultado.innerHTML += `<br>Uau, você realmente gosta dessa série!`;
+        }
+    }
+
+</script>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 05</title>
+</head>
+
+<body>
+    <h2>Exercicio 05</h2>
+    Qual a quantidade de kWh consumida no mês? <input type="text" id="in_qtdKwh"> <br><br>
+    <button onclick="calc_contaLuz()">Calculcar conta de Luz</button>
+</body>
+
+</html>
+
+<script>
+    function calc_contaLuz() {
+        var qtdKwh = Number(in_qtdKwh.value);
+        var contaLuz = qtdKwh * 0.85;
+        if (qtdKwh < 100){
+            contaLuz *= 0.9;
+        }
+        alert(`A conta a ser paga será de: R$${contaLuz}`);
+
+    }
+</script>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 01</title>
+</head>
+
+<body>
+    <h1>Exercicio 01</h1>
+    Informe seu nome: <input type="text" id="in_nome"> <br><br>
+    Informe o modelo de carro que deseja comprar: <input type="text" id="in_modelo"><br><br>
+    Informe o valor do carro: <input type="text" id="in_valor"><br><br>
+    Informe o cupom de deconto <input type="text" id="in_cupom"><br><br>
+    <button onclick="efetuar_compra()">Efetuar Compra</button>
+    <div id="div_resultado"></div>
+</body>
+
+</html>
+<script>
+    function efetuar_compra() {
+        var nome = in_nome.value;
+        var modelo = in_modelo.value;
+        var valorInicial = Number(in_valor.value);
+        var cupom = in_cupom.value;
+
+        if (modelo == "") {
+            alert("Informe o modelo do carro para prosseguir com a compra!");
+        } else {
+            if (valorInicial < 5000) {
+                alert("Valor inválido! O carro está barato demais");
+            } else {
+                if (cupom == "CARRO_NOVO") {
+                    alert("Cupom válido! Desconto de 11% aplicado!");
+                    var valorFinal = valorInicial * 0.89;
+                    div_resultado.innerHTML =
+                        `
+                        <div style="color:green"> 
+                            <i>Olá, ${nome}! O carro de modelo ${modelo}, de valor padrão R$${valorInicial}, sairá por R$${valorFinal}</i>
+                        </div>
+                        `
+                } else {
+                    var valorFinal = valorInicial;
+                    alert("Cupom inválido! Desconto não será aplicado!");
+                    div_resultado.innerHTML =
+                        `
+                        <div style="color:red"> 
+                            <b>Olá, ${nome}! O carro de modelo ${modelo}, de valor padrão R$${valorInicial}, sairá por R$${valorFinal}</b>
+                        </div>
+                        `
+                }
+            }
+
+        }
+
+
+
+    }
+</script>

@@ -1,0 +1,9 @@
+1) Crie um programa "Calcúlo Maluco" que tenha dois botãos e 5 inputs.
+
+a) Primeiro botão: faça a soma entre os dois primeiros números, divide pelo terceiro e o resultado eleve
+a potencia do quarto. O resultado deverá aparecer embaixo do botão assim: "O calculo maluco foi de: X".
+
+b) Segundo botão: Pegue o primeiro número e multiplique pelo segundo. Depois, faça a raiz pelo terceiro,
+com o número da raiz escrito no input 4.
+O resultado deve aparecer dentro do input 5 assim: "O calculo maluco foi de: X".
+
