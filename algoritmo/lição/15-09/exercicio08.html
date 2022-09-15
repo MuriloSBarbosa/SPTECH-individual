@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio 08</title>
+</head>
+
+<body>
+    <h2>Exercicio 08</h2>
+    Digite seu salario: <input id="in_salario"><br><br>
+    Escolha o imposto:
+    <select id="sel_imposto">
+        <option value="">--escolha um--</option>
+        <option value="0.1">INSS</option>
+        <option value="0.2">IR
+        <option value="0.05">VT</option>
+    </select>
+    <br><br>
+    <button onclick="ver_desconto()">Ver deconto</button><br><br>
+    <div id="div_resultado"></div>
+</body>
+
+</html>
+<script>
+    function ver_desconto() {
+        var salario = Number(in_salario.value);
+        var imposto = Number(sel_imposto.value);
+        var desconto = salario * imposto;
+        if (imposto != "") {
+            div_resultado.innerHTML = `Valor desse desconto: R$${desconto.toFixed(2)}`
+        }
+    }
+</script>

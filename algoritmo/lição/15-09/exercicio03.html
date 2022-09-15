@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 03</title>
+</head>
+
+<body>
+    <h2>Exercicio 03</h2>
+    Selecione um produto:
+    <select id="sel_produto">
+        <option value="">--escolha um--</option>
+        <option value="10">Leite condensado</option>
+        <option value="7">farinha</option>
+        <option value="25">Cartela de ovos</option>
+        <option value="12">Coca-cola</option>
+    </select>
+    <br><br>
+    <button onclick="ver_preco()">Ver preço</button>
+</body>
+
+</html>
+<script>
+    function ver_preco() {
+        var produto = Number(sel_produto.value);
+        if (produto != "") {
+            alert(`Isso custa R$${(produto).toFixed(2)}`)
+        }
+    }
+</script>

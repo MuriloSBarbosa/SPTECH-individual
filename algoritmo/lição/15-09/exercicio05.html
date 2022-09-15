@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 05</title>
+</head>
+
+<body>
+    <h2>Exercicio 05</h2>
+    <h2>Tabuada</h2>
+    Escolha um número para tabuada:
+    <select id="sel_vezes" onchange="tabuada()">
+        <option value="">--escolha um número--</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+    </select>
+    <div id="div_resultado"></div>
+</body>
+
+</html>
+<script>
+    function tabuada() {
+        var n1 = Number(sel_vezes.value);
+        if (n1 != "") {
+            div_resultado.innerHTML =
+                ` 
+                ${n1} x 1 = ${n1 * 1} <br> 
+                ${n1} x 2 = ${n1 * 2} <br>
+                ${n1} x 3 = ${n1 * 3} <br>
+                ${n1} x 4 = ${n1 * 4} <br>
+                ${n1} x 5 = ${n1 * 5} <br>
+                ${n1} x 6 = ${n1 * 6} <br>
+                ${n1} x 7 = ${n1 * 7} <br>
+                ${n1} x 8 = ${n1 * 8} <br>
+                ${n1} x 9 = ${n1 * 9} <br>
+                ${n1} x 10 = ${n1 * 10} <br>
+                `
+        }
+    }
+</script>

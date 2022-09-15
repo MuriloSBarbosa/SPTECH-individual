@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pagina 12</title>
+    <style>
+        .container {
+            display: flex;
+            margin: auto;
+            width: 80%;
+            background-color: aqua;
+            justify-content: center;
+        }
+
+        .one{
+            background-color: blue;
+        }
+
+        .ganho_classes {
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            background-color: blue;
+        }
+
+
+        .ganho_classes select {
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="ganho_classes">
+            <h2>Ganho classes sociais</h2>
+            <select id="sel_classe">
+                <option value="20000">Classe A</option>
+                <option value="10000">Classe B</option>
+                <option value="3700">Classe C</option>
+                <option value="1000">Classe D</option>
+            </select>
+            <button onclick="ver_ganhos()">Ver ganhos</button>
+        </div>
+    </div>
+
+    <div class="container two">
+        <div class="segredo">
+            <h2>Conte-me segredos</h2>
+            <select id="sel_segredo" onchange="ver_segredos()">
+                <option value="">-- escolha um --</option>
+                <option value="Eu canto Rock">JP</option>
+                <option value="Estou sempre com raiva">Bruce Banner</option>
+                <option value="Não gosto do onclick">João Teodoro</option>
+            </select>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script>
+    function ver_ganhos() {
+        var ganho_minimo = Number(sel_classe.value);
+        alert(`Para ser dessa classe, deve ganhar + de ${ganho_minimo}`)
+    }
+
+    function ver_segredos() {
+        var segredo = sel_segredo.value;
+
+        if (segredo != "") {
+            alert(`O segredo é: "${segredo}"`)
+        }
+    }
+
+</script>
