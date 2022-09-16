@@ -1,3 +1,4 @@
+-- Exercicio 01
 -- Criar um banco de dados Pet no MySQL, selecionar esse banco de dados e executar as instruções relacionadas a seguir.
 create database PetShop;
 use PetShop;
@@ -94,3 +95,48 @@ select * from pet;
 -- Excluir as tabelas.
 drop table pet;
 drop table cliente;
+
+-- Exercicio 02
+/* Fazer a modelagem lógica (DER) de um sistema para armazenar os gastos
+individuais das pessoas de sua família.
+Crie uma entidade Pessoa, com atributos idPessoa, nome, data de nascimento,
+profissão.
+Crie uma outra entidade Gasto, com atributos idGasto, data, valor, descrição.
+Depois de desenhado o DER, implemente no MySQL as tabelas equivalentes ao
+modelo que você criou e: */
+
+create database Gastos_Pessoa;
+
+use Gastos_Pessoa;
+
+create table Pessoa (
+idPessoa int primary key auto_increment,
+nome varchar(45),
+dtNasc date,
+profissao varchar(45)
+);
+
+create table Gasto( 
+idGasto int primary key auto_increment,
+dataGasto date,
+valor decimal (8,2),
+descricao varchar(45),
+fkPessoa int,
+foreign key (fkPessoa) references Pessoa(idPessoa)
+);
+
+-- Insira dados nas tabelas.
+insert into Pessoa values 
+(null,'Marcos','2000-01-30','Engenheiro'),
+(null,'Laura','1999-06-30','Administradora'),
+(null,'Pedro','1989-02-12','Programador');
+
+insert into Gasto values
+(null,'2020-12-31', 1000.10,'Máquina de lavar',1),
+(null,'2021-11-20', 150.40,'McDonalds',1),
+(null,'2022-10-23', 200.10,'Farol do carro',2),
+(null,'2021-09-26', 300.50,'Outback',2),
+(null,'2022-08-10', 15000.00,'Iphone 13 pro max',3),
+(null,'2021-09-11', 4000.99,'Computador dell i5',3);
+
+-- Exiba os dados de cada tabela individualmente.
