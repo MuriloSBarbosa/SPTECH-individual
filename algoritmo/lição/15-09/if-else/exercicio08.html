@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 08</title>
+</head>
+<body>
+    <h2>Exercicio 08</h2>
+
+    Quantos pães francês você tem comido por dia? <br>
+    <input type="text" id="in_paes">
+    <br><br>
+
+    Quantos pacotes de bolacha recheada você tem comido por dia? <br>
+    <input type="text" id="in_bolacha">
+    <br><br>
+
+    Quantos copos de achocolatado você tem tomado por dia? <br>
+    <input type="text" id="in_achocolatado">
+    <br><br>
+    <button onclick="verficar_calorias()">Verificar Calorias</button>
+    <div id="div_resultado"></div>
+</body>
+</html>
+<script>
+    function verficar_calorias() {
+        var paes = Number(in_paes.value) * 50;
+        var bolacha = Number(in_bolacha.value) * 80;
+        var achocolatado = Number(in_achocolatado.value) * 70;
+        var calorias = paes + bolacha + achocolatado;
+        var frase = "";
+
+        if (calorias < 200) {
+            frase = "Parabéns, vai sair em forma da quarentena!";
+        } else if (calorias <= 400) {
+            frase = 'Cuidado, vai ficar mais "fofinho(a)" após quarentena!';
+        } else {
+            frase = "Bom, acho que muitos não vão te reconhecer após a quarentena";
+        }
+        div_resultado.innerHTML = frase;
+    }
+</script>

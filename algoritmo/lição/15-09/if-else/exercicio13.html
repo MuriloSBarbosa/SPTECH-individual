@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 13</title>
+</head>
+
+<body>
+    <h2>Exercicio 13</h2>
+
+    <div id="div_resultado">
+        Valor guardado: R$0.00
+    </div>
+
+
+    <br> <br>
+
+    <button onclick="guardar_cinco()">Guardar R$5.00</button>
+    <br><br>
+    <button onclick="gastar_dez()">Gastar R$10.00</button>
+    <br><br>
+</body>
+
+</html>
+<script>
+
+    var dinheiro = 0;
+
+    //Chamo uma função dentro de outra função, ou faço todo código manualmente nas funções guardar e gastar?
+    function verificar() {
+        if (dinheiro > 0) {
+            div_resultado.innerHTML += '<div style="color:blue"> Finanças, OK!</div>'
+            if (dinheiro > 100) {
+                div_resultado.innerHTML += '<div style="color:blue"> #ostentação </div>'
+            }
+        } else {
+            div_resultado.innerHTML += '<div style="color:red"> Finanças em perigo!</div>'
+            if (dinheiro < -20) {
+                div_resultado.innerHTML += '<div style="color:red"> Seu nome vai ficar sujo hein</div>'
+            }
+        }
+    }
+
+    function guardar_cinco() {
+        dinheiro += 5;
+        div_resultado.innerHTML = `Valor guardado: R$${dinheiro}.00`
+
+        verificar();
+    }
+
+    function gastar_dez() {
+        dinheiro -= 10;
+        div_resultado.innerHTML = `Valor guardado: R$${dinheiro}.00`;
+        
+        verificar();
+    }
+
+</script>

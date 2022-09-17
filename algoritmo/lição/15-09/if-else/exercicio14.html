@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 14</title>
+</head>
+
+<body>
+
+    <h2>Exercicio 14</h2>
+
+    <div id="div_resultado">
+        Vida do lutador: 1000;
+    </div>
+    <br><br>
+    <img id="img_lutador" height="200px" src="https://i.ytimg.com/vi/-14W5XTqL5U/hqdefault.jpg" alt="">
+    <br><br>
+
+    <button onclick="apanhar()">Apanhar</button>
+    <br><br>
+    <button onclick="concentrar()">Concentrar Força</button>
+
+</body>
+
+</html>
+<script>
+
+    var vida = 1000;
+
+    function apanhar() {
+        if (vida > 0) {
+            vida -= 100;
+            div_resultado.innerHTML = `Vida do lutador: ${vida.toFixed(2)} <br> Lutador ainda vivo!`;
+
+        } else {
+            if (img_lutador.src == "https://playagaingames.files.wordpress.com/2018/06/street-fighter-continue.jpg") {
+
+            } else {
+                div_resultado.innerHTML = `Vida do lutador: ${vida.toFixed(2)} <br> Lutador já era!`;
+                img_lutador.src = "https://playagaingames.files.wordpress.com/2018/06/street-fighter-continue.jpg";
+            }
+        }
+    }
+
+    function concentrar() {
+        if (vida > 0) {
+            vida += vida * 0.05;
+            div_resultado.innerHTML = `Vida do lutador: ${vida.toFixed(2)} <br> Lutador ainda vivo!`;
+        }
+    }
+
+</script>

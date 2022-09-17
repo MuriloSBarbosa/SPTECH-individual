@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 06</title>
+</head>
+
+<body>
+    <h2>Exercicio 06</h2>
+    Qual time grande de São Paulo Você torce?: <br> <br>
+    <select id="sel_time" onchange="fale_time()">
+        <option value="">--escolha um time--</option>
+        <option value="Corinthians">Corinthians</option>
+        <option value="Palmeiras">Palmeiras</option>
+        <option value="Santos">Santos</option>
+        <option value="São Paulo">São Paulo</option>
+    </select>
+    <br><br>
+    <div id="div_resultado"></div>
+</body>
+
+</html>
+<script>
+    function fale_time() {
+        var time = sel_time.value;
+        var frase = "";
+        var estilo = "";
+        if (time != "") {
+            if (time == 'Corinthians') {
+                frase = "Salve o Corinthians";
+                estilo = "color: #ffff; background-color:black"
+            } else if (time == "Palmeiras") {
+                frase = "Salve o alviverde imponente";
+                estilo = "color: #ffff; background-color: green"
+            } else if (time == "Santos") {
+                frase = "Agora quem dá a bola é o Santos"; 
+                estilo = "color: black; border: 1px solid black; font-weight: bold;"
+            } else if (time == "São Paulo") {
+                frase = "Salve o Tricolor paulista"; 
+                estilo = "color: red; background-color: black"
+            } 
+            div_resultado.innerHTML = frase;
+            div_resultado.style = estilo;
+        }
+    }
+</script>

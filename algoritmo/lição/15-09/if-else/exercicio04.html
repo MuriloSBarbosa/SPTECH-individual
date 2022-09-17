@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 04</title>
+</head>
+
+<body>
+    <h2>Exercicio 04</h2>
+    Digite seu peso: <br>
+    <input type="text" id="in_peso" onkeyup="avaliar_peso()">
+    <br><br>
+    <div id="div_resultado"></div>
+</body>
+
+</html>
+<script>
+    function avaliar_peso() {
+        var peso = Number(in_peso.value);
+        var frase = "";
+        if (peso <= 13.5) {
+            frase = "Abaixo do peso";
+        } else if (peso == 18.3) {
+            frase = "Peso perfeito";
+        } else if (peso <= 21.2) {
+            frase = "Peso na média"
+        } else {
+            frase = "Acima do peso";
+        }
+        div_resultado.innerHTML = frase;
+    } 
+</script>

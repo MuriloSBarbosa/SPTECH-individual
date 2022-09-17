@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 02</title>
+</head>
+
+<body>
+    <h2>Exercicio 02</h2>
+    Digite sua renda mensal: <br>
+    <input type="text" id="in_rendaM">
+    <br> <br>
+    <button onclick="analisar_renda()">Analisar Renda</button>
+    <div id="div_resultado"></div>
+</body>
+
+</html>
+<script>
+    function analisar_renda() {
+        var renda = Number(in_rendaM.value);
+        var classe = "";
+        if (renda <= 250) {
+            classe = "Classe E";
+        } else if (renda <= 900) {
+            classe = "Classe D"
+        } else if (renda <= 2500) {
+            classe = "Classe C"
+        } else if (renda <= 9500) {
+            classe = "Classe B"
+        } else {
+            classe = "Classe A"
+        }
+        div_resultado.innerHTML = classe;
+    }
+</script>

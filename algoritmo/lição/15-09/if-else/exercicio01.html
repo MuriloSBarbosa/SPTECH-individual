@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 01</title>
+</head>
+<body>
+    <h2>Exercicio 01</h2>
+    Digite sua altura: <br> 
+    <input type="text" id="in_altura" onkeyup="altura()">
+    <br><br>
+    <div id="div_resultado"></div>
+</body>
+</html>
+<script>
+    function altura () {
+        var altura = Number(in_altura.value);
+
+        if (altura <= 1.65){
+            div_resultado.innerHTML = "Você pode ser piloto de corrida" 
+        } else if (altura <= 1.80) {
+            div_resultado.innerHTML = "Você pode ser jogador de futebol"
+        } else {
+            div_resultado.innerHTML =  "Você pode ser jogador de vôlei ou basquete" 
+        }
+    }
+</script>

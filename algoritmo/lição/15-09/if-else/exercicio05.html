@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 05</title>
+</head>
+
+<body>
+    <h2>Exercicio 05</h2>
+    Digite sua nota: <br>
+    <input type="text" id="in_nota"><br><br>
+    <button onclick="classificar_aluno()">Classificar Aluno</button>
+</body>
+
+</html>
+<script>
+    function classificar_aluno() {
+        var nota = Number(in_nota.value);
+        var classificacao = "";
+        if (nota < 5){
+            classificacao = "Aluno precisa de muita ajuda";
+        } else if (nota <= 7) {
+            classificacao = "Aluno na media"
+        } else if (nota <= 9.5) {
+            classificacao = "Aluno acima da média"
+        } else {
+            classificacao = "Aluno fora da curva";
+        }
+        alert(classificacao);
+    }
+</script>

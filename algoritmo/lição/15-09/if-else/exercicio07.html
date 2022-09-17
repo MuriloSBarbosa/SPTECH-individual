@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 07</title>
+</head>
+
+<body>
+    <h2>Exercicio 07</h2>
+    Digite o valor da sua economia: <br>
+    <input type="text" id="in_economia">
+    <br><br>
+    <button onclick="poder_compra()">Poder de Compra</button>
+    <div id="div_resultado"></div>
+</body>
+
+</html>
+<script>
+    function poder_compra() {
+        var economia = Number(in_economia.value);
+        var frase1 = "Nada de compras";
+        var frase2 = "Viajem de ida e volta pra Praia Grande";
+        var frase3 = "<br> Uma boa moto usada";
+        var frase4 = "<br> Mais alguma bobagem legal";
+        
+        if (economia <= 0) {
+            div_resultado.innerHTML = frase1;
+        } else if (economia <= 100) {
+            div_resultado.innerHTML = frase2;
+        }
+        else if (economia < 4000) {
+            div_resultado.innerHTML = frase2 + frase3;
+        } else {
+            div_resultado.innerHTML = frase2 + frase3 + frase4;
+
+        }
+    }
+
+</script>

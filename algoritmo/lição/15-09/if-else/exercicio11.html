@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 11</title>
+</head>
+
+<body>
+    <h2>Exercicio 11</h2>
+
+    Selecione o mês do ano: <br>
+    <select id="sel_mes" onchange="mes_estacao()">
+        <option value="">--escolha um mês--</option>
+        <option value="verao">Janeiro</option>
+        <option value="outono">Fevereiro</option>
+        <option value="outono">Março</option>
+        <option value="outono">Abril</option>
+        <option value="inverno">Maio</option>
+        <option value="inverno">Junho</option>
+        <option value="inverno">Julho</option>
+        <option value="primavera">Agosto</option>
+        <option value="primavera">Setembro</option>
+        <option value="primavera">Outubro</option>
+        <option value="verao">Novembro</option>
+        <option value="verao">Dezembro</option>
+    </select>
+
+    <br><br>
+    <img src="" alt="" id="img_estacao" height="200px">
+</body>
+
+</html>
+<script>
+    function mes_estacao() {
+        var estacao = sel_mes.value;
+        
+        if (estacao != "") {
+            if (estacao == "outono") {
+                imagem = "https://t5z6q4c2.rocketcdn.me/wp-content/uploads/2020/03/outono-caracteristicas-quando-se-inicia-e-estacao-do-ano-no-brasil.jpeg"
+            } else if (estacao == "inverno") {
+                imagem = "https://upload.wikimedia.org/wikipedia/commons/9/95/Windbuchencom.jpg"
+            } else if (estacao == "primavera") {
+                imagem = "https://media-manager.noticiasaominuto.com/1920/naom_6054dfd23ca67.jpg"
+            } else {
+                imagem = "https://embra-assets.nyc3.digitaloceanspaces.com/public/blog/dicas-de-como-aproveitar-o-verao-na-pandemia.jpg"
+            }
+            img_estacao.src = imagem;
+        }
+    }
+</script>

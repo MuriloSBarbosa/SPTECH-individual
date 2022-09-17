@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 03</title>
+</head>
+
+<body>
+    <h2>Exercicio 03</h2>
+    Digite a temperatura: <br>
+    <input type="text" id="in_temperatura" onkeyup="analisar_temp()">
+    <br> <br>
+    <div id="div_resultado"></div>
+</body>
+
+</html>
+<script>
+    function analisar_temp() {
+        var temperatura = Number(in_temperatura.value);
+        var situacao = "";
+        if (temperatura < 14) {
+            situacao = "Congelante";
+        } else if (temperatura <= 21) {
+            situacao = "Com Frio";
+        } else if (temperatura <= 24) {
+            situacao = "Confortável";
+        } else if (temperatura <= 31) {
+            situacao = "Com Calor";
+        } else {
+            situacao = "Calor Escaldante"
+        }
+        div_resultado.innerHTML = situacao;
+    }
+</script>
