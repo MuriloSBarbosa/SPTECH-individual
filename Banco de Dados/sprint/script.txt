@@ -1,0 +1,74 @@
+-- Criação da base de dados do projeto AlertCenter.
+CREATE DATABASE AlertCenter;
+USE AlertCenter;
+
+-- Criação das tabelas conforme o DER.
+CREATE TABLE Empresa (
+idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(45),
+CNPJ CHAR(14),
+telefone1 CHAR(11),
+telefone2 CHAR(11),
+tipo VARCHAR(10),
+CONSTRAINT chkTipo CHECK (tipo IN ('Matriz','Filial')),
+email VARCHAR(45),
+CONSTRAINT chkEmail CHECK (email LIKE '%@%.%' AND email NOT LIKE '@%' and email NOT LIKE '%.'),
+senha VARCHAR(45)
+);
+
+CREATE TABLE Endereco (
+idEndereco INT,
+fkEmpresa INT,
+FOREIGN KEY (fkEmpresa) REFERENCES Empresa(idEmpresa),
+PRIMARY KEY (idEndereco,fkEmpresa),
+rua VARCHAR(45),
+bairro VARCHAR(45),
+numero CHAR(5),
+complemento VARCHAR(45),
+cep CHAR(8)
+);
+
+CREATE TABLE DataCenter(
+idDataCenter INT PRIMARY KEY,
+fkEmpresa INT,
+FOREIGN KEY (fkEmpresa) REFERENCES Empresa(idEmpresa),
+PRIMARY KEY (idDatacenter,fkEmpresa),
+tier CHAR(1),
+andar CHAR(2),
+qtdRack INT
+);
+
+CREATE TABLE Dispositivo (
+idDispositivo INT PRIMARY KEY auto_increment,
+-- numeroSerie (??)
+descricao VARCHAR(45),
+fkDataCenter INT,
+fkEmpresa INT,
+FOREIGN KEY (fkDataCenter) REFERENCES DataCenter(idDataCenter),
+FOREIGN KEY (fkEmpresa) REFERENCES Empresa(idEmpresa)
+);
+
+CREATE TABLE Metrica (
+idMetrica INT,
+fkDispositivo INT,
+FOREIGN KEY (fkDispositivo) REFERENCES Dispositivo(idDispositivo),
+PRIMARY KEY (idMetrica,fkDispositivo),
+temperatura DOUBLE,
+umidade DOUBLE,
+dtMetrica DATETIME
+);
+
+-- Inserindo dados nas tabelas.
+INSERT INTO Empresa VALUES
+(NULL,'SPTech','38735516000157','11939289129',NULL,'Matriz','sptech@sptech.school','senhaSPTECH'),
+(NULL,'Facebook','14857417000180','21926747238','22998172289','Matriz','facebook@hotmail.com','senhaFACEBOOK'),
+(NULL,'Microsoft','83483534000143','13987652678','14908723336','Matriz','microsoft@hotmail.school','senhaMicrosoft');
+
+INSERT INTO DataCenter VALUES
+(1,1,'2','25',5),
+(1,2,'4','25',20),
+(2,2,'4','25',25),
+(3,2,'4','25',25),
+(1,3,'4','25',30),
+(2,3,'4','25',40),
+(3,3,'4','25',10);
