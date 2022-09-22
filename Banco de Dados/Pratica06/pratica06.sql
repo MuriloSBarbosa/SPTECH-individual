@@ -81,10 +81,10 @@ select * from acompanhante;
 
 -- Fazer os acertos da chave estrangeira, caso não tenha feito no momento da criação.
 -- Exibir os dados dos alunos e dos projetos correspondentes.
-select  a.nome as Aluno,
+select  al.nome as Aluno,
 		p.nome as Projeto 
-        from aluno as a join projeto as p
-			on fkProjeto = idProjeto;
+        from aluno as al join projeto as p
+			on al.fkProjeto = p.idProjeto;
             
 -- Exibir os dados dos alunos e dos seus acompanhantes.
 select  al.nome as Aluno,
@@ -103,7 +103,7 @@ select  al.nome as Aluno,
 select  al.nome as Aluno,
 		p.nome as Projeto
 			from aluno as al join projeto as p
-				on fkProjeto = idProjeto
+				on al.fkProjeto = p.idProjeto
 			where p.nome = 'AlertCenter';
 
 -- Exibir os dados dos alunos, dos projetos correspondentes e dos seus acompanhantes.
@@ -205,7 +205,7 @@ select  o.nome as Organizador,
 		c.*
 		from organizador as o
 			join campanha as c
-				on fkOrganizador = idOrganizador;
+				on c.fkOrganizador = o.idOrganizador;
 
 -- h) Exibir os dados de um determinado organizador (informar o nome do organizador na consulta) 
 -- e os dados de suas respectivas campanhas.
@@ -213,7 +213,7 @@ select  o.nome as Organizador,
 		c.*
 		from organizador as o
 			join campanha as c
-				on fkOrganizador = idOrganizador
+				on c.fkOrganizador = o.idOrganizador
 		where nome = 'Murilo';
 
 -- i) Exibir os dados dos organizadores novatos e os dados dos respectivos
@@ -236,25 +236,30 @@ select  novato.nome as Novato,
                 
 -- l) Exibir os dados dos organizadores novatos, os dados das respectivas
 -- campanhas organizadas e os dados dos respectivos organizadores orientadores.
-select  novato.nome as Novato,
-		c.categoria as Categoria,
-		c.instituicao1 as Categoria,
-		c.instituicao2 as Categoria,
-		c.dtFinal as DataFinal,
-		experiente.nome as Experiente
-			from organizador as novato
-				left join campanha as c
-					on c.fkOrganizador = novato.fkOrganizadorExperiente
-				join organizador as experiente
-					on novato.fkOrganizadorExperiente = experiente.idOrganizador;
-
-
 select  o.nome as Organizador,
-		c.*
-		from organizador as o
-			join campanha as c
-				on fkOrganizador = idOrganizador;
-
+		c.categoria as CategoriaCampanha,
+		c.instituicao1 as Insituicao1,
+		c.instituicao2 as Insituicao2,
+		c.dtFinal as DataFinal,
+		e.nome as Orientador
+			from organizador as o
+				join campanha as c
+					on c.fkOrganizador = o.idOrganizador
+				left join organizador as e
+					on o.fkOrganizadorExperiente = e.idOrganizador;
+                    
 -- m) Exibir os dados de um organizador novato (informar o seu nome na consulta),
 -- os dados das respectivas campanhas em que trabalha e os dados do seu
 -- organizador orientador.
+select  o.nome as Organizador,
+		c.categoria as CategoriaCampanha,
+		c.instituicao1 as Insituicao1,
+		c.instituicao2 as Insituicao2,
+		c.dtFinal as DataFinal,
+		e.nome as Orientador
+			from organizador as o
+				join campanha as c
+					on c.fkOrganizador = o.idOrganizador
+				left join organizador as e
+					on o.fkOrganizadorExperiente = e.idOrganizador
+			where o.nome = 'Robert';
