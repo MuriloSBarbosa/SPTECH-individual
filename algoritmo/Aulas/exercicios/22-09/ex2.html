@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 02</title>
+</head>
+
+<body>
+    <h2>Ex 02</h2>
+
+    Proteina:
+    <select id="sel_proteina" onchange="vegano()">
+        <option value="">--escolha um--</option>
+        <option value="ovo">ovo</option>
+        <option value="soja">soja</option>
+        <option value="carne">carne</option>
+    </select>
+
+    <br><br>
+
+    Sobremesa:
+    <select id="sel_sobremesa" onchange="vegano()">
+        <option value="">--escolha um--</option>
+        <option value="Pudim">Pudim</option>
+        <option value="Petit Gateau">Petit Gateau</option>
+        <option value="Brigadeiro de Soja">Brigadeiro de Soja</option>
+    </select>
+
+    <div id="div_resultado"></div>
+
+</body>
+
+</html>
+<script>
+    function vegano() {
+        var proteina = sel_proteina.value;
+        var sobremesa = sel_sobremesa.value;
+        if (proteina != "" && sobremesa != "") {
+            if (proteina == 'soja' && sobremesa == 'Brigadeiro de Soja') {
+                alert("você poderia ser vegano")
+            } else {
+                alert("você NÃO poderia ser vegano")
+            }
+            sel_proteina.value = ""; 
+            sel_sobremesa.value = ""; 
+        }
+    }
+</script>

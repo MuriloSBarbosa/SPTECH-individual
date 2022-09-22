@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 09</title>
+</head>
+
+<body>
+    <h2>Exercicio 09</h2>
+
+    Digite seu login: <br>
+    <input type="text" id="in_login">
+    <br><br>
+
+    Digite sua senha: <br>
+    <input type="password" id="in_senha">
+    <br><br>
+
+    Digite o código de segurança: <br>
+    <input type="password" id="in_codSeguranca">
+    <br><br>
+
+    <button onclick="login()">Entrar</button>
+</body>
+
+</html>
+
+<script>
+
+    function login() {
+        var login = in_login.value;
+        var senha = in_senha.value;
+        var codSeguranca = in_codSeguranca.value;
+
+        if (login == 'SPtech' && senha == 'digital' && codSeguranca == '123') {
+            alert("Usuário autenticado com sucesso");
+        } else {
+            alert("Falha na autenticação");
+        }
+    }
+
+</script>

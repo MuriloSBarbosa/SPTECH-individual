@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 04</title>
+</head>
+
+<body>
+    <h2>Exercicio 04</h2>
+
+    O que você come no café da manhã:
+    <select id="sel_cafe">
+        <option value="Ovos">Ovos</option>
+        <option value="Leite de Arroz">Leite de Arroz</option>
+        <option value="Bacon">Bacon</option>
+    </select>
+    <br><br>
+
+    O que você come no almoço:
+    <select id="sel_almoco">
+        <option value="bife">bife</option>
+        <option value="hamburger de soja">hamburger de soja</option>
+        <option value="frango grelhado">frango grelhado</option>
+    </select>
+    <br><br>
+
+    O que você come na janta:
+    <select id="sel_janta">
+        <option value="picanha de soja">picanha de soja</option>
+        <option value="cupim">cupim</option>
+        <option value="coracao">coração</option>
+    </select>
+    <br><br>
+
+    <button onclick="veganismo()">Sou Vegano</button>
+
+</body>
+
+</html>
+<script>
+
+    function veganismo() {
+        var cafe = sel_cafe.value;
+        var almoco = sel_almoco.value;
+        var janta = sel_janta.value;
+
+        if (cafe == 'Leite de Arroz' && almoco == 'hamburger de soja' && janta == 'picanha de soja') {
+            alert("Sim, você é vegano!");
+        } else {
+            alert("Não, você não é vegano");
+        }
+    }
+
+</script>

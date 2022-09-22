@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 10</title>
+</head>
+
+<body>
+    <h2>Exercicio 10</h2>
+
+    Qual intervalo da altura desejada para os próximos pilotos? <br>
+
+    Altura inicial: <br>
+    <input type="text" id="in_alturaInicial">
+    <br><br>
+
+    Altura Final: <br>
+    <input type="text" id="in_alturaFinal">
+    <br><br>
+
+    Digite seu nome: <br>
+    <input type="text" id="in_nome">
+    <br><br>
+
+    Digite sua altura: <br>
+    <input type="text" id="in_altura">
+    <br><br>
+
+    <button onclick="cadastrar()">Cadastrar</button>
+</body>
+
+</html>
+
+<script>
+
+    function cadastrar() {
+        var incial = Number(in_alturaInicial.value);
+        var final = Number(in_alturaFinal.value);
+        var selecao = final - inicial;
+        var nome = in_nome.value;
+        var altura = Number(in_altura.value);
+
+        if (incial < 1 && final < incial) {
+            alert("A altura inicial tem que ser maior que 1 e a altura final tem que ser maior que a altura inicial")
+        } else {
+            if (selecao )
+        }
+    }
+
+</script>

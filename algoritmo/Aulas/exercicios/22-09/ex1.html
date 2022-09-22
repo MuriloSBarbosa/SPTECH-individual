@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 01</title>
+</head>
+
+<body>
+    <h2>ex 01</h2>
+
+    Digite o nome de uma fruta <br>
+    <input id="in_fruta"> <br><br>
+    Digite o preço da fruta <br>
+    <input id="in_preco"> <br> <br>
+    <button onclick="vou_comprar()">Vou comprar?</button>
+
+    <div id="div_resultado"></div>
+</body>
+
+</html>
+<script>
+    function vou_comprar() {
+        var fruta = in_fruta.value;
+        var preco = Number(in_preco.value);
+        if (fruta == 'uva' && preco < 8.5) {
+            div_resultado.innerHTML = `Sem frutas hoje`
+        } else {
+            div_resultado.innerHTML = `Vou comprar!`
+        }
+
+    }
+</script>
