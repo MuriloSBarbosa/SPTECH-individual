@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pagina18</title>
+</head>
+
+<body>
+    <h2>Sovertinho!</h2>
+
+    sabor:
+    <select name="" id="sel_sabor" onchange="verificar()">
+        <option value="c">chocolate</option>
+        <option value="c">morango</option>
+        <option value="nc">jilo</option>
+        <option value="nc">feijao</option>
+        <option value="nc">queijo</option>
+        <option value="nf">Pneu</option>
+    </select>
+</body>
+
+</html>
+
+<script>
+    function verificar() {
+        var sabor = sel_sabor.value;
+
+        if (sabor == "nc" || sabor == "nf") {
+            alert("eu não como esse sabor!")
+        } else {
+            alert("Eu como esse sabor")
+        }
+    }
+</script>

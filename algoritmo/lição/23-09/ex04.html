@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 04</title>
+</head>
+<body>
+    <h2>Exercicio 04</h2>
+
+    Qual o nome da fruta que chegou na mesa?: <br>
+    <input type="text" id="in_nome">
+    <br><br>
+
+    <button onclick="vai_comer()">Vai comer?</button>
+</body>
+</html>
+
+<script>
+
+    function vai_comer(){
+        var fruta = in_nome.value;
+        if (fruta == 'banana' || fruta == 'goiaba' ||fruta == 'manga') {
+            alert(`A fruta ${fruta} ela não come`);
+        } else {
+            alert(`Sim, vai comer ${fruta}`);
+        }
+    }
+
+</script>

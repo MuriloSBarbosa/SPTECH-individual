@@ -11,12 +11,6 @@
     margin: auto;
 }
 
-.exercicio14-2 {
-    padding: 40px 80px;
-    width: 700px;
-    margin: auto;
-}
-
 .container {
     width: 80%;
     margin: auto;
@@ -107,7 +101,12 @@ button:hover {
     border: 2px solid #e6005a;
 }
 
-/* Pagina 02 */
+/* Pagina depois o selecionar() */
+.exercicio14-2 {
+    padding: 40px 80px;
+    width: 780px;
+    margin: auto;
+}
 ;.exercicio14-2 .container {
     width: 80%;
     margin: auto;
@@ -138,6 +137,9 @@ button:hover {
     justify-content: center;
     font-size: 14px;
 }
+.exercicio14-2 h2 {
+    color: #ffff;
+}
 .exercicio14-2 select {
     padding: 7px;
     width: 90%;
@@ -150,7 +152,8 @@ button:hover {
 .exercicio14-2 button {
     width: 120px;
     color: #ffff;
-    background-color: #f7bd00;
+    background-color: #dd568a;
+    
     padding: 10px 20px;
     font-weight: bold;
     border: none;
@@ -159,7 +162,7 @@ button:hover {
 }
 
 .exercicio14-2 button:hover {
-    background-color: #dd568a;
+    background-color: #a33a62;
 }
 
 .exercicio14-2 .box input {
@@ -175,13 +178,15 @@ button:hover {
 }
 
 .exercicio14-2 h3{
-    padding-top:15px ;
+    padding-top:15px;
+    display:flex;
 }
 
-.exercicio14-2 .subtitulo{
-    text-align: start;
-    color: #f7bd00;
+.exercicio14-2 .criterio{
+    color: #ffff;
+    margin-right: 5px;
 }
+
 .resultado{
     margin-top: 20px;
     border: #000 2px solid;

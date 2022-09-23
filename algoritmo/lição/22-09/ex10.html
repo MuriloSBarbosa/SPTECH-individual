@@ -42,7 +42,7 @@
         var nome = in_nome.value;
         var altura = Number(in_altura.value);
 
-        if (inicial < 1 | final <= inicial) {
+        if (inicial < 1 || final <= inicial) {
             alert("A altura inicial tem que ser maior que 1 e a altura final tem que ser maior que a altura inicial")
         } else {
             if (altura >= inicial && altura <= final) {

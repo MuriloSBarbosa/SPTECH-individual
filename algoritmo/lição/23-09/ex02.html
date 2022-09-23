@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 02</title>
+</head>
+<body>
+    <h2>Exercicio 02</h2>
+
+    Digite a nota do ENEM: <br>
+    <input type="text" id="in_enem">
+    <br><br>
+
+    Digite a nota do Vestibular: <br>
+    <input type="text" id="in_vest">
+    <br><br>
+
+    <button onclick="avaliacao()">Avaliação</button>
+</body>
+</html>
+
+<script>
+
+    function avaliacao(){
+        var enem = Number(in_enem.value);
+        var vest = Number(in_vest.value);
+
+        if (enem >= 800 || vest >= 700){
+            alert("Parabéns, aprovado");
+        } else {
+            alert("Tente semestre que vem!");
+        }
+    }
+
+</script>

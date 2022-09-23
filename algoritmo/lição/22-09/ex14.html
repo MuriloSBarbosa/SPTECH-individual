@@ -54,22 +54,22 @@
 </html>
 
 <script>
-        var inicialP = 0;
-        var finalP = 0;
-        var inicialB = 0;
-        var finalB = 0;
+    var inicialP = 0;
+    var finalP = 0;
+    var inicialB = 0;
+    var finalB = 0;
     function selecionar() {
         inicialP = Number(in_inicialPiloto.value);
         finalP = Number(in_finalPiloto.value);
         inicialB = Number(in_inicialBasquete.value);
         finalB = Number(in_finalBasquete.value);
 
-
-
-        if (inicialP < 1 | finalP <= inicialP) {
-            alert("A altura inicial do Piloto tem que ser maior que 1 e a altura final tem que ser maior que a altura inicial")
-        } else if (inicialB < 1.5 | finalB <= inicialB) {
-            alert("A altura inicial do Jogador de Basquete tem que ser maior que 1.5 e a altura final tem que ser maior que a altura inicial,")
+        if (inicialB == "" || inicialP == "" || finalB == "" || finalP == "") {
+            alert("Há campos vazios!");
+        } else if (inicialP < 1 || finalP <= inicialP) {
+            alert("A altura inicial do Piloto tem que ser maior que 1m e a altura final tem que ser maior que a altura inicial");
+        } else if (inicialB < 1.5 || finalB <= inicialB) {
+            alert("A altura inicial do Jogador de Basquete tem que ser maior que 1.5m e a altura final tem que ser maior que a altura inicial");
         } else {
             div_exercicio.innerHTML =
                 `
@@ -78,8 +78,18 @@
                 <div class="formulario">
 
                     <h2>Processo de Seleção de novos atletas</h2>
-                    <h3> Critério de Seleção de piloto – altura entre ${inicialP} até ${finalP}</h3>
-                    <h3> Critério de Seleção de jogador de basquete – altura entre ${inicialB} até ${finalB}</h3>
+                    <h3> 
+                        <div class="criterio"> 
+                            Critério de Seleção de piloto – 
+                        </div>
+                        <p>altura entre ${inicialP.toFixed(2)}m até ${finalP.toFixed(2)}m</p>
+                    </h3>
+                    <h3> 
+                        <div class="criterio"> 
+                            Critério de Seleção de jogador de basquete – 
+                        </div>
+                        <p>altura entre ${inicialB.toFixed(2)}m até ${finalB.toFixed(2)}m</p>
+                    </h3>
                     <div class="boxes">
                         <div class="box">
                             <div class="campo">
@@ -103,13 +113,14 @@
                 </div>
                 
 
-            </div><div class="resultado">
-                    Aqui aparecerá o resultado
-                    <ol id="div_resultado">
-                    <ol/>
-                </div>
+            </div>
+            <div class="resultado">
+                <p id="div_resultado">Aqui aparecerá o resultado</p>
+                <ol id="div_listaResultado"><ol/>
+            </div>
         </div>
             `
+            in_nome.focus();
 
         }
     }
@@ -119,24 +130,31 @@
         var altura = Number(in_altura.value);
         var modalidade = sel_modalidade.value;
 
-        if (modalidade != "") {
+        if (nome == "" || altura == "" || modalidade == "") {
+            alert("Há campos vazios!");
+        } else {
             if (modalidade == "piloto") {
-                if (altura > finalP | altura < inicialP) {
+                if (altura > finalP || altura < inicialP) {
                     frase = `<li>Infelizmente o candidato ${nome} com altura de ${altura.toFixed(2)} não atende os requisitos</li>`
                 } else {
                     frase = `<li>O candidato ${nome} com altura de ${altura.toFixed(2)} participará do processo de seleção de piloto</li>`
                 }
             } else {
-                if (altura > finalB | altura < inicialB) {
+                if (altura > finalB || altura < inicialB) {
                     frase = `<li>Infelizmente o candidato ${nome} com altura de ${altura.toFixed(2)} não atende os requisitos</li>`
                 } else {
                     frase = `<li>O candidato ${nome} com altura de ${altura.toFixed(2)} participará do processo de seleção de jogador de basquete</li>`
                 }
             }
+            div_resultado.innerHTML = "";
+            div_listaResultado.innerHTML += frase;
+            in_nome.value = "";
+            in_altura.value = "";
+            sel_modalidade.value = "";
+            in_nome.focus();
 
-            div_resultado.innerHTML += frase;
         }
     }
-    
+
 
 </script>

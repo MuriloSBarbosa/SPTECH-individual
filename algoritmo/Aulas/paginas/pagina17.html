@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina 17</title>
+</head>
+
+<body>
+    <h2>Sovertinho</h2>
+    sabor: <input type="text" id="in_sabor">
+    <br><br>
+    <button onclick="verificar()">Verificar se eu como</button>
+</body>
+
+</html>
+<script>
+    function verificar() {
+        var sabor = in_sabor.value;
+
+        if (sabor == "jilo" || sabor == "feijao" || sabor == "queijo") {
+            alert("eu não como esse sabor!")
+        } else {
+            alert("Eu como esse sabor")
+        }
+    }
+</script>
