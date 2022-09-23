@@ -1,0 +1,193 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+
+}
+
+.exercicio14 {
+    padding: 80px;
+    width: 700px;
+    margin: auto;
+}
+
+.exercicio14-2 {
+    padding: 40px 80px;
+    width: 700px;
+    margin: auto;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.formulario {
+    background: rgb(1, 255, 204);
+    background: linear-gradient(90deg, rgba(1, 255, 204, 1) 0%, rgba(0, 212, 255, 1) 100%);
+    border: #000 solid 2px;
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.formulario h2 {
+    text-align: center;
+    font-weight: 1000;
+}
+
+.boxes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0;
+
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    border: #000 solid 2px;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: rgb(231, 255, 255);
+    margin: 10px;
+}
+
+.campo {
+    margin-bottom: 10px;
+}
+
+.formulario h4 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 0.9em;
+}
+
+.box input {
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #32b9cd;
+    color: #000;
+}
+
+.box label {
+    color: #e6005a;
+}
+
+button {
+    width: 120px;
+    color: #ffff;
+    background-color: #e6005a;
+    padding: 10px 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #dd568a;
+}
+
+.box input {
+    padding: 7px;
+    width: 90%;
+    border-radius: 10px;
+    color: #000;
+    border: 2px solid #e6005a;
+}
+
+/* Pagina 02 */
+;.exercicio14-2 .container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.exercicio14-2 .box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: #000 solid 2px;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: rgb(231, 255, 255);
+    margin: 10px;
+}
+.exercicio14-2 .formulario {
+    background: rgb(234,1,255);
+    background: linear-gradient(90deg, rgba(234,1,255,1) 0%, rgba(255,0,0,1) 100%);
+    border: #000 solid 2px;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+.exercicio14-2 select {
+    padding: 7px;
+    width: 90%;
+    border-radius: 10px;
+    border: 2px solid #32b9cd;
+    color: #000;
+    border: 2px solid #6f00e6;
+}
+
+.exercicio14-2 button {
+    width: 120px;
+    color: #ffff;
+    background-color: #f7bd00;
+    padding: 10px 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.exercicio14-2 button:hover {
+    background-color: #dd568a;
+}
+
+.exercicio14-2 .box input {
+    padding: 7px;
+    width: 90%;
+    border-radius: 10px;
+    color: #000;
+    border: 2px solid #6f00e6;
+}
+
+.exercicio14-2 .box label {
+    color: #6f00e6;
+}
+
+.exercicio14-2 h3{
+    padding-top:15px ;
+}
+
+.exercicio14-2 .subtitulo{
+    text-align: start;
+    color: #f7bd00;
+}
+.resultado{
+    margin-top: 20px;
+    border: #000 2px solid;
+    border-radius: 15px;
+    padding: 20px 40px 10px 50px;
+}
+li {
+    margin-bottom: 10px;
+}
