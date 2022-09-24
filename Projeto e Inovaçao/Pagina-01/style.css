@@ -16,9 +16,11 @@
     align-items: center;
     justify-content: space-between;
 }
-h1{
+
+h1 a{
     color: #32b9cd;
     font-weight: 900;
+    text-decoration: none;
 }
 ul{
     display: flex;
