@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 05</title>
+</head>
+
+<body>
+    <h2>Exercicio 05</h2>
+
+    Qual a temperatura atual?<br>
+    <input type="text" id="in_temp">
+    <br><br>
+
+    <button onclick="analisar_clima()">Analisar Clima</button>
+</body>
+
+</html>
+<script>
+
+    function analisar_clima() {
+        var temp = Number(in_temp.value);
+
+        if (temp < 21 || temp > 24) {
+            alert("Alerta de desconforto!");
+
+            if (temp < 21) {
+                alert("As pessoas vão ter hipotermia");
+            } else {
+                alert("As pessoas vão derreter");
+            }
+        }
+    }
+
+</script>

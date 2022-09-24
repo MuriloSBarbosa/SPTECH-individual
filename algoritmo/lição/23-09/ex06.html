@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 06</title>
+</head>
+
+<body>
+    <h2>Exercicio 06</h2>
+
+    <div id="div_cliques">Você já clicou 0 vezes</div>
+    <br><br>
+
+    <button onclick="cliqueCabalistico()">Clique cabalístico</button>
+
+</body>
+
+</html>
+<script>
+
+    var clique = 0;
+
+    function cliqueCabalistico() {
+        clique++;
+        
+        div_cliques.innerHTML = `Você clicou ${clique} vezes`;
+
+        if (clique == 3 || clique == 4 || clique == 7 || clique == 10) {
+            alert(`Você clicou ${clique} vezes e Juliana gosta desse número!`);
+        }
+    }
+
+</script>

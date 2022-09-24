@@ -9,22 +9,27 @@
 <body>
     <h2>Exercicio 04</h2>
 
-    Qual o nome da fruta que chegou na mesa?: <br>
-    <input type="text" id="in_nome">
+    Qual o modo de pagamento?: <br>
+    <select name="" id="sel_pagamento">
+        <option value="v">Dinheiro</option>
+        <option value="v">Cartão de Débito</option>
+        <option value="p">Cartão de Crédito</option>
+        <option value="p">Boleto</option>
+    </select>
     <br><br>
 
-    <button onclick="vai_comer()">Vai comer?</button>
+    <button onclick="analisar_compra()">Analisar Compra</button>
 </body>
 </html>
 
 <script>
 
-    function vai_comer(){
-        var fruta = in_nome.value;
-        if (fruta == 'banana' || fruta == 'goiaba' ||fruta == 'manga') {
-            alert(`A fruta ${fruta} ela não come`);
+    function analisar_compra (){
+        var modoPag = sel_pagamento.value;
+        if (modoPag == "v") {
+            alert("você terá que pagar a vista");
         } else {
-            alert(`Sim, vai comer ${fruta}`);
+            alert("Pagamento poderá ser parcelado");
         }
     }
 

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 07</title>
+</head>
+
+<body>
+    <h2>Exercicio 07</h2>
+
+    <h3>Calculadora de cansaço do aluno SPTech</h3>
+
+    Meio de transporte: <br>
+    <select id="sel_transporte">
+        <option value="bus">Ônibus</option>
+        <option value="met">Metrô</option>
+        <option value="car">Carro</option>
+        <option value="byc">Bicicleta</option>
+        <option value="lot">Lotação</option>
+    </select>
+    <br><br>
+
+    <button onclick="calc_cansaco()">Calcular cansaço</button>
+</body>
+
+</html>
+<script>
+
+    function calc_cansaco(){
+        var transporte = sel_transporte.value;
+
+        if (transporte == "car" || transporte == "byc") {
+            alert("Tá tranquilo...")
+        } else if (transporte == "met") {
+            alert("Um pouco cansado")
+        } else {
+            alert("Vish ... vive cansado.");
+        }
+    }
+
+</script>
