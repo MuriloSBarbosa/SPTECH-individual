@@ -155,7 +155,7 @@ SELECT  e.nome AS Empresa,
 			FROM Empresa AS e JOIN DataCenter AS dc
 				ON dc.fkEmpresa = e.idEmpresa;
 
--- Consultar todos os dispositivos presentes nos DataCenters de suas respectivas empresas.
+-- Consultar todos os dispositivos presentes nos Data Centers de suas respectivas empresas.
 SELECT  e.nome AS Empresa,
 		dc.idDataCenter,
 		dc.descricao AS 'DataCenter Descrição',
@@ -169,7 +169,7 @@ SELECT  e.nome AS Empresa,
 				JOIN Dispositivo AS dis
 					ON dis.fkDataCenter = dc.idDataCenter AND dis.fkEmpresa = dc.fkEmpresa;
                     
--- Consultar os Dispositivos e suas Métricas
+-- Consultar os Dispositivos e suas Métricas.
 SELECT  dis.idDispositivo,
 		dis.numeroSerie,
 		dis.descricao,
@@ -179,7 +179,7 @@ SELECT  dis.idDispositivo,
 			FROM Dispositivo AS dis LEFT JOIN Metrica AS m
 				ON m.fkDispositivo = dis.idDispositivo;
                 
--- Consultar quantos dispositivos tem em uma determinada Empresa
+-- Consultar quantos dispositivos tem em uma determinada Empresa.
 SELECT  e.nome AS Empresa,
 		dis.idDispositivo,
 		dis.numeroSerie,
