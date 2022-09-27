@@ -25,7 +25,7 @@ senha VARCHAR(45)
 -- Entidade Fraca (depende da Empresa)
 CREATE TABLE Endereco (
 idEndereco INT,
-fkEmpresa INT,
+fkEmpresa INT UNIQUE,
 FOREIGN KEY (fkEmpresa) REFERENCES Empresa(idEmpresa),
 PRIMARY KEY (idEndereco,fkEmpresa),
 rua VARCHAR(45),
