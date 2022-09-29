@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pagina 20</title>
+</head>
+
+<body>
+    <input placeholder="Temperatura" id="in_temperatura">
+    <br>
+    <button onclick="analisar()">Analisar</button>
+</body>
+
+</html>
+<script>
+    function analisar() {
+        var temperatura = Number(in_temperatura.value);
+
+        var agradavel = temperatura > 23;
+
+        if (agradavel) {
+            alert("Temperatura agradável")
+        }
+
+        if (!agradavel) {
+            // if (agradavel != true)
+            // if (agradavel == false)
+            alert("Temperatura NÃO ESTÁ agradável")
+        }
+    }
+</script>

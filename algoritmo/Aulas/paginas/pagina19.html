@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pagina 19</title>
+</head>
+
+<body>
+    <input type="text" id="in_numero" placeholder="Qualquer número" onkeyup="analisar()">
+    <div id="div_analise"></div>
+</body>
+
+</html>
+<script>
+    function analisar() {
+        var numero = Number(in_numero.value);
+        if (numero % 2 == 0) {
+            div_analise.innerHTML = `É par <br>`
+        } else {
+            div_analise.innerHTML = `É impar <br>`
+        }
+        if (numero % 7 == 0) {
+            div_analise.innerHTML += `É multiplo de 7 <br>`
+        } else {
+            div_analise.innerHTML += `não É multiplo de 7`
+        }
+    }
+</script>

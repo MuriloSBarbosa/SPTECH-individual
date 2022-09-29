@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 01</title>
+</head>
+
+<body>
+    <h2>Exercicio 01</h2>
+
+    Digite seu login:
+    <input type="text" id="in_login">
+    <br><br>
+
+    Digite sua senha:
+    <input type="text" id="in_senha">
+    <br><br>
+
+    <button onclick="entrar()">Entrar</button>
+    <br><br>
+
+    <div id="div_login"></div>
+</body>
+
+</html>
+
+<script>
+    function entrar() {
+        div_login.innerHTML = "";
+
+        var login = in_login.value == 'aidmin';
+        var senha = in_senha.value == 'seinha';
+        var autenticado = login && senha;
+
+        var cor = 'blue';
+        var resultado = "Usuário autenticado com sucesso!";
+        
+        if (!autenticado) {
+            resultado = "";
+            if (!login) {
+                cor = "red";
+                resultado = "Seu login está inválido!<br>"
+            }
+            if (!senha) {
+                if (login) {
+                    alert("Entre em contato com o suporte para recuperar sua senha");
+                }
+                cor = "red";
+                resultado += "Sua senha está inválida!"
+            }
+        }
+        // div_login.innerHTML = `<span style="color:${cor}"">${resultado}</span>`;
+        div_login.style.color = cor;
+        div_login.innerHTML = resultado;
+    }
+
+
+</script>
