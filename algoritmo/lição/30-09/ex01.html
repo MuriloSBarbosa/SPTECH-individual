@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>ex 02</h1>
+
+    Qual o tipo de arroz
+    <select name="" id="sel_tipo">
+        <option value="integral">integral</option>
+        <option value="branco">branco</option>
+    </select>
+    <br><br>
+    <input type="text" placeholder="Qual o tempo de cozimento" id="in_tempo">
+    <br><br>
+    <input type="text" placeholder="Qual a qtd de sal em g" id="in_sal">
+    <br><br>
+    <button onclick="arroz_pft()">Arroz Perfeito</button>
+    <br><br>
+    <div id="div_resultado"></div>
+    <img id="r_img" height="200px">
+
+</body>
+
+</html>
+<script>
+    function arroz_pft() {
+        var tipo = sel_tipo.value;
+        var tempo = Number(in_tempo.value);
+        var sal = Number(in_sal.value);
+        var pft1 = tipo == "branco" && tempo == 10 && sal <= 10;
+        var pft2 = tipo == "integral" && tempo == 20 && sal <= 15;
+        var frase = "";
+        var imagem = "";
+        if (pft1 || pft2) {
+            frase = "Arroz perfeito";
+            if (pft1) {
+                imagem = "https://p2.trrsf.com/image/fget/cf/1200/900/middle/images.terra.com/2022/07/26/1334925802-arroz-branco-18919-768x1024-768x540.jpg"
+            }
+            if (pft2) {
+                imagem = "https://img.itdg.com.br/tdg/images/recipes/000/114/954/44015/44015_original.jpg?mode=crop&width=710&height=400"
+            }
+        } else {
+            frase = "Seu arroz não está perfeito";
+            imagem = "https://noticiasdatv.uol.com.br/media/_versions/artigos/band-pesadelo-na-cozinha-erick-jacquin-reproducao-4-2_fixed_large.jpg"
+        }
+
+
+        div_resultado.innerHTML = frase;
+        r_img.src = imagem
+    }
+</script>
