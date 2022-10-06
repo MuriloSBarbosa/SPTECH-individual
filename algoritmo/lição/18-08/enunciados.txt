@@ -1,3 +1,6 @@
+Concatenação de innerHTML com +=, operações matemáticas básicas;
+
+
 1. Crie um programa em HTML/JS que:
 a) Tenha uma caixinha de entrada de dados (tag input) com o texto indicativo "Digite uma memória pro seu diário" antes dela
 
