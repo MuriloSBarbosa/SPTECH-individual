@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 04</title>
+</head>
+
+<body>
+    <h2>Exercicio 04</h2>
+
+    Digite sua idade:
+    <input id="in_idade" onkeyup="estagios()">
+    <br> <br>
+    Já passou pela infância:<span id="span_inf"></span> <br>
+    Já passou pela adolescência: <span id="span_ado"></span><br>
+    Já é um idoso: <span id="span_ido"></span> <br> <br>
+    TOTAL DE PONTOS: <span id="span_total"></span>
+</body>
+
+</html>
+
+<script>
+    function estagios() {
+        var idade = Number(in_idade.value);
+
+        var infancia = idade > 12;
+        var adolescencia = idade > 18;
+        var idoso = idade >= 65;
+        var total = 0;
+
+        if (infancia) {
+            total += 10
+        }
+        if (adolescencia) {
+            total += 20
+        }
+        if (idoso) {
+            total += 50
+        }
+
+        span_inf.innerHTML = infancia;
+        span_ado.innerHTML = adolescencia;
+        span_ido.innerHTML = idoso;
+        span_total.innerHTML = total;
+    }
+</script>

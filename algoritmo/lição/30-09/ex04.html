@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 04</title>
+</head>
+
+<body>
+    <h2>Exercicio 04</h2>
+
+    Digite sua nota:
+    <input type="text" id="in_nota">
+    <br><br>
+
+    Digite sua frequência:
+    <input type="text" id="in_freq">
+    <br><br>
+
+    <button onclick="analise()">Analisar Aluno</button>
+    <br><br>
+
+    <div id="div_analise"></div>
+
+</body>
+
+</html>
+<script>
+
+    function analise() {
+        var nota = Number(in_nota.value);
+        var freq = Number(in_freq.value);
+        var valida_nota = nota < 0 || nota > 10;
+        var valida_freq = freq < 0 || freq > 100
+        var frase = "";
+        div_analise.innerHTML = "";
+        if (valida_nota || valida_freq) {
+            if (valida_nota) {
+                alert("Onde já se viu nota <0 ou >10?!");
+                in_nota.value = "";
+            }
+            if (valida_freq) {
+                alert("Onde já se viu frequência <0 ou >100?!");
+                in_freq.value = "";
+            }
+        } else {
+            if(nota >= 00 && nota < 6 ) {
+                frase = "Aluno ficou abaixo da média";
+            } else if (nota <= 8){
+                frase = "Aluno ficou da média";
+            } else {
+                frase = "Aluno acima da média";
+            }
+            if (freq >= 75){
+                frase += "<br>Aluno aprovado por frequência";
+            } else {
+                frase += "<br>Aluno reprovado por frequência";
+            }
+            div_analise.innerHTML = frase;
+        }
+
+    }
+
+</script>

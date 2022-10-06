@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 05</title>
+</head>
+
+<body>
+    <h2>Exercicio 05</h2>
+
+    Qual seu tipo base de pokemon?
+    <select name="" id="sel_iniciante">
+        <option value="planta">Planta</option>
+        <option value="agua">Água</option>
+        <option value="fogo">Fogo</option>
+    </select>
+    <br><br>
+
+    Qual o tipo base de pokemon do seu oponente?
+    <select name="" id="sel_oponente">
+        <option value="planta">Planta</option>
+        <option value="agua">Água</option>
+        <option value="fogo">Fogo</option>
+    </select>
+    <br><br>
+
+    <button onclick="batalhar()">Batalhar!</button>
+    <br><br>
+
+    Resultado = <span id="span_resultado">//</span>
+    <br><br>
+    Contagem =
+    Vitórias do Iniciante: <span id="span_v">0</span> /
+    Derrotas do Iniciante: <span id="span_d">0</span> /
+    Empates: <span id="span_e">0</span>
+</body>
+
+</html>
+
+<script>
+    var contagem_v = 0;
+    var contagem_d = 0;
+    var contagem_e = 0;
+
+
+    function batalhar() {
+        var iniciante = sel_iniciante.value;
+        var oponente = sel_oponente.value;
+        var frase = "";
+        var vitoria =
+            iniciante == "planta" && oponente == "agua" ||
+            iniciante == "agua" && oponente == "fogo" ||
+            iniciante == "fogo" && oponente == "planta";
+
+        if (iniciante == oponente) {
+            frase = "A batalha empatou!";
+        } else {
+            frase = "O iniciante perdeu!";
+            if (vitoria) {
+                frase = "O iniciante venceu!";
+            }
+        }
+
+        if (frase == "A batalha empatou!") {
+            contagem_e++;
+        } else if (frase == "O iniciante perdeu!") {
+            contagem_d++;
+        } else {
+            contagem_v++;
+        }
+
+        span_resultado.innerHTML = frase;
+        span_e.innerHTML = contagem_e;
+        span_v.innerHTML = contagem_v;
+        span_d.innerHTML = contagem_d;
+    }
+</script>

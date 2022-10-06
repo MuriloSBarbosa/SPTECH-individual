@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 06</title>
+</head>
+
+<body>
+    <h2>Exercicio 06</h2>
+
+    Digite o produto que você irá comprar:
+    <input type="text" id="in_produto">
+    <br><br>
+
+    Digite o preço original do produto:
+    <input type="text" id="in_preco">
+    <br><br>
+
+    Digite o cupom de desconto:
+    <input type="text" id="in_cupom">
+    <br><br>
+
+    <button onclick="desconto()">Aplicar Desconto</button>
+
+    <div id="div_desconto"></div>
+</body>
+
+</html>
+
+<script>
+    function desconto() {
+        var produto = (in_produto.value).toLowerCase();
+        var preco = Number(in_preco.value);
+        var cupom = (in_cupom.value).toUpperCase();
+        var produto_geral = produto == "tênis" || produto == "livros" || produto == "material escolar";
+        var produto_tech = produto == "celular" || produto == "notebook" || produto == "tablet";
+        var frase = "";
+
+        if (produto == "" || preco == "" || cupom == "") {
+            if (produto == "") {
+                alert("Insira um produto para prosseguir!");
+            }
+            if (preco == "") {
+                alert("Insira um preço para prosseguir!");
+            }
+            if (cupom == "") {
+                alert("Insira um cupom para prosseguir!");
+            }
+        } else {
+            if (produto_geral && cupom == 'GERAL_10') {
+                preco -= preco * 0.1;
+                frase = `Cupom para produtos em geral aplicado! Preço final será R$${preco}`;
+            } else if (produto_tech && cupom == "TECH_19") {
+                preco -= preco * 0.19;
+                frase = `Cupom para produtos tecnológicos foi aplicado! Preço final será R$${preco}`;
+            } else {
+                frase = "Cupom não aplicado! Preencha os campos e tente novamente!";
+            }
+            div_desconto.innerHTML = frase;
+        }
+    }
+</script>
