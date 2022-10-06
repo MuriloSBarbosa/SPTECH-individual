@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 04</title>
+</head>
+
+<body>
+    <h2>Exercicio 04</h2>
+
+    <button onclick="par()">S2 pares</button>
+
+    <div id="div_resultado"></div>
+</body>
+
+</html>
+
+<script>
+    function par() {
+        var par = 0;
+
+        div_resultado.innerHTML = "";
+        while (par <= 100) {
+            if(par % 2 == 0) {
+                div_resultado.innerHTML += `${par} <br>`
+            }
+            par ++;
+        }
+    }
+</script>

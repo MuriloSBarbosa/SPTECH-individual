@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 06</title>
+</head>
+
+<body>
+    <h2>Exercicio 06</h2>
+
+    Qual o nome da pessoa que você mais ama na vida? <br>
+    <input type="text" id="in_pessoa">
+    <br><br>
+
+    O quanto você a ama? <br> 
+    <input type="text" id="in_qnt"> 
+    <br><br>
+
+    <button onclick="expressar_amor()">Expressar amor</button>
+    <div id="div_resultado"></div>
+</body>
+
+</html>
+
+<script>
+    function expressar_amor() {
+        var nome = in_pessoa.value;
+        var qntAma = Number(in_qnt.value);
+        
+        div_resultado.innerHTML = "";
+
+        var i = 1;
+        while(i <= qntAma) {
+            div_resultado.innerHTML += `${i}- ${nome}, eu te amo! Sempre lembre disso! <br>`
+            i++;
+        }
+    
+    }
+</script>

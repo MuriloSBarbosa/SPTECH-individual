@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 10</title>
+</head>
+
+<body>
+    <h2>Exercicio 10</h2>
+
+    Digite o primeiro numero do intervalo: <br>
+    <input type="text" id="in_numero1">
+    <br><br>
+
+    Digite o segundo numero do intervalo: <br>
+    <input type="text" id="in_numero2">
+    <br><br>
+
+    <button onclick="par()">S2 Pares</button>
+    <br><br>
+
+    <div id="div_resultado"></div>
+</body>
+
+</html>
+
+<script>
+    function par(){
+        var n1 = Number(in_numero1.value);
+        var n2 = Number(in_numero2.value);
+
+        div_resultado.innerHTML = "";
+
+        while(n1 <= n2) {
+            if(n1 % 2 == 0) {
+                div_resultado.innerHTML += `${n1} <br>`;
+            }
+            n1 ++;
+        }
+    }
+</script>

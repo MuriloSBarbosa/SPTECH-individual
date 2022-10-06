@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 08</title>
+</head>
+
+<body>
+    <h2>Exercicio 08</h2>
+
+    Digite um numero entre 0 e 200 <br>
+    <input type="text" id="in_numero">
+    <br> <br>
+
+    <button onclick="mult_7()">Viva o 7!</button>
+
+    <br><br>
+    <div id="div_resultado"></div>
+</body>
+
+</html>
+
+<script>
+    function mult_7() {
+        var numero = Number(in_numero.value);
+
+        div_resultado.innerHTML = "";
+
+        if (numero < 0 || numero > 200) {
+            alert("Digite um numero entre 0 e 200")
+        } else {
+            var i = 0;
+            while (i <= numero) {
+                if (i % 7 == 0) {
+                    div_resultado.innerHTML += `${i} <br>`;
+                }
+                i++;
+            }
+        }
+    }
+</script>

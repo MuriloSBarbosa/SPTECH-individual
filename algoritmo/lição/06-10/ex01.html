@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 01</title>
+</head>
+
+<body>
+    <h2>Exercicio 01</h2>
+
+    <button onclick="contar()">Contar</button>
+    <div id="div_contagem"></div>
+</body>
+
+</html>
+
+<script>
+    function contar() { 
+        var contar = 1;
+
+        div_contagem.innerHTML = "";
+        while(contar <= 15) {
+            div_contagem.innerHTML += `${contar}<br>`;
+            contar++
+        }
+    }
+</script>

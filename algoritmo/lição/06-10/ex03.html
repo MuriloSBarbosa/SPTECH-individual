@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 03</title>
+</head>
+
+<body>
+    <h2>Exercicio 03</h2>
+
+    <button onclick="dizer()">Diga algo sobre a pandemia de Covid19</button>
+    <br>
+    <div id="div_resultado"></div>
+</body>
+
+</html>
+<script>
+    function dizer() {
+        var frase = 1;
+
+        div_resultado.innerHTML = "";
+        while (frase <= 7) {
+            div_resultado.innerHTML += `${frase}. 2020 foi um ano muito louco <br>`;
+            frase++
+        }
+
+    }
+</script>

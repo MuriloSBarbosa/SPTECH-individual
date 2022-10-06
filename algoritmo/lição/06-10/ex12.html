@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 12</title>
+</head>
+
+<body>
+    <h2>Exercicio 12</h2>
+
+    Quantas voltas um carro dará numa corrida? <br>
+    <input type="text" id="in_voltas">
+    <br><br>
+
+    <button onclick="corrida()">Iniciar corrida!</button>
+    <br><br>
+
+    <div id="div_resultado"></div>
+
+</body>
+
+</html>
+
+<script>
+    function corrida() {
+        var voltas = Number(in_voltas.value);
+
+        var i = 1;
+        while (i <= voltas) {
+            div_resultado.innerHTML += `Carro dando a ${i}ª volta <br>`
+            i++;
+
+        }
+
+        div_resultado.innerHTML += 'Corrida finalizada!';
+    }
+</script>
