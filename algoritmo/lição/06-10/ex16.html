@@ -5,13 +5,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercicio 05</title>
+    <title>Exercicio 16</title>
 </head>
 
 <body>
-    <h2>Exercicio 05</h2>
+    <h2>Exercicio 16</h2>
 
+    Digite a quantidade de Elefantes: <br>
+    <input type="text" id="in_elef">
+    <br><br>
 
+    <button onclick="atazanar()">Atazanar a médium</button>
+    <br><br>
+
+    <div id="div_resultado"></div>
 </body>
 
 </html>
+
+<script>
+    function atazanar() {
+        var elef = Number(in_elef.value);
+        var incomodam = "incomodam";
+
+        div_resultado.innerHTML = "";
+
+        var i = 1;
+        if (elef == 1) {
+            div_resultado.innerHTML += "1 elefante incomoda muita gente! <br>";
+        } else {
+            while (i < elef) {
+                div_resultado.innerHTML += "1 elefante incomoda muita gente! <br>";
+                incomodam += " ,incomodam"
+                div_resultado.innerHTML += `${i + 1} elefante ${incomodam} muito mais!<br>`;
+                i++
+
+            }
+        }
+    }
+</script>

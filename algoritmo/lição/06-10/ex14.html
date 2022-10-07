@@ -5,13 +5,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercicio 05</title>
+    <title>Exercicio 14</title>
 </head>
 
 <body>
-    <h2>Exercicio 05</h2>
+    <h2>Exercicio 14</h2>
 
+    De quantos em quantos dias você faz musculação? <br>
+    <input type="text" id="in_dias">
+    <br><br>
 
+    <button onclick="rotina()">Exibir rotina mensal</button>
+    <br><br>
+
+    <div id="div_resultado"></div>
 </body>
 
 </html>
+
+<script>
+    function rotina() {
+        var dias = Number(in_dias.value);
+        var i = 0;
+        var frase = "";
+
+
+        div_resultado.innerHTML = "";
+
+
+        while (i < 30) {
+            if (i % dias == 0) {
+                div_resultado.innerHTML += `${i + 1} mus<br>`;
+            } else {
+                div_resultado.innerHTML += `${i + 1} come<br>`;
+            }
+            i++;
+        }
+
+    }
+</script>

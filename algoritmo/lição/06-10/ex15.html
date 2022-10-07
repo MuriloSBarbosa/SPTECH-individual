@@ -5,13 +5,53 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercicio 05</title>
+    <title>Exercicio 15</title>
 </head>
 
 <body>
-    <h2>Exercicio 05</h2>
+    <h2>Exercicio 15</h2>
 
+    Digite sua idade: <br>
+    <input type="text" id="in_idade" onkeyup="fases()">
+    <br><br>
 
+    <div id="div_resultado"></div>
 </body>
 
 </html>
+
+<script>
+    function fases() {
+        var idade = Number(in_idade.value);
+        var frase = "";
+        div_resultado.innerHTML = "";
+
+        var i = 0;
+
+        while (i <= idade) {
+            var infancia = i >= 0 && i <= 4;
+            var pre_escolar = i > 4 && i <= 6;
+            var seg_infancia = i > 6 && i <= 10;
+            var adolesc = i > 10 && i <= 18;
+            var adulto = i > 18 && i <= 50;
+            var melhor = i > 50 && i <= 100;
+            if (infancia) {
+                frase = "Primeira Infância";
+            } else if (pre_escolar) {
+                frase = "Pré-escolar";
+            } else if (seg_infancia) {
+                frase = "Segunda Infância";
+            } else if (adolesc) {
+                frase = "Adolescência";
+            } else if (adulto) {
+                frase = "Adulto";
+            } else if (melhor) {
+                frase = "Melhor idade";
+            } else {
+                frase = "Matusalém";
+            }
+            div_resultado.innerHTML += `${i} anos (${frase}) <br>`
+            i++;
+        }
+    }
+</script>

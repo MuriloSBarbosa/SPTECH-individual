@@ -5,13 +5,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercicio 05</title>
+    <title>Exercicio 18</title>
 </head>
 
 <body>
-    <h2>Exercicio 05</h2>
+    <h2>Exercicio 18</h2>
 
+    Quantas pessoas vão entrar no carro? <br>
+    <input type="text" id="in_pessoas">
+    <br><br>
 
+    indique a capacidade de passageiros que o veículo suporta <br>
+    <input type="text" id="in_capacidade">
+    <br><br>
+
+    <button onclick="carona()">#Partiu Carona</button>
+    <br><br>
+
+    <div id="div_resultado"></div>
 </body>
 
 </html>
+<script>
+    function carona() {
+        var pessoas = Number(in_pessoas.value);
+        var capacidade = Number(in_capacidade.value);
+        var frase = "";
+        var i = 1;
+
+        div_resultado.innerHTML = "";
+
+        while (i <= pessoas) {
+            if (i == 1) {
+                frase = "Entrou o 1º passageiro (que é o(a) motorista) <br>"
+            } else if (i <= capacidade) {
+                frase += `Entrou o ${i}º passageiro <br>`
+            } else {
+                frase += `O ${i}º passageiro terá que esperar!<br>`
+            }
+
+            div_resultado.innerHTML = frase;
+
+
+            i++
+        }
+    }
+</script>
