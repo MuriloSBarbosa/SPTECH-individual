@@ -5,13 +5,78 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercicio 05</title>
+    <title>Exercicio 24</title>
 </head>
 
 <body>
-    <h2>Exercicio 05</h2>
+    <h2>Exercicio 24</h2>
 
+    Digite o primeiro valor para o intervalo <br>
+    <input type="text" id="in_n1">
+    <br><br>
 
+    Digite o segundo valor para o intervalo <br>
+    <input type="text" id="in_n2">
+    <br><br>
+
+    <button onclick="analisar()">Analisar</button>
+    <br><br>
+
+    <div id="div_resultado"></div>
 </body>
 
 </html>
+<script>
+    function analisar() {
+        var n1 = Number(in_n1.value);
+        var primeiro = n1;
+        var n2 = Number(in_n2.value);
+        var np = 0;
+        var divisivel = "";
+        div_resultado.innerHTML = "";
+
+        if (n1 <= 0 || n2 <= n1) {
+            if (n1 <= 0) {
+                alert("O primeiro valor tem que ser maior que zero")
+            }
+            if (n2 <= n1) {
+                alert("O segundo valor tem que ser maior que o primeiro")
+            }
+        } else {
+            while (n1 <= n2) {
+                var divPrimo = n1 % 3 == 0 || n1 % 5 == 0 || n1 % 7 == 0 || n1 % 11 == 0 || n1 % 13 == 0;
+                divisivel = "";
+                if (n1 % 2 == 0) {
+                    divisivel = `O número ${n1} é divisível por 2.`;
+                }
+                if (n1 % 3 == 0) {
+                    divisivel += ` O número ${n1} é divisível por 3.`;
+                }
+                if (n1 % 5 == 0) {
+                    divisivel += ` O número ${n1} é divisível por 5.`;
+                }
+                if (n1 % 7 == 0) {
+                    divisivel += ` O número ${n1} é divisível por 7.`;
+                }
+                if (n1 % 11 == 0) {
+                    divisivel += ` O número ${n1} é divisível por 11.`;
+                }
+                if (n1 % 13 == 0) {
+                    divisivel += ` O número ${n1} é divisível por 13.`;
+                }
+                if (divPrimo) {
+                    np++
+                } else {
+                    divisivel += ` O número ${n1} não é divisível pelos principais números primos.`
+                }
+
+                div_resultado.innerHTML += `${divisivel}<br>`
+                n1++;
+            }
+
+            div_resultado.innerHTML += `<br>O intervalo de ${primeiro} a ${n2} tem ${n2 - primeiro + 1} números, sendo que ${np} números são divisíveis por algum número primo.`
+
+        }
+
+    }
+</script>

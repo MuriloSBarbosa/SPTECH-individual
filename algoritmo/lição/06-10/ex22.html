@@ -5,13 +5,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercicio 05</title>
+    <title>Exercicio 22</title>
 </head>
 
 <body>
-    <h2>Exercicio 05</h2>
+    <h2>Exercicio 22</h2>
 
+    <button onclick="curto()">Curto 3 e 5!</button>
+    <br><br>
 
+    <div id="div_resultado"></div>
 </body>
 
 </html>
+<script>
+    function curto() {
+        var numero = "";
+        var tri = "";
+        var penta = "";
+        var i = 0;
+        
+        div_resultado.innerHTML = "";
+        
+        while (i <= 100) {
+            var ehtri = i % 3 == 0;
+            var ehpenta = i % 5 == 0;
+
+            numero = "";
+            tri = "";
+            penta = "";
+
+            if (ehtri) {
+                tri = "É TRI!";
+            }
+            if (ehpenta) {
+                penta = "É PENTA!";
+            }
+            if (!ehtri && !ehpenta) {
+                numero = i;
+            }
+            i++
+            div_resultado.innerHTML += `${numero}${tri}${penta} <br>`;
+
+        }
+
+    }
+</script>

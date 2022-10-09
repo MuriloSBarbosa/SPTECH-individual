@@ -5,13 +5,68 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercicio 05</title>
+    <title>Exercicio 23</title>
 </head>
 
 <body>
-    <h2>Exercicio 05</h2>
+    <h2>Exercicio 23</h2>
 
+    Qual o valor que você já tem guardado? <br>
+    <input type="text" id="in_guardado">
+    <br><br>
 
+    Qual o valor que será poupado a cada mês? <br>
+    <input type="text" id="in_poup">
+    <br><br>
+
+    Qual a quantidade de meses? <br>
+    <input type="text" id="in_meses">
+    <br><br>
+
+    <button onclick="poupar()">Vamos Poupar</button>
+    <br><br>
+
+    <div id="div_resultado"></div>
 </body>
 
 </html>
+<script>
+    function poupar() {
+        var saldoI = Number(in_guardado.value);
+        var comecou = saldoI;
+        var saldoF = 0;
+        var poup = Number(in_poup.value);
+        var meses = Number(in_meses.value);
+
+        var valid_mes = meses >= 6 && meses <= 20;
+        div_resultado.innerHTML = "";
+
+        if (poup <= 0 || !valid_mes) {
+            if (poup <= 0) {
+                alert("O valor Poupado tem que ser maior que zero!")
+            }
+
+            if (!valid_mes) {
+                alert("A quantidade de Meses tem que estar entre 6 a 20!")
+            }
+        } else {
+            var i = 1;
+            while (i <= meses) {
+                saldoF = saldoI + poup
+                div_resultado.innerHTML += `Marco tinha R$${saldoI}, depois do depósito do ${i}º mês ele ficou com R$${saldoF} <br>`;
+                saldoI = saldoF
+                i++
+            }
+            var poupou = poup * (i - 1);
+
+            div_resultado.innerHTML +=
+                `
+                <br>Você começou com R$${comecou} <br>
+                Durante os ${i - 1} meses você poupou R$${poupou} <br>
+                E agora você tem: R$${saldoF}  
+                `
+        }
+
+
+    }
+</script>

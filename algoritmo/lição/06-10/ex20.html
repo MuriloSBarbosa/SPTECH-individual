@@ -5,13 +5,83 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercicio 05</title>
+    <title>Exercicio 20</title>
 </head>
 
 <body>
-    <h2>Exercicio 05</h2>
+    <h2>Exercicio 20</h2>
 
+    Quantos ônibus você precisa pegar? <br>
+    <input type="text" id="in_bus">
+    <br><br>
+
+    Quantos trens você precisa pegar? <br>
+    <input type="text" id="in_trem">
+    <br><br>
+
+    Quantos metrôs você precisa pegar? <br>
+    <input type="text" id="in_metro">
+    <br><br>
+
+    <button onclick="partiu()">#Partiu Trajeto</button>
+    <br><br>
+
+
+    <div id="div_resultado"></div>
 
 </body>
 
 </html>
+
+<script>
+    function partiu() {
+        var bus = Number(in_bus.value);
+        var trem = Number(in_trem.value);
+        var metro = Number(in_metro.value);
+        var cansaco = "";
+        var frase = "";
+
+        var i = 0;
+        var b = 0;
+        var t = 0;
+        var m = 0;
+
+
+        while (b < bus) {
+            if (i == 1) {
+                cansaco = "- Começando a cansar"
+            }
+            if (i == 2) {
+                cansaco = "- Já cansado!"
+            }
+            frase += `<div style="color:red">Pegando o ${b + 1}º buzão${cansaco}<br></div>`
+            b++
+            i++
+        }
+        while (t < trem) {
+            if (i == 1) {
+                cansaco = "- Começando a cansar"
+            }
+            if (i == 2) {
+                cansaco = "- Já cansado!"
+            }
+            frase += `<div style="color:green">Pegando o ${t + 1}º trem${cansaco}<br></div>`
+            t++
+            i++
+
+        }
+        while (m < metro) {
+            if (i == 1) {
+                cansaco = "- Começando a cansar"
+            }
+            if (i == 2) {
+                cansaco = "- Já cansado!"
+            }
+            frase += `<div style="color:blue">Pegando o ${m + 1}º metro${cansaco}<br></div>`
+            m++
+            i++
+        }
+
+        div_resultado.innerHTML = frase;
+    }
+</script>       

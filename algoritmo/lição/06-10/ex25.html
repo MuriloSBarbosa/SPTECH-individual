@@ -5,13 +5,82 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercicio 05</title>
+    <title>Exercicio 25</title>
 </head>
 
 <body>
-    <h2>Exercicio 05</h2>
+    <h2>Exercicio 25</h2>
 
+    Qual o valor que você já tem guardado? <br>
+    <input type="text" id="in_guardado">
+    <br><br>
 
+    Qual o valor que será poupado a cada mês? <br>
+    <input type="text" id="in_poup">
+    <br><br>
+
+    Qual a quantidade de meses? <br>
+    <input type="text" id="in_meses">
+    <br><br>
+
+    Qual o percentual de juros mensal? <br>
+    <input type="text" id="in_juros">
+    <br><br>
+
+    <button onclick="poupar()">Vamos Poupar</button>
+    <br><br>
+
+    <div id="div_resultado"></div>
 </body>
 
 </html>
+<script>
+    function poupar() {
+        var saldoI = Number(in_guardado.value);
+        var comecou = saldoI;
+        var saldoF = 0;
+        var poup = Number(in_poup.value);
+        var meses = Number(in_meses.value);
+        var juros = Number(in_juros.value);
+
+        div_resultado.innerHTML = "";
+
+        if (poup <= 0 || meses <= 10 || juros < 0.5 || juros > 2) {
+            if (poup <= 0) {
+                alert("O valor Poupado tem que ser maior que zero!")
+            }
+
+            if (meses <= 10) {
+                alert("A quantidade de Meses tem que ser maior que 10")
+            }
+            if (juros < 0.5 || juros > 2) {
+                alert("Percentual de juros tem que estar entre meio e dois")
+            }
+        } else {
+            var i = 1;
+            while (i <= meses) {
+
+                calc_juros = (saldoI * juros) / 100
+                saldoF = saldoI + calc_juros + poup;
+
+                div_resultado.innerHTML += `Mês ${i} - saldo inicial = R$${saldoI.toFixed(2)} saldo final = R$${saldoF.toFixed(2)} <br>`;
+                saldoI = saldoF;
+                i++
+            }
+
+            var depositou = poup * (i - 1);
+            var rendeu = calc_juros * (i - 1);
+            var rentabilidade = (rendeu / (depositou + comecou)) * 100;
+            div_resultado.innerHTML +=
+                `
+                <br>Você começou com R$${comecou.toFixed(2)} <br>
+                Depositou: R$${depositou.toFixed(2)} <br>
+                E agora você tem: R$${saldoF.toFixed(2)} <br>  
+                Neste período sua conta rendeu R$${rendeu.toFixed(2)} <br>
+                Sua rentabilidade foi de ${rentabilidade.toFixed(2)}% 
+                `
+        }
+
+
+    }
+</script>

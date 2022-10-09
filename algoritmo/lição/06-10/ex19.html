@@ -5,13 +5,57 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercicio 05</title>
+    <title>Exercicio 19</title>
 </head>
 
 <body>
-    <h2>Exercicio 05</h2>
+    <h2>Exercicio 19</h2>
 
+    Quantos ônibus você precisa pegar? <br>
+    <input type="text" id="in_bus">
+    <br><br>
+
+    Quantos trens você precisa pegar? <br>
+    <input type="text" id="in_trem">
+    <br><br>
+
+    Quantos metrôs você precisa pegar? <br>
+    <input type="text" id="in_metro">
+    <br><br>
+
+    <button onclick="partiu()">#Partiu Trajeto</button>
+    <br><br>
+
+
+    <div id="div_resultado"></div>
 
 </body>
 
 </html>
+
+<script>
+    function partiu() {
+        var bus = Number(in_bus.value);
+        var trem = Number(in_trem.value);
+        var metro = Number(in_metro.value);
+
+        var frase = "";
+
+        var i = 1;
+        while (i <= bus) {
+            frase += `<div style="color:red">Pegando o ${i}º buzão</div><br>`
+            i++;
+        }
+        i = 1;
+        while (i <= trem) {
+            frase += `<div style="color:green">Pegando o ${i}º trem</div><br>`
+            i++;
+        }
+        i = 1;
+        while (i <= metro) {
+            frase += `<div style="color:blue">Pegando o ${i}º metrô</div><br>`
+            i++;
+        }
+        div_resultado.innerHTML = frase;
+    }
+</script>
