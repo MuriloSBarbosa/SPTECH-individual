@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    receita ano <br>
+    <input type="text" id="in_receita">
+    <br><br>
+
+    qtdRack <br>
+    <input type="text" id="in_rack">
+    <br><br>
+
+    tempo downtime <br>
+    <input type="text" id="in_tempo">
+    <br><br>
+
+    <button onclick="funcao()">buton</button>
+    <br><br>
+
+    <div id="div_resultado"></div>
+
+</body>
+
+</html>
+
+<script>
+    function funcao() {
+        div_resultado.innerHTML = "";
+
+        var inativoAno = Number(in_tempo.value);
+        var inativoMes = inativoAno / 12;
+
+        var rack = Number(in_rack.value);
+
+        var receitaAno = Number(in_receita.value);
+        var receitaHora = ((receitaAno / 12) / 30) / 24;
+
+        var prejuizoAno = inativoAno * receitaHora;
+        var prejuizoMes = inativoMes * receitaHora;
+
+        var instalacao = rack * 300;
+        var mensal = 600;
+        var pacoteano = 600 * 12;
+        var mes1 = instalacao + mensal;
+
+        var economiames1 = prejuizoMes - (mes1 + instalacao);
+        var economiameses = prejuizoMes - mensal;
+        var economiaano = prejuizoAno - pacoteano;
+
+
+        div_resultado.innerHTML = 
+        `
+        Prejuizo mes: ${prejuizoMes.toFixed(2)}<br>
+        Prejuizo ano: ${prejuizoAno.toFixed(2)}<br><br>
+        instalacao: ${instalacao.toFixed(2)}<br>
+        pacoteano: ${pacoteano.toFixed(2)}<br><br>
+        economia mes 1: ${economiames1.toFixed(2)}<br>
+        economia meses: ${economiameses.toFixed(2)}<br>
+        economia ano: ${economiaano.toFixed(2)}<br>
+        `
+    }
+
+</script>
