@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova 1</title>
+</head>
+
+<body>
+    <h1>Quisque Mirosmar - Controle de Vendas</h1>
+    <h2>------------------Abertura do Quiosque----------------</h2>
+
+    Entre com a quantidade de água engarrafada no estoque:
+    <input type="text" id="in_qtdaguaEngarrafada">
+    <br><br>
+
+    Entre com a quantidade de coco fechado no estoque
+    <input type="text" id="in_qtdCoco">
+    <br><br>
+
+    <button onclick="quiosque()">Abrir quiosque</button>
+    <br>
+
+    <h2>------------------Estoque Inicial----------------</h2>
+    Água engarrafada: <span id="spn_agua"></span> <br>
+    Coco fechado: <span id="spn_coco"></span>
+    <br>
+
+    <h2>------------Registro das Operações de Venda------------</h2>
+    Entre com a quantidade vendida:
+    <input type="text" id="in_qtdVendida">
+    <br><br>
+    Informe o produto vendido:
+    <select id="sel_produtoVendido">
+        <option value="Água engarrafada">Água engarrafada</option>
+        <option value="Coco fechado">Coco fechado</option>
+    </select>
+    <br><br>
+    <button onclick="registrar_venda()">Registrar Venda</button>
+    <button style="background-color:red; margin-left: 20px;" onclick="encerrar_turno()">Encerrar o turno</button>
+    <br><br>
+    <div id="div_registroVenda"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    var aguaEngarrafada = 0;
+    var coco = 0;
+
+    var aguaVendida = 0;
+    var cocoVendido = 0;
+
+    function quiosque() {
+
+        //Só para limpar
+        div_registroVenda.innerHTML = "";
+        spn_agua.innerHTML = "";
+        spn_coco.innerHTML = "";
+
+
+
+        aguaEngarrafada = Number(in_qtdaguaEngarrafada.value);
+        coco = Number(in_qtdCoco.value);
+
+        if (aguaEngarrafada < 100 || coco < 200) {
+            //a1
+            if (aguaEngarrafada < 100) {
+                alert("Com essa quantidade de Água engarrafada não dá para abrir o quiosque");
+            }
+            //a2
+            else {
+                alert("Com essa quantidade de Coco fechado não dá para abrir o quiosque");
+            }
+            //a3
+        } else if (aguaEngarrafada >= 100 && aguaEngarrafada <= 1000) {
+            alert("Engarrafe mais água de coco");
+            //a4
+            if (coco >= 200 && coco <= 2000) {
+                alert("Compre mais cocos");
+            }
+        } else {
+            //b
+            spn_agua.innerHTML = `<b>${aguaEngarrafada}</b>`;
+            spn_coco.innerHTML = `<b>${coco}</b>`;
+        }
+    }
+
+    function registrar_venda() {
+        //C
+        var qtdVendida = Number(in_qtdVendida.value)
+        var produtoVendido = sel_produtoVendido.value;
+        var saldoEstoque = 0;
+
+        if (produtoVendido == "Água engarrafada") {
+            saldoEstoque = aguaEngarrafada - qtdVendida;
+            aguaEngarrafada = saldoEstoque;
+            aguaVendida += qtdVendida;
+        } else {
+            saldoEstoque = coco - qtdVendida;
+            coco = saldoEstoque;
+            cocoVendido += qtdVendida;
+
+        }
+        //C1
+        div_registroVenda.innerHTML += `Com a venda de ${qtdVendida} de ${produtoVendido} o saldo no estoque é de ${saldoEstoque} <br>`
+    }
+
+    function encerrar_turno() {
+        //d
+
+        var qtdVendaTotal = aguaVendida + cocoVendido;
+
+        //d1 e d2
+        div_registroVenda.innerHTML =
+
+            `
+        Vendas de Água engarrafada <br>
+
+        Saldo de produto no estoque: ${aguaEngarrafada} <br>
+
+        Quantidade de vendas: ${aguaVendida} <br>
+
+        Porcentagem das vendas: ${((aguaVendida / qtdVendaTotal) * 100).toFixed(2)}% <br> <br>
+
+
+        Vendas de Coco fechado <br>
+
+        Saldo de produto no estoque: ${coco} <br>
+
+        Quantidade de vendas: ${cocoVendido} <br>
+
+        Porcentagem das vendas:${((cocoVendido / qtdVendaTotal) * 100).toFixed(2)}%<br>
+
+
+        `
+
+    }
+</script>
