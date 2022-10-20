@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 03</title>
+</head>
+
+<body>
+    <h2>Exercicio 03</h2>
+    Digite o limite superior da amostragem <br>
+    <input type="text" id="in_limiteSup">
+    <br><br>
+    <button onclick="contar()">Contar</button>
+    <br><br>
+    <div id="div_resultado"></div>
+
+</body>
+
+</html>
+<script>
+    function contar() {
+        div_resultado.innerHTML = "";
+
+        var limiteSup = Number(in_limiteSup.value);
+
+        if (limiteSup >= 100) {
+            alert("Esse número que ser menor que 100");
+        } else {
+            for (var contador = 5; contador <= limiteSup; contador++) {
+                if (contador % 5 == 0) {
+                    div_resultado.innerHTML += `${contador} <br>`;
+                }
+            }
+        }
+    }
+</script>

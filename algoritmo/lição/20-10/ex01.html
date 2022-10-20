@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 01</title>
+</head>
+
+<body>
+    <h2>Exercicio 01</h2>
+
+    <button onclick="dizer_algo()">Diga algo sobre a quarentena</button>
+    <br><br>
+    <div id="div_resultado"></div>
+
+</body>
+
+</html>
+<script>
+    function dizer_algo() {
+        div_resultado.innerHTML = "";
+        for (var contador = 0; contador < 7; contador++) {
+            div_resultado.innerHTML += "Vá usar máscara! <br>"
+        }
+    }
+</script>

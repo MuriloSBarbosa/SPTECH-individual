@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina 24</title>
+</head>
+
+<body>
+
+    <h2>Repetindo mantras</h2>
+
+    <button onclick="repetir5()">Repetir 5x</button>
+    <br> <br>
+
+    <input placeholder="repetições" id="in_repeticoes">
+    <button onclick="repetir()">Repetir N vezes</button>
+
+    <div id="div_repeticoes"></div>
+</body>
+
+</html>
+
+<script>
+    function repetir5() {
+        div_repeticoes.innerHTML = "";
+
+        for (var contador = 0; contador < 5; contador++) {
+            div_repeticoes.innerHTML += "Foco, força e fé <br>";
+        }
+    }
+
+    function repetir() {
+        div_repeticoes.innerHTML = "";
+
+        var repetir = Number(in_repeticoes.value);
+
+        for (var contador = 0; contador < repetir; contador++) {
+            div_repeticoes.innerHTML += `${contador + 1}: Foco, força e fé <br>`;
+        }
+    }
+
+</script>

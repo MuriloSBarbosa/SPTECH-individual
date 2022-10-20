@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina 25</title>
+</head>
+
+<body>
+    <h2>Numeros aleatórios</h2>
+
+    <button onclick="sorteio_padrao()">De 0 até menos que 1</button>
+    <br> <br>
+    <button onclick="sorteio_ate100()">De 0 até menos que 100</button>
+    <br> <br>
+    <button onclick="sorteio_1ate10()">De 1 até menos que 10</button>
+    <br> <br>
+    <button onclick="sorteio_inteiro_1ate10()">Inteiro de 1 até 10</button>
+    <br> <br>
+    <button onclick="sorteio_inteiro_1ate6()">Dadinho: Inteiro de 1 até 6</button>
+
+</body>
+
+</html>
+<script>
+    function sorteio_padrao() {
+        var sorteado = Math.random();
+        alert(`Sorteado: ${sorteado}`)
+    }
+
+    function sorteio_ate100() {
+        var sorteado = Math.random() * 100;
+        alert(`Sorteado: ${sorteado}`)
+    }
+
+    function sorteio_1ate10() {
+        var sorteado = 1 + Math.random() * 9;
+        alert(`Sorteado: ${sorteado}`)
+    }
+
+    function sorteio_inteiro_1ate10() {
+        var sorteado = parseInt(1 + Math.random() * 10);
+        alert(`Sorteado: ${sorteado}`)
+    }
+
+    function sorteio_inteiro_1ate6() {
+        var sorteado = parseInt(1 + Math.random() * 6);
+        alert(`Sorteado: ${sorteado}`)
+    } 
+</script>

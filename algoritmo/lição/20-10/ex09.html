@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 09</title>
+</head>
+
+<body>
+    <h2>Exercicio 09</h2>
+
+    Digite quantas xícaras de café com leite você já tomou na vida <br>
+    <input type="text" id="in_qtdCafe">
+    <br><br>
+
+    <button onclick="ver_qtd()">Ver a quantidade</button>
+    <br><br>
+
+    <div id="div_resultado"></div>
+</body>
+
+</html>
+<script>
+    function ver_qtd() {
+        div_resultado.innerHTML = ""
+        var qtdCafe = Number(in_qtdCafe.value);
+
+        for (var contador = 1; contador <= qtdCafe; contador++) {
+            for (var cafe = 0; cafe < 2; cafe++) {
+                div_resultado.innerHTML += `<img src="https://cdn.w600.comps.canstockphoto.com.br/colher-caf%C3%A9-banco-de-imagens_csp1241690.jpg" height="50px">`
+            }
+            div_resultado.innerHTML += `<img src="https://bolosparavender.com.br/wp-content/uploads/2020/08/fazer-bolo-com-leite-em-po-da-certo-como-fazer.jpg" height="50px">`
+
+        }
+    }
+</script>
