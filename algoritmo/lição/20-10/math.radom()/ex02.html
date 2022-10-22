@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 02</title>
+</head>
+
+<body>
+    <h2>Exercicio 02</h2>
+
+    <button onclick="Sortear_time()">Sortear Time</button>
+    <br><br>
+
+    <img src="" alt="" id="img_time" height="150px">
+</body>
+
+</html>
+
+<script>
+    function Sortear_time() {
+        var sorteio = 1 + parseInt(Math.random() * (4 + 1 - 1));
+
+        img_time.src = sorteio;
+
+        if (sorteio == 1) {
+            img_time.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Santos_logo.svg/1200px-Santos_logo.svg.png";
+        } else if (sorteio == 2) {
+            img_time.src = "https://a.espncdn.com/combiner/i?img=/i/teamlogos/soccer/500/2026.png";
+        }  else if (sorteio == 3) {
+            img_time.src = "https://upload.wikimedia.org/wikipedia/pt/b/b4/Corinthians_simbolo.png";
+        } else {
+            img_time.src = "https://a.espncdn.com/i/teamlogos/soccer/500/2029.png";
+        }
+    }
+</script>

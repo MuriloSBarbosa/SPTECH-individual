@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 13</title>
+</head>
+
+<body>
+    <h2>Exercicio 13</h2>
+
+    <button onclick="Avaliar()">Avaliar</button>
+    <br><br>
+    <div id="div_nota"></div>
+    <br><br>
+    <img src="" alt="" id="img_emoji" height="150px">
+</body>
+
+</html>
+
+<script>
+    function Avaliar() {
+        var nota = Math.random() * (5 + 1);
+
+        if(nota > 5){
+            nota = parseInt(nota);
+        }
+        div_nota.innerHTML= `Nota recebida: ${nota.toFixed(1)}`;
+
+        if (nota >= 0 && nota <= 0.5) {
+            img_emoji.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmqIhnciAX_SUDMkSk54Ir56f2HVCvbqpRm81-lu0m&s";
+        } else if (nota > 0.5 && nota <= 1.5) {
+            img_emoji.src = "https://images.emojiterra.com/google/android-oreo/512px/1f615.png";
+        } else if (nota > 1.5 && nota <= 3.5) {
+            img_emoji.src = "http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/unamused-face.png";
+        } else if (nota > 3.5 && nota <= 4.5) {
+            img_emoji.src = "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/81/slightly-smiling-face_1f642.png";
+        } else {
+            img_emoji.src = "https://as2.ftcdn.net/v2/jpg/04/03/36/27/1000_F_403362753_rM1TZdBkvxEVpGeS0EpVE94fum83WgTE.jpg";
+        }
+    }
+</script>

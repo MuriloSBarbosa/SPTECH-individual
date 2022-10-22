@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 17</title>
+</head>
+
+<body>
+    <h2>Exercicio 17</h2>
+
+    Números pares: <span id="spn_par">0</span><br>
+    Números ímpares: <span id="spn_impar">0</span>
+    <br><br>
+    <button onclick="Sortear_número()">Sortear número</button>
+    <br><br>
+    <div id="div_numeroSorteado"></div>
+
+</body>
+
+</html>
+
+<script>
+    var par = 0;
+    var impar = 0;
+
+    function Sortear_número() {
+        var sorteado = parseInt(-30 - 1 + Math.random() * (-9 + 1 + 30));
+
+        if (sorteado % 2 == 0) {
+            par++;
+        } else {
+            impar++;
+        }
+
+        div_numeroSorteado.innerHTML = sorteado;
+        spn_par.innerHTML = par;
+        spn_impar.innerHTML = impar;
+    }
+</script>

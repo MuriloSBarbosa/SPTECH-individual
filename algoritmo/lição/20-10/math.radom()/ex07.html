@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 07</title>
+</head>
+
+<body>
+    <h2>Exercicio 07</h2>
+
+    <button onclick="sortear_cabalistico()">Quero um cabalístico</button>
+    <br><br>
+    <div id="div_resultado"></div>
+
+</body>
+
+</html>
+
+<script>
+    function sortear_cabalistico() {
+        var sorteio = 1 + parseInt(Math.random() * (15 + 1 - 1));
+        var frase = "";
+
+        if (sorteio == 3 || sorteio == 4 || sorteio == 7 || sorteio == 10 || sorteio == 12) {
+            frase = "Eu S2 números cabalísticos!"
+        } else {
+            frase = "Ah, me dá um número bom na próxima!";
+        }
+
+        div_resultado.innerHTML = frase;
+    }
+</script>

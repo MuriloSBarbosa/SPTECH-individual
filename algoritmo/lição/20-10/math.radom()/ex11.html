@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 11</title>
+</head>
+
+<body>
+    <h2>Exercicio 11</h2>
+
+    <button onclick="jogar()">Jogar</button>
+
+    <br><br>
+    <div class="jogadores" style="display:flex; grid-gap: 40px;">
+        <div id="div_jogador1">
+        </div>
+        <div id="div_jogador2">
+            <img src="" id="img_jokenpo" alt="" height="200px">
+        </div>
+    </div>
+    <br><br>
+    <div id="div_resultado"></div>
+
+</body>
+
+</html>
+<script>
+    function jogar() {
+        var jogador1_sorteio = 1 + parseInt(Math.random() * (3 + 1 - 1));
+        var jogador2_sorteio = 1 + parseInt(Math.random() * (3 + 1 - 1));
+
+        var jogador1_jokenpo = "";
+        var jogador2_jokenpo = "";
+
+        //Pedra
+        if (jogador1_sorteio == 1) {
+            jogador1_jokenpo = "https://cdn.awsli.com.br/1634/1634422/produto/81748105/da9befcc58.jpg"
+        }
+        if (jogador2_sorteio == 1) {
+            jogador2_jokenpo = "https://cdn.awsli.com.br/1634/1634422/produto/81748105/da9befcc58.jpg"
+        }
+        //Papel
+        if (jogador1_sorteio == 2) {
+            jogador1_jokenpo = "https://img.freepik.com/fotos-gratis/vista-do-papel-amarrotado-branco_1194-7544.jpg?w=2000"
+        }
+        if (jogador2_sorteio == 2) {
+            jogador2_jokenpo = "https://img.freepik.com/fotos-gratis/vista-do-papel-amarrotado-branco_1194-7544.jpg?w=2000"
+        }
+        //Tesoura
+        if (jogador1_sorteio == 3) {
+            jogador1_jokenpo = "https://34495.cdn.simplo7.net/static/34495/sku/acessorios-para-costura-tesouras-e-alicates-tesoura-stainless-steel-scissors-6-5-ut66-17-5cm--p-1619810854179.png"
+        }
+        if (jogador2_sorteio == 3) {
+            jogador2_jokenpo = "https://34495.cdn.simplo7.net/static/34495/sku/acessorios-para-costura-tesouras-e-alicates-tesoura-stainless-steel-scissors-6-5-ut66-17-5cm--p-1619810854179.png"
+        }
+
+
+        div_jogador1.innerHTML = `<h2>Jogador 1</h2> <img src="${jogador1_jokenpo}" alt="" height="200px">`;
+        div_jogador2.innerHTML = `<h2>Jogador 2</h2> <img src="${jogador2_jokenpo}" alt="" height="200px">`;
+
+        var frase = "";
+        var jogador = 0;
+
+        if ((jogador1_sorteio == 1 && jogador2_sorteio == 3) || (jogador2_sorteio == 1 && jogador1_sorteio == 3)) {
+            if (jogador1_sorteio == 1) {
+                jogador = "1";
+            } else {
+                jogador = "2";
+            }
+            frase = `Jogador ${jogador} venceu porque Pedra quebra a tesoura`;
+        } else if ((jogador1_sorteio == 2 && jogador2_sorteio == 1) || (jogador2_sorteio == 2 && jogador1_sorteio == 1)) {
+            if (jogador1_sorteio == 2) {
+                jogador = "1";
+            } else {
+                jogador = "2";
+            }
+            frase = `Jogador ${jogador} venceu porque Papel cobre a pedra`;
+        } else if ((jogador1_sorteio == 3 && jogador2_sorteio == 2) || (jogador2_sorteio == 3 && jogador1_sorteio == 2)) {
+            if (jogador1_sorteio == 3) {
+                jogador = "1";
+            } else {
+                jogador = "2";
+            }
+            frase = `Jogador ${jogador} venceu porque Tesoura corta o papel`;
+        } else {
+            frase = `EMPATE! Jogue novamente!`;
+        }
+
+        div_resultado.innerHTML = frase;
+    }
+
+</script>

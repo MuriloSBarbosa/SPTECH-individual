@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 10</title>
+</head>
+
+<body>
+    <h2>Exercicio 10</h2>
+    <div class="dados" style="display:flex; grid-gap: 40px;">
+        <div class="dado">
+            <button onclick="jogar_dado1()">Jogador 1 jogar dadinho</button> <br><br>
+            <img src="" alt="" id="img_jogador1_dado" height="150px"> <br><br>
+        </div>
+
+        <div class="dado">
+            <button onclick="jogar_dado2()">Jogador 2 jogar dadinho</button> <br><br>
+            <img src="" alt="" id="img_jogador2_dado" height="150px">
+        </div>
+    </div>
+
+    <div id="div_resultado"></div>
+
+</body>
+
+</html>
+
+<script>
+    var jogador1_dado = 0;
+
+    function jogar_dado1() {
+        div_resultado.innerHTML = "";
+
+        jogador1_dado = 1 + parseInt(Math.random() * (6 + 1 - 1));
+
+        if (jogador1_dado == 1) {
+            img_jogador1_dado.src = "https://images.vectorhq.com/images/previews/27e/dado-1-138329.png";
+        } else if (jogador1_dado == 2) {
+            img_jogador1_dado.src = "https://png.vector.me/files/images/3/2/323094/dado_2_preview";
+        } else if (jogador1_dado == 3) {
+            img_jogador1_dado.src = "https://png.vector.me/files/images/3/2/323091/dado_3_preview";
+        } else if (jogador1_dado == 4) {
+            img_jogador1_dado.src = "https://openclipart.org/image/800px/96097";
+        } else if (jogador1_dado == 5) {
+            img_jogador1_dado.src = "http://www.i2clipart.com/cliparts/2/3/3/b/clipart-dado-5-256x256-233b.png";
+        } else {
+            img_jogador1_dado.src = "https://png.vector.me/files/images/3/2/323082/dado_6_preview";
+        }
+    }
+
+    function jogar_dado2() {
+        var jogador2_dado = 1 + parseInt(Math.random() * (6 + 1 - 1));
+
+        if (jogador2_dado == 1) {
+            img_jogador2_dado.src = "https://images.vectorhq.com/images/previews/27e/dado-1-138329.png";
+        } else if (jogador2_dado == 2) {
+            img_jogador2_dado.src = "https://png.vector.me/files/images/3/2/323094/dado_2_preview";
+        } else if (jogador2_dado == 3) {
+            img_jogador2_dado.src = "https://png.vector.me/files/images/3/2/323091/dado_3_preview";
+        } else if (jogador2_dado == 4) {
+            img_jogador2_dado.src = "https://openclipart.org/image/800px/96097";
+        } else if (jogador2_dado == 5) {
+            img_jogador2_dado.src = "http://www.i2clipart.com/cliparts/2/3/3/b/clipart-dado-5-256x256-233b.png";
+        } else {
+            img_jogador2_dado.src = "https://png.vector.me/files/images/3/2/323082/dado_6_preview";
+        }
+
+        var frase = "";
+        if(jogador1_dado > jogador2_dado) {
+            frase = "Jogador 1 venceu";
+        } else if (jogador1_dado < jogador2_dado) {
+            frase = "Jogador 2 venceu";
+        } else{
+            frase = "Empate!";
+        }
+
+        div_resultado.innerHTML = frase;
+    }
+</script>

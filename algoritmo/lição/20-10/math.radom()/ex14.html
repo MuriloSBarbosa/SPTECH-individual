@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 14</title>
+</head>
+
+<body>
+    <h2>Exercicio 14</h2>
+
+    <button onclick="Avaliar()">Avaliar</button>
+    <br><br>
+    <button onclick="Equipe()">Equipe</button>
+    <br><br>
+    <div id="div_nota"></div>
+    <br><br>
+    <img src="" alt="" id="img_emoji_nota" height="150px">
+    <br><br>
+    <div id="div_media"></div>
+    <br><br>
+    <img src="" alt="" id="img_emoji_media" height="150px">
+
+</body>
+
+</html>
+
+<script>
+    var termos = 0;
+    var qtdTermos = 0;
+
+    function Avaliar() {
+        var nota = Math.random() * (5 + 1);
+
+        termos += nota;
+        qtdTermos++
+
+        if (nota > 5) {
+            nota = parseInt(nota);
+        }
+        div_nota.innerHTML = `Nota recebida: ${nota.toFixed(1)}`;
+
+        if (nota >= 0 && nota <= 0.5) {
+            img_emoji_nota.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmqIhnciAX_SUDMkSk54Ir56f2HVCvbqpRm81-lu0m&s";
+        } else if (nota > 0.5 && nota <= 1.5) {
+            img_emoji_nota.src = "https://images.emojiterra.com/google/android-oreo/512px/1f615.png";
+        } else if (nota > 1.5 && nota <= 3.5) {
+            img_emoji_nota.src = "http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/unamused-face.png";
+        } else if (nota > 3.5 && nota <= 4.5) {
+            img_emoji_nota.src = "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/81/slightly-smiling-face_1f642.png";
+        } else {
+            img_emoji_nota.src = "https://as2.ftcdn.net/v2/jpg/04/03/36/27/1000_F_403362753_rM1TZdBkvxEVpGeS0EpVE94fum83WgTE.jpg";
+        }
+    }
+
+    function Equipe() {
+        var media = termos / qtdTermos
+        div_media.innerHTML = `Média geral:  ${media.toFixed(1)}`;
+
+        if (media >= 0 && media <= 0.5) {
+            img_emoji_media.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmqIhnciAX_SUDMkSk54Ir56f2HVCvbqpRm81-lu0m&s";
+        } else if (media > 0.5 && media <= 1.5) {
+            img_emoji_media.src = "https://images.emojiterra.com/google/android-oreo/512px/1f615.png";
+        } else if (media > 1.5 && media <= 3.5) {
+            img_emoji_media.src = "http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/unamused-face.png";
+        } else if (media > 3.5 && media <= 4.5) {
+            img_emoji_media.src = "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/81/slightly-smiling-face_1f642.png";
+        } else {
+            img_emoji_media.src = "https://as2.ftcdn.net/v2/jpg/04/03/36/27/1000_F_403362753_rM1TZdBkvxEVpGeS0EpVE94fum83WgTE.jpg";
+        }
+    }
+</script>

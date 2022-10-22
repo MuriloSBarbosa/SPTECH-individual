@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 15</title>
+</head>
+
+<body>
+    <h2>Exercicio 15</h2>
+
+    <button onclick="Sortear_temperatura()">Sortear temperatura</button>
+    <br><br>
+    <div id="div_temperatura"></div>
+    <br><br>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+
+<script>
+    function Sortear_temperatura() {
+        var temperatura = -20 + Math.random() * (20 + 1 - -20);
+        var frase = "";
+
+        if (temperatura < -20 || temperatura > 20) {
+            temperatura = parseInt(temperatura);
+        }
+
+        div_temperatura.innerHTML = `Temperatura sorteada: ${temperatura.toFixed(1)}`;
+
+        if (temperatura < 1) {
+            frase = "Dá pra conservar qualquer alimento";
+        } else if (temperatura >= 1 && temperatura <= 10) {
+            frase = "Conserva a maioria dos alimentos";
+        } else {
+            frase = "Estraga a maioria dos alimentos";
+        }
+        div_mensagem.innerHTML = frase;
+    }
+</script>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 19</title>
+</head>
+
+<body>
+    <h2>Exercicio 19</h2>
+
+    Digite seu nome: <br>
+    <input type="text" id="in_nome">
+    <br><br>
+
+    Digite seu 1º número inteiro da sorte. Esse número deve ser entre 1 e 10: <br>
+    <input type="text" id="in_numeroSorte1">
+    <br><br>
+
+    Digite seu 2º número inteiro da sorte. Esse número deve ser entre 1 e 10: <br>
+    <input type="text" id="in_numeroSorte2">
+    <br><br>
+
+    Digite seu 3º número inteiro da sorte. Esse número deve ser entre 1 e 10: <br>
+    <input type="text" id="in_numeroSorte3">
+    <br><br>
+
+    <button onclick="Sortear()">Sortear</button>
+    <br><br>
+
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+
+<script>
+    var par = 0;
+    var impar = 0;
+
+    function Sortear() {
+        var nome = in_nome.value;
+        var numeroSorte1 = Number(in_numeroSorte1.value);
+        var numeroSorte2 = Number(in_numeroSorte2.value);
+        var numeroSorte3 = Number(in_numeroSorte3.value);
+
+        var invalido = numeroSorte1 < 1 || numeroSorte1 > 10 || numeroSorte2 < 1 || numeroSorte2 > 10 || numeroSorte3 < 1 || numeroSorte3 > 10;
+
+        if (invalido) {
+            alert("Seus números inteiro da sorte devem estar entre 1 e 10");
+        } else {
+            var qtdSorteio = 0;
+
+            for (var numeroSorteado = 0; !(numeroSorteado == numeroSorte1 || numeroSorteado == numeroSorte2 || numeroSorteado == numeroSorte3); numeroSorteado = parseInt(1 + Math.random() * (10 + 1 - 1))) {
+                qtdSorteio++;
+            }
+            div_mensagem.innerHTML = `Parabéns, ${nome} o seu número da sorte ${numeroSorteado} foi sorteado após ${qtdSorteio} sorteios!`
+        }
+    }
+</script>

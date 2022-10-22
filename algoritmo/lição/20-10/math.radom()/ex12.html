@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 12</title>
+</head>
+
+<body>
+    <h2>Exercicio 12</h2>
+
+    Digite seu número da sorte, entre 0 e 100. <br>
+    <input type="text" id="in_numSorte">
+    <br><br>
+    <button onclick="numero_sorte()">Valendo!</button>
+    <br><br>
+    <div id="div_resultado"></div>
+
+</body>
+
+</html>
+
+<script>
+    function numero_sorte() {
+        var numSorte = Number(in_numSorte.value);
+
+        var qtdSorteio = 0;
+        for (var i = -1; i != numSorte; i = parseInt(Math.random() * (100 + 1))) {
+            qtdSorteio++
+        }
+
+        div_resultado.innerHTML = `Foram necessários ${qtdSorteio} sorteios`;
+    }
+</script>

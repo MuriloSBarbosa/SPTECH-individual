@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 03</title>
+</head>
+
+<body>
+    <h2>Exercicio 03</h2>
+
+    <button onclick="jogar_dado()">Jogar dado</button>
+    <br><br>
+
+    <img src="" alt="" id="img_dado" height="150px">
+</body>
+
+</html>
+
+<script>
+    function jogar_dado() {
+        var sorteio = 1 + parseInt(Math.random() * (6 + 1 - 1));
+
+        if (sorteio == 1) {
+            img_dado.src = "https://images.vectorhq.com/images/previews/27e/dado-1-138329.png";
+        } else if (sorteio == 2) {
+            img_dado.src = "https://png.vector.me/files/images/3/2/323094/dado_2_preview";
+        } else if (sorteio == 3) {
+            img_dado.src = "https://png.vector.me/files/images/3/2/323091/dado_3_preview";
+        } else if (sorteio == 4) {
+            img_dado.src = "https://openclipart.org/image/800px/96097";
+        } else if (sorteio == 5) {
+            img_dado.src = "http://www.i2clipart.com/cliparts/2/3/3/b/clipart-dado-5-256x256-233b.png";
+        } else {
+            img_dado.src = "https://png.vector.me/files/images/3/2/323082/dado_6_preview";
+        }
+    }
+</script>

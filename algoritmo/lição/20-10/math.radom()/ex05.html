@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 05</title>
+</head>
+
+<body>
+    <h2>Exercicio 05</h2>
+
+    <button onclick="jogar()">Jogar</button>
+    <br><br>
+
+    <img src="" id="img_jokenpo" alt="" height="200px">
+
+</body>
+
+</html>
+<script>
+    function jogar() {
+        var sorteio = 1 + parseInt(Math.random() * (3 + 1 - 1));
+        var jokenpo = "";
+
+        if (sorteio == 1) {
+            //Pedra
+            jokenpo = "https://cdn.awsli.com.br/1634/1634422/produto/81748105/da9befcc58.jpg"
+        } else if (sorteio == 2) {
+            //Papel
+            jokenpo = "https://img.freepik.com/fotos-gratis/vista-do-papel-amarrotado-branco_1194-7544.jpg?w=2000"
+        } else {
+            //Tesoura
+            jokenpo = "https://34495.cdn.simplo7.net/static/34495/sku/acessorios-para-costura-tesouras-e-alicates-tesoura-stainless-steel-scissors-6-5-ut66-17-5cm--p-1619810854179.png"
+        }
+
+        img_jokenpo.src = jokenpo;
+
+    }
+
+</script>

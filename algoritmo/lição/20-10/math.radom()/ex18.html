@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 18</title>
+</head>
+
+<body>
+    <h2>Exercicio 18</h2>
+
+    Digite seu nome: <br>
+    <input type="text" id="in_nome">
+    <br><br>
+
+    Digite seu número inteiro da sorte. Esse número deve ser entre 1 e 10: <br>
+    <input type="text" id="in_numeroSorte">
+    <br><br>
+
+    <button onclick="Sortear()">Sortear</button>
+    <br><br>
+
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+
+<script>
+    var par = 0;
+    var impar = 0;
+
+    function Sortear() {
+        var nome = in_nome.value;
+        var numeroSorte = Number(in_numeroSorte.value);
+
+        if (numeroSorte < 1 || numeroSorte > 10) {
+            alert("Seu número inteiro da sorte deve ser entre 1 e 10");
+        } else {
+            var sorteios = 0;
+            for (var sorteado = 0; sorteado != numeroSorte; sorteado = parseInt(1 + Math.random() * (10 + 1 - 1))) {
+                sorteios++;
+            }
+            div_mensagem.innerHTML = `Parabéns, ${nome} você foi sorteado(a) após ${sorteios} sorteios!`
+        }
+    }
+</script>

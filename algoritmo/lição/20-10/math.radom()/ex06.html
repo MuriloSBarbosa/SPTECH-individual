@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 06</title>
+</head>
+
+<body>
+    <h2>Exercicio 06</h2>
+
+    <button onclick="sortear_momento()">Sortear momento do dia</button>
+    <br><br>
+    <div id="div_resultado"></div>
+
+</body>
+
+</html>
+
+<script>
+    function sortear_momento() {
+        var sorteio = parseInt(Math.random() * (23 + 1));
+        var frase = "";
+
+        if (sorteio >= 0 && sorteio <= 11) {
+            frase = `Bom dia, flor do dia, são ${sorteio}h!`;
+        } else if (sorteio >= 12 && sorteio <= 17) {
+            frase = `Boa tarde, já vai tarde! São ${sorteio}h!`;
+        } else {
+            frase = `Boa noite, durma bem! São ${sorteio}h!`;
+        }
+
+        div_resultado.innerHTML = frase;
+    }
+</script>

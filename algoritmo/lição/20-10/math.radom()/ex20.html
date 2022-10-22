@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 20</title>
+</head>
+
+<body>
+    <h2>Exercicio 20</h2>
+
+    <button onclick="jogar()">Jogar</button>
+
+    <br><br>
+    <div class="jogadores" style="display:flex; grid-gap: 40px;">
+        <div>
+            <h2>jogador 1:</h2>
+            <img src="" id="img_jogador1" alt="" height="200px">
+        </div>
+        <div>
+            <h2>jogador 2:</h2>
+            <img src="" id="img_jogador2" alt="" height="200px">
+        </div>
+    </div>
+    <br><br>
+    Jogador 1: <span id="spn_v1">0</span> <br>
+
+    Jogador 2: <span id="spn_v2">0</span> <br>
+
+    Empate: <span id="spn_empate">0</span> <br>
+
+
+</body>
+
+</html>
+<script>
+    var v1 = 0;
+    var v2 = 0;
+    var empate = 0;
+
+    function jogar() {
+        var jogador1_sorteio = 1 + parseInt(Math.random() * (6 + 1 - 1));
+        var jogador2_sorteio = 1 + parseInt(Math.random() * (6 + 1 - 1));
+
+        var jogador1_dado = "";
+        var jogador2_dado = "";
+
+        //1
+        if (jogador1_sorteio == 1) {
+            jogador1_dado = "https://images.vectorhq.com/images/previews/27e/dado-1-138329.png"
+        }
+        if (jogador2_sorteio == 1) {
+            jogador2_dado = "https://images.vectorhq.com/images/previews/27e/dado-1-138329.png"
+        }
+        //2
+        if (jogador1_sorteio == 2) {
+            jogador1_dado = "https://png.vector.me/files/images/3/2/323094/dado_2_preview"
+        }
+        if (jogador2_sorteio == 2) {
+            jogador2_dado = "https://png.vector.me/files/images/3/2/323094/dado_2_preview"
+        }
+        //3
+        if (jogador1_sorteio == 3) {
+            jogador1_dado = "https://png.vector.me/files/images/3/2/323091/dado_3_preview"
+        }
+        if (jogador2_sorteio == 3) {
+            jogador2_dado = "https://png.vector.me/files/images/3/2/323091/dado_3_preview"
+        }
+        //4
+        if (jogador1_sorteio == 4) {
+            jogador1_dado = "https://openclipart.org/image/800px/96097"
+        }
+        if (jogador2_sorteio == 4) {
+            jogador2_dado = "https://openclipart.org/image/800px/96097"
+        }
+        //5
+        if (jogador1_sorteio == 5) {
+            jogador1_dado = "http://www.i2clipart.com/cliparts/2/3/3/b/clipart-dado-5-256x256-233b.png"
+        }
+        if (jogador2_sorteio == 5) {
+            jogador2_dado = "http://www.i2clipart.com/cliparts/2/3/3/b/clipart-dado-5-256x256-233b.png"
+        }
+        //6
+        if (jogador1_sorteio == 6) {
+            jogador1_dado = "https://png.vector.me/files/images/3/2/323082/dado_6_preview"
+        }
+        if (jogador2_sorteio == 6) {
+            jogador2_dado = "https://png.vector.me/files/images/3/2/323082/dado_6_preview"
+        }
+
+
+        img_jogador1.src = jogador1_dado;
+        img_jogador2.src = jogador2_dado;
+
+        if (jogador1_sorteio > jogador2_sorteio) {
+            v1++;
+        } else if (jogador2_sorteio > jogador1_sorteio) {
+            v2++;
+        } else {
+            empate++;
+        }
+        spn_v1.innerHTML = v1;
+        spn_v2.innerHTML = v2;
+        spn_empate.innerHTML = empate;
+    }
+
+</script>
