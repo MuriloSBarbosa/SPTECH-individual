@@ -1,46 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
+var v1 = 0;
+var v2 = 0;
+var empate = 0;
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercicio 20</title>
-</head>
+function jogar() {
 
-<body>
-    <h2>Exercicio 20</h2>
+    btn_jogar.disabled = true;
+    img_jogador1.src = "https://png.vector.me/files/images/3/2/323082/dado_6_preview"
+    img_jogador2.src = "https://png.vector.me/files/images/3/2/323082/dado_6_preview"
 
-    <button onclick="jogar()">Jogar</button>
+    img_jogador1.classList.add('girarRapido');
+    img_jogador2.classList.add('girarRapido');
 
-    <br><br>
-    <div class="jogadores" style="display:flex; grid-gap: 40px;">
-        <div>
-            <h2>jogador 1:</h2>
-            <img src="" id="img_jogador1" alt="" height="200px">
-        </div>
-        <div>
-            <h2>jogador 2:</h2>
-            <img src="" id="img_jogador2" alt="" height="200px">
-        </div>
-    </div>
-    <br><br>
-    Jogador 1: <span id="spn_v1">0</span> <br>
+    setTimeout(function () {
 
-    Jogador 2: <span id="spn_v2">0</span> <br>
+        img_jogador1.classList.add('girarLento');
+        img_jogador2.classList.add('girarLento');
 
-    Empate: <span id="spn_empate">0</span> <br>
-
-
-</body>
-
-</html>
-<script>
-    var v1 = 0;
-    var v2 = 0;
-    var empate = 0;
-
-    function jogar() {
         var jogador1_sorteio = 1 + parseInt(Math.random() * (6 + 1 - 1));
         var jogador2_sorteio = 1 + parseInt(Math.random() * (6 + 1 - 1));
 
@@ -96,14 +71,34 @@
 
         if (jogador1_sorteio > jogador2_sorteio) {
             v1++;
+            div_jogador1.classList.add('waviy');
+
         } else if (jogador2_sorteio > jogador1_sorteio) {
             v2++;
+            div_jogador2.classList.add('waviy');
         } else {
             empate++;
         }
         spn_v1.innerHTML = v1;
         spn_v2.innerHTML = v2;
         spn_empate.innerHTML = empate;
-    }
+        setTimeout(function () {
 
-</script>
+            div_jogador1.classList.remove('waviy');
+            div_jogador2.classList.remove('waviy');
+    }, 700);
+
+        setTimeout(function () {
+
+            img_jogador1.classList.remove('girarRapido');
+            img_jogador2.classList.remove('girarRapido');
+            img_jogador1.classList.remove('girarLento');
+            img_jogador2.classList.remove('girarLento');
+            btn_jogar.disabled = false;
+
+
+        }, 600);
+
+    }, 600);
+
+}

@@ -1,0 +1,147 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(#ea01ff,
+            #ff0000) 0 100% no-repeat;
+    background-size: 100% 50%;
+
+}
+
+.container {
+    display: flex;
+    width: 80%;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .title {
+    color: white;
+    font-weight: 1000;
+    font-size: 2rem;
+}
+
+.header {
+    padding: 1.5rem;
+    border-bottom: 3px solid #000;
+} */
+
+.game-dice {
+    position: absolute;
+    background-color: #FFF;
+    width: 400px;
+    padding: 50px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 15px 35px rgb(50, 50, 50, 0.6);
+}
+
+.game-dice .container {
+    width: 100%;
+    flex-direction: column;
+}
+
+.game-dice img {
+    margin-top: 30px;
+    height: 130px;
+}
+
+.game-dice button {
+    margin: 30px 0;
+    background-color: #ff0000;
+    color: #FFF;
+    border: none;
+    outline: none;
+    width: 150px;
+    padding: 15px 0;
+    letter-spacing: 1px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.resultado {
+    padding: 15px;
+    letter-spacing: 1px;
+    border-radius: 7px;
+    box-shadow: 0px 0px 20px 2px rgb(50 50 50 / 60%);
+}
+
+.title {
+    display: flex;  
+    font-family: 'Alfa Slab One', cursive;
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+
+}
+
+/* Animação texto */
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+
+
+.waviy span {
+    position: relative;
+    font-family: 'Alfa Slab One', cursive;
+    display: inline-block;
+    animation: waviy 700ms infinite;
+    animation-delay: calc(50ms * var(--i))
+}
+
+.spn_space{
+    width: 5px;
+}
+
+@keyframes waviy {
+
+    0%,
+    40%,
+    100% {
+        transform: translateY(0)
+    }
+
+    20% {
+        transform: translateY(-10px)
+    }
+}
+/* ......................... */
+
+
+.game-dice p {
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.jogadores {
+    display: flex;
+    grid-gap: 40px;
+}
+
+.jogador {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.girarRapido {
+    animation: spin 200ms linear infinite;
+}
+
+.girarLento {
+    animation: spin 600ms cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(-360deg);
+    }
+}
