@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 04</title>
+</head>
+
+<body>
+    <h2>Exercicio 04</h2>
+    Você prefere Marvel ou DC?
+    <select id="sel_tipo">
+        <option value="Marvel">marvel</option>
+        <option value="DC">DC</option>
+    </select>
+    <br><br>
+    <button onclick="programacao()">Ver programação semanal na TV</button>
+    <br><br>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+<script>
+    function programacao() {
+        div_mensagem.innerHTML = "";
+
+        var preferencia = sel_tipo.value;
+        var sorteado;
+        for (var contador = 1; contador <= 5; contador++) {
+            var numero = parseInt(1 + Math.random() * 2);
+            if (numero == 1) {
+                sorteado = "DC"
+            } else {
+                sorteado = "Marvel"
+            }
+            console.log(contador + "" + sorteado);
+            if (preferencia == sorteado) {
+                div_mensagem.innerHTML = `Você verá um filme que gosta no ${contador}º dia <br>`
+                break
+            }
+            if (contador == 5) {
+                div_mensagem.innerHTML = "É, ou lê um livro ou assiste um filme que não gosta mesmo";
+            }
+        }
+    }
+</script>

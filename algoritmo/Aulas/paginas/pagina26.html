@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina 26</title>
+</head>
+
+<body>
+    <button onclick="sortear()">Sortear 3789</button>
+</body>
+
+</html>
+<script>
+    function sortear() {
+        var i = 0;
+        while (true) {
+            var numero = parseInt(Math.random() * 50000001);
+            i++;
+            if (numero == 3789) {
+                alert("sorteou finalmente");
+                break;
+            }
+        }
+        alert(`Foram relizados ${i} sorteios`);
+    }
+</script>
