@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 03</title>
+</head>
+
+<body>
+    <h2>Exercicio 03</h2>
+    <button onclick="ver_sorte()">Ver minha sorte</button>
+    <div id="div_imagens"></div>
+    <div id="div_resultado"></div>
+</body>
+
+</html>
+<script>
+
+    function ver_sorte() {
+        div_resultado.innerHTML = "";
+        div_imagens.innerHTML = "";
+        var coracao = 0;
+        var carta = 0;
+
+        for (var contador = 0; contador < 21; contador++) {
+            var numero = parseInt(1 + Math.random() * 2);
+            if (coracao == 11 || carta == 11) {
+                break;
+            }
+            if (numero == 1) {
+                div_imagens.innerHTML += `<img height="100px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Heart_coraz%C3%B3n.svg/220px-Heart_coraz%C3%B3n.svg.png">`
+                coracao++;
+
+            } else {
+                div_imagens.innerHTML += `<img height="100px" src="https://img.freepik.com/vetores-gratis/carta-de-baralho-as-de-paus-isolada_1308-80924.jpg">`
+                carta++;
+            }
+        }
+
+        if (coracao > carta) {
+            div_resultado.innerHTML = `Você tem mais sorte no amor`;
+        } else {
+            div_resultado.innerHTML = `Você tem mais sorte no jogo`;
+        }
+
+
+    }
+</script>

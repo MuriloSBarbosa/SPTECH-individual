@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina 29</title>
+</head>
+
+<body>
+    Qual sobremesa você comeu?<input id="in_sobremesa">
+    <button onclick="cadastrar()">Cadastrar</button>
+    <br>
+    <button onclick="mostrar()">Mostrar todas</button>
+    <button onclick="invertido()">Mostrar todas (invertido)</button>
+    <button onclick="colorir()">Mostrar colorido</button>
+    <br><br>
+    Pesquisa: <input onkeyup="pesquisar()" id="in_pesquisa">
+    <br>
+    <div id="div_sobremesas"></div>
+    <div id="div_pesquisa"></div>
+</body>
+
+</html>
+<script>
+    var sobremesas = [];
+
+    function cadastrar() {
+        sobremesas.push(in_sobremesa.value);
+        in_sobremesa.value = "";
+        in_sobremesa.focus();
+    }
+
+    function mostrar() {
+        div_sobremesas.innerHTML = "";
+        for (var i = 0; i < sobremesas.length; i++) {
+            div_sobremesas.innerHTML += `${i + 1} - ${sobremesas[i]} <br>`;
+        }
+    }
+
+    function invertido() {
+        div_sobremesas.innerHTML = "";
+
+        // for (var i = sobremesas.length; i > 0; i--) {
+        //     div_sobremesas.innerHTML += `${i} - ${sobremesas[i - 1]} <br>`;
+        // }
+
+        for (var i = sobremesas.length - 1; i >= 0; i--) {
+            div_sobremesas.innerHTML += `${i + 1} - ${sobremesas[i]} <br>`;
+        }
+    }
+
+    function colorir() {
+        div_sobremesas.innerHTML = "";
+        for (var i = 0; i < sobremesas.length; i++) {
+            var color = "black";
+            if ((i + 1) % 2 == 1) {
+                color = "blue";
+            }
+            div_sobremesas.innerHTML += `<span style="color:${color}">${i + 1} - ${sobremesas[i]}</span> <br>`;
+        }
+    }
+
+    function pesquisar() {
+        div_sobremesas.innerHTML = "";
+        var pesquisa = in_pesquisa.value;
+        var qtdComeu = 0;
+        for (var i = 0; i < sobremesas.length; i++) {
+            var frase;
+            if (sobremesas[i] == pesquisa) {
+                qtdComeu++;
+            }
+        }
+        var frase;
+        if (qtdComeu > 0) {
+            frase = `Você comeu ${pesquisa} ${qtdComeu} vezes`;
+        } else {
+            frase = `Não comeu ${pesquisa}`;
+        }
+        div_pesquisa.innerHTML = frase;
+    }
+</script>
