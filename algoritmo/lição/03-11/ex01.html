@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercicio 01</title>
+    </head>
+
+    <body>
+        <h2>Exercicio 01</h2>
+
+        <input type="text" onkeyup="pesquisar()" placeholder="Pesquisar fruta" id="in_pesquisa">
+        <br>
+        <div id="div_pesquisa"></div>
+
+    </body>
+
+    </html>
+
+    <script>
+        var frutas = ['maca','pera','uva','abacaxi','morango','limao','abacate'];
+
+        function pesquisar() {
+            var pesquisa = in_pesquisa.value;
+            var resultado = frutas.indexOf(pesquisa);
+            var frase;
+            if (resultado < 0) {
+                frase = `Não existe a fruta ${pesquisa} na lista`;
+            } else {
+                frase = `A fruta ${pesquisa} existe na lista`;
+            }
+            div_pesquisa.innerHTML = frase;
+        }
+    </script>
+</body>
+
+</html>

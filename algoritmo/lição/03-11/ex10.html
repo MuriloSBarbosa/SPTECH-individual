@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 10</title>
+</head>
+
+<body>
+    <h2>Exercicio 10</h2>
+
+    Qual os nomes das linhas de ônibus que vc pegou durante a semana?<input id="in_linhas">
+    
+    <button onclick="gravar()">Gravar Busão</button>
+    <br><br>
+    Pesquisa: <input onkeyup="pesquisar()" id="in_pesquisa">
+    <br>
+    <div id="div_bus"></div>
+    <div id="div_pesquisa"></div>
+</body>
+
+</html>
+<script>
+    var linhas = []
+    function gravar() {
+        div_bus.innerHTML = "";
+        linhas.push(in_linhas.value);
+        in_linhas.focus();
+
+
+        for (var i = linhas.length - 1; i >= 0; i--) {
+            div_bus.innerHTML += `${i + 1} - ${linhas[i]} <br>`;
+        }
+    }
+
+    function pesquisar() {
+        div_pesquisa.innerHTML = '';
+        if (linhas.indexOf(in_pesquisa.value) < 0) {
+            div_pesquisa.innerHTML = "Você nunca pegou essa linha";
+        } else {
+            var ordem = [];
+            var contador = 0;
+            for (var i = 0; i < linhas.length; i++) {
+                if (linhas[i] == in_pesquisa.value) {
+                    ordem.push(i + 1);
+                    contador++;
+                }
+            }
+            div_pesquisa.innerHTML = `Você já pegou essa linha ${contador} vezes, nessa ordem: ${ordem}`
+        }
+    }
+</script>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 03</title>
+</head>
+
+<body>
+    <h2>Exercicio 03</h2>
+
+    <input placeholder="Digite os bairros para onde já morou" id="in_bairros">
+    <button onclick="cadastrar()">Cadastrar bairro</button>
+    <br><br>
+    <input placeholder="Relembre o numero do local que ja morou" id="in_relembrar">
+    <button onclick="relembrar()">Relembrar moradia</button>
+
+    <div id="div_resultado"></div>
+
+</body>
+
+</html>
+
+<script>
+    var bairros = [];
+
+    function cadastrar() {
+        bairros.push(in_bairros.value);
+        in_bairros.value = "";
+        in_bairros.focus();
+    }
+
+    function relembrar() {
+        var resultado;
+        if (bairros[Number(in_relembrar.value) - 1] == undefined) {
+            resultado = `Você ainda não morou num ${in_relembrar.value}º bairro!`;
+        } else {
+            resultado = bairros[Number(in_relembrar.value) + 1];
+        }
+        div_resultado.innerHTML = resultado;
+
+    }
+
+</script>

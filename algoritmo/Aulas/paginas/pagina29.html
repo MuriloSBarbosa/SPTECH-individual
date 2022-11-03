@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina 29</title>
+</head>
+
+<body>
+    Qual sobremesa você comeu?<input id="in_sobremesa">
+    <br>
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="mostrar()">Mostrar todas</button>
+    <br>
+    <div id="div_sobremesas"></div>
+</body>
+
+</html>
+<script>
+    var sobremesas = [];
+
+    function cadastrar() {
+        sobremesas.push(in_sobremesa.value);
+        in_sobremesa.value = "";
+        in_sobremesa.focus();
+    }
+
+    function mostrar() {
+        div_sobremesas.innerHTML = "";
+        for (var i = 0; i < sobremesas.length; i++) {
+            div_sobremesas.innerHTML += `${i + 1} - ${sobremesas[i]} <br>`;
+        }
+    }
+</script>
