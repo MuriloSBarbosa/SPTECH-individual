@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 09</title>
+</head>
+
+<body>
+    <h2>Exercicio 09</h2>
+
+    <input placeholder="informe o nome de cada projeto que já criou na vida" id="in_projetos">
+    <br>
+    <button onclick="registrar()">Registrar projeto</button>
+    <button onclick="mostrar()">Mostrar Projetos</button>
+
+    <div id="div_nivel"></div>
+    <div id="div_projetos"></div>
+
+</body>
+
+</html>
+
+<script>
+    var projetos = [];
+
+    function registrar() {
+        div_nivel.innerHTML = "";
+
+        projetos.push(in_projetos.value);
+        in_projetos.value = "";
+        in_projetos.focus();
+
+        var nivel;
+        var qtdProjeto = projetos.length;
+        if (qtdProjeto >= 0 && qtdProjeto <= 4) {
+            nivel = "Júnior";
+        } else if (qtdProjeto <= 12) {
+            nivel = `Pleno desde o projeto ${projetos[4]}`;
+        } else {
+            nivel = `Sênior desde o projeto ${projetos[12]}`;
+        }
+        div_nivel.innerHTML += `Você já fez ${qtdProjeto} projetos. Por isso você é um profissional ${nivel}`;
+    }
+
+    function mostrar() {
+        div_projetos.innerHTML = "";
+        for (var i = projetos.length - 1; i >= 0; i--) {
+            div_projetos.innerHTML += `${i + 1} - ${projetos[i]} <br>`;
+        }
+    }
+
+</script>

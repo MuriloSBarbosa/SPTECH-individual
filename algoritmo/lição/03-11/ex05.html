@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 05</title>
+</head>
+
+<body>
+    <h2>Exercicio 05</h2>
+
+    <input placeholder="informe os nomes dos filmes que mais gosta" id="in_filmes">
+    <button onclick="cadastrar()">Cadastrar</button>
+    <br><br>
+    Seu filme favorito: <span id="spn_favorito"></span> <br>
+    Seu 3º filme favorito: <span id="spn_3favorito"></span><br>
+    Total de filmes cadastrados: <span id="spn_total">0</span>
+
+</body>
+
+</html>
+
+<script>
+    var filmes = [];
+
+    function cadastrar() {
+        filmes.push(in_filmes.value);
+        in_filmes.value = "";
+        in_filmes.focus();
+
+        var spn_3;
+        var spn_f;
+        var spn_t = "";
+
+        if (filmes[0] == "") {
+            spn_f = "Ainda não existe";
+        } else {
+            spn_f = filmes[0];
+            spn_t = filmes.length ;
+        }
+
+        if (filmes[2] == undefined) {
+            spn_3 = "Ainda não existe";
+        } else {
+            spn_3 = filmes[2]
+        }
+        spn_favorito.innerHTML = spn_f;
+        spn_3favorito.innerHTML = spn_3;
+        spn_total.innerHTML = spn_t;
+
+    }
+</script>

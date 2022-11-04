@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 04</title>
+</head>
+
+<body>
+    <h2>Exercicio 04</h2>
+
+    <input placeholder="informe os nomes dos filmes que mais gosta" id="in_filmes">
+    <br>
+    <button onclick="cadastrar()">Cadastrar Filme</button>
+    <button onclick="favoritos()">Ver favoritos</button>
+
+    <div id="div_resultado"></div>
+
+</body>
+
+</html>
+
+<script>
+    var filmes = [];
+
+    function cadastrar() {
+        filmes.push(in_filmes.value);
+        in_filmes.value = "";
+        in_filmes.focus();
+    }
+
+    function favoritos() {
+
+        div_resultado.innerHTML = "";
+        var qtdFilmes = filmes.length;
+        for (var i = 0; i < qtdFilmes; i++) {
+            div_resultado.innerHTML += `${i + 1}º - ${filmes[i]} <br>`;
+        }
+
+        div_resultado.innerHTML +=
+            `<BR>Total: ${qtdFilmes} <br><br>
+            O que mais gosta é ${filmes[0]} <br>
+            E desses, o que menos gosta é ${filmes[qtdFilmes - 1]}`;
+    }
+
+</script>

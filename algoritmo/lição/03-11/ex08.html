@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 08</title>
+</head>
+
+<body>
+    <h2>Exercicio 08</h2>
+
+    <input placeholder="informe os nomes dos alunos" id="in_alunos">
+    <br>
+    <button onclick="cadastrar()">Cadastrar Filme</button>
+
+    <div id="div_resultado"></div>
+
+</body>
+
+</html>
+
+<script>
+    var alunos = [];
+
+    function cadastrar() {
+        div_resultado.innerHTML = "";
+
+        alunos.push(in_alunos.value);
+        in_alunos.value = "";
+        in_alunos.focus();
+
+
+        for (var i = alunos.length - 1; i >= 0; i--) {
+            div_resultado.innerHTML += `${i + 1} - ${alunos[i]} <br>`;
+        }
+    }
+
+</script>

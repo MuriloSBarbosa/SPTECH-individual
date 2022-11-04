@@ -33,11 +33,14 @@
     }
 
     function relembrar() {
+        div_resultado.innerHTML = "";
+
+        var relembrar = Number(in_relembrar.value); 
         var resultado;
-        if (bairros[Number(in_relembrar.value) - 1] == undefined) {
-            resultado = `Você ainda não morou num ${in_relembrar.value}º bairro!`;
+        if (bairros[relembrar - 1] == undefined) {
+            resultado = `Você ainda não morou num ${relembrar}º bairro!`;
         } else {
-            resultado = bairros[Number(in_relembrar.value) + 1];
+            resultado = bairros[relembrar - 1];
         }
         div_resultado.innerHTML = resultado;
 
