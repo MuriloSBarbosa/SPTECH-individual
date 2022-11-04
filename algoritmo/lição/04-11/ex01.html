@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 01</title>
+</head>
+
+<body>
+    <input placeholder="Digite o nome do produto" id="in_nome"> <br>
+    <input placeholder="Digite o preço do produto" id="in_preco"> <br>
+    <button onclick="registrar()">Registrar produto</button>
+    <button onclick="verificar()">Verificar produtos</button>
+
+    <br><br>
+
+    <div id="div_resultado"></div>
+</body>
+
+</html>
+<script>
+
+    var produtos = [];
+
+    function registrar() {
+        var nome = in_nome.value;
+        var preco = Number(in_preco.value);
+        in_nome.focus()
+        var produto = {
+            nome,
+            preco,
+        }
+
+        if (nome == "" || preco == "") {
+            alert("Inválido! Verifique o preenchimento dos campos e tente novamente!");
+            div_resultado.innerHTML = "";
+
+        } else {
+            produtos.push(produto);
+        }
+    }
+
+    function verificar() {
+        div_resultado.innerHTML = "";
+        if (produtos == "") {
+            alert("Não há produtos registrados na lista!");
+            div_resultado.innerHTML = "";
+
+        } else {
+            for (var i = 0; i < produtos.length; i++) {
+                div_resultado.innerHTML += `Produto: ${produtos[i].nome} <br> Preço: R$${produtos[i].preco}<br><br>`
+            }
+        }
+    }
+</script>

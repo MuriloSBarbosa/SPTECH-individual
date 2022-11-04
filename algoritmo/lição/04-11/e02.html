@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio - ex02</title>
+</head>
+
+<body>
+    <h2>Estoque</h2>
+    <input placeholder="Digite o nome do produto" id="in_nome"> <br>
+    <select id="sel_tipo">
+        <option value="Gerais">Gerais</option>
+        <option value="Alimentos">Alimentos</option>
+        <option value="Eletrônicos">Eletrônicos</option>
+    </select>
+    <br>
+    <input placeholder="Digite o preço do produto" id="in_preco"> <br>
+    <div id="div_resultado"></div>
+    <button onclick="registrar()">Registrar produto</button>
+    <button onclick="verificar()">Verificar produtos</button>
+    <br><br>
+    <h2>Filtros</h2>
+    <input placeholder="Digite a pesquisa por nome" id="in_pesNome">
+    <button onclick="procurar()">Procurar</button>
+    <br>
+    <select id="sel_pesTipo">
+        <option value="Gerais">Gerais</option>
+        <option value="Alimentos">Alimentos</option>
+        <option value="Eletrônicos">Eletrônicos</option>
+    </select>
+    <br>
+    <button onclick="procurarTipo()">Pesquisar por Tipo</button>
+
+    <div id="div_pesquisa"></div>
+
+</body>
+
+</html>
+<script>
+
+    var produtos = [];
+
+    function registrar() {
+        var nome = in_nome.value;
+        var tipo = sel_tipo.value;
+        var preco = Number(in_preco.value);
+
+        if (nome == "" || preco == "") {
+            alert("Inválido! Verifique o preenchimento dos campos e tente novamente!");
+            div_resultado.innerHTML = "";
+
+        } else {
+
+            var produtoJSON = {
+                nome,
+                preco,
+                tipo,
+            }
+
+            produtos.push(produtoJSON);
+        }
+        in_nome.focus()
+    }
+
+    function verificar() {
+        div_resultado.innerHTML = "";
+        if (produtos.length < 0) {
+            alert("Não há produtos registrados na lista!");
+            div_resultado.innerHTML = "";
+        } else {
+            var produtoAtual;
+            for (var i = 0; i < produtos.length; i++) {
+                produtoAtual = produtos[i];
+                div_resultado.innerHTML += `Produto: ${produtoAtual.nome} <br> Preço: R$${produtoAtual.preco}  <br> Tipo:${produtoAtual.tipo}<br><br>`
+            }
+        }
+    }
+
+    function procurar() {
+        div_pesquisa.innerHTML = '';
+        var pesNome = in_pesNome.value;
+        var contador = 0;
+        var produtoAtual;
+        for (var i = 0; i < produtos.length; i++) {
+            produtoAtual = produtos[i];
+            if (produtoAtual.nome == pesNome) {
+                div_pesquisa.innerHTML += `Produto: ${produtoAtual.nome} <br> Preço: R$${produtoAtual.preco}  <br> Tipo:${produtos[i].tipo}<br><br>`
+                contador++;
+            }
+        }
+        if (contador == 0) {
+            alert("Não há nenhum produto com este nome registrado!");
+        }
+
+        in_pesNome.focus();
+    }
+
+    function procurarTipo() {
+        div_pesquisa.innerHTML = '';
+        var pesTipo = sel_pesTipo.value;
+        var contador = 0;
+        var produtoAtual;
+        for (var i = 0; i < produtos.length; i++) {
+            produtoAtual = produtos[i];
+            if (produtoAtual.tipo == pesTipo) {
+                div_pesquisa.innerHTML += `Produto: ${produtoAtual.nome} <br> Preço: R$${produtoAtual.preco}  <br> Tipo:${produtoAtual.tipo}<br><br>`
+                contador++
+            }
+        }
+        if (contador == 0) {
+            alert("Não há nenhum produto com este tipo registrado!");
+        }
+
+        sel_pesTipo.focus();
+    }
+</script>

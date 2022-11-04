@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input placeholder="Digite o amigo" id="in_amigo">
+    <button onclick="cadastrar()">cadastrar</button>
+    <button onclick="exibir()">exibir</button>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+
+<script>
+
+    var pessoa = {
+        nome: 'JP',
+        idade: 28,
+        amigos: []
+    };
+    function cadastrar() {
+        pessoa.amigos.push(in_amigo.value);
+    }
+    function exibir() {
+        div_mensagem.innerHTML = `Nome: ${pessoa.nome} <br> idade: ${pessoa.idade} 
+        <br> amigos: ${pessoa.amigos} `;
+
+        for (var i = 0; i < pessoa.amigos.length; i++) {
+            var atual = pessoa.amigos[i];
+            div_mensagem.innerHTML += `<br>Amigo ${i + 1}:${atual}`
+        }
+    }
+</script>
