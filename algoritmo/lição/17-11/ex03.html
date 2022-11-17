@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 03</title>
+</head>
+
+<body>
+    <h2>Exercicio 03</h2>
+    Quantos chocolates foram comprados?<input type="text" id="in_qtdChoco"> <br><br>
+    <button onclick="compra()">Compra</button>
+    <div id="div_resultado"></div>
+</body>
+
+</html>
+
+<script>
+
+    function compra() {
+        var qtdChoco = Number(in_qtdChoco.value);
+        var total = 0;
+        var resultado = qtdChoco > 6 ? total = qtdChoco * 2.5 : total = qtdChoco * 3;
+
+        div_resultado.innerHTML = `O valor da sua compra foi de R$${total}`;
+    }
+
+</script>

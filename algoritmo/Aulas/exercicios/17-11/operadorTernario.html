@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input placeholder="Digite a frequencia" id="in_freq"> <br>
+    <input placeholder="Digite a nota 1" id="in_n1"> <br>
+    <input placeholder="Digite a nota 2" id="in_n2"> <br>
+    <br>
+    <button onclick="ver_resultado()">Ver Resultado</button>
+    <br><br>
+    <div id="div_resultado"></div>
+</body>
+
+</html>
+<script>
+    function ver_resultado() {
+        var freq = Number(in_freq.value);
+        var n1 = Number(in_n1.value);
+        var n2 = Number(in_n2.value);
+
+        var media = (n1 + n2) / 2;
+        
+        var resultado = media >= 6 && freq >= 75 ? "Parabéns. você passou" : "Tente outra vez";
+
+        div_resultado.innerHTML = resultado;
+    }   
+</script>

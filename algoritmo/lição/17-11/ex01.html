@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 01</title>
+</head>
+
+<body>
+    <h2>Exercicio 01</h2>
+
+    Digite seu login:
+    <input id="in_login">
+    <br><br>
+
+    Digite sua senha
+    <input id="in_senha">
+    <br><br>
+
+    Digite o código de segurança
+    <input id="in_codigo">
+    <br><br>
+
+    <button onclick="login()">Entrar</button>
+
+</body>
+
+</html>
+
+<script>
+    function login() {
+        var login = in_login.value == 'SPTECH';
+        var senha = in_senha.value == 'SCHOOL';
+        var codigo = in_codigo.value == '595';
+
+        var resultado = login && senha || codigo ? "Usuário autenticado com sucesso" : "Falha na autenticação";
+        
+        alert(resultado);
+
+    }
+</script>
