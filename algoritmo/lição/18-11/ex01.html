@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 07</title>
+</head>
+
+<body>
+    <div id="div_parte1">
+        <h2>Analise de performance de Alunos - Registro</h2>
+
+        Entre com o nome do aluno:
+        <input type="text" id="in_nome">
+        <br>
+
+        Entre com a nota do aluno:
+        <input type="text" id="in_nota">
+        <br><br>
+
+        <button onclick="registrar()">Registrar</button>
+        <button onclick="analisar()">Analisar</button>
+        <br><br>
+
+        <div id="div_registrar"></div>
+    </div>
+</body>
+
+</html>
+<script>
+    var alunos = [];
+    var pesquisa = [];
+
+    function registrar() {
+        div_registrar.innerHTML = "";
+        var nome = in_nome.value;
+        var nota = Number(in_nota.value);
+
+        if (nome == "" || nota < 0 || nota > 10) {
+            alert("nome” tem que estar preenchido e a “nota” tem que estar entre 0 e 10")
+        } else {
+            alunos.push(
+                {
+                    nome,
+                    nota,
+                }
+            );
+            for (var i = alunos.length - 1; i >= 0; i--) {
+                var aluno = alunos[i];
+                div_registrar.innerHTML += `nome: ${aluno.nome} <br> nota: ${aluno.nota} <br> <br>`
+            }
+        }
+    }
+
+    function analisar() {
+        div_parte1.innerHTML =
+            `
+        <h2>Analise de performance de alunos - pesquisa</h2>
+    Entre com o intervalo de notas: <input id="in_de" placeholder="de"> <input id="in_ate" placeholder="ate">
+    <br>
+    <button onclick="pesquisar()">pesquisar</button> <br> <br>
+    <h2>Filtro</h2>
+    <select id="sel_filtro">
+        <option value="nome">Nome</option>
+        <option value="maior_que">Nota maior que</option>
+        <option value="menor_que">Nota menor que</option>
+    </select>
+    <input id="in_filtro"> <br> 
+    <button onclick="filtro()">Aplicar Filtro</button> <br><br>
+    <div id="div_pesquisa"></div>
+        `
+    }
+
+    function pesquisar() {
+        div_pesquisa.innerHTML = "";
+        var de = Number(in_de.value);
+        var ate = Number(in_ate.value);
+
+        if (de < 0 || de > 10 || ate < 0 || ate > 10) {
+            alert("O campo “de” tem que estar entre 0 e 10, o campo “até” tem que estar entre 0 e 10")
+        } else if (ate < de) {
+            alert("campo “de” tem que ser menor ou igual ao campo “até”")
+        } else {
+            var registros = 0;
+            var maior = 0;
+            var menor = 0;
+            var anterior = 0;
+            var soma = 0;
+            for (var i = 0; i < alunos.length; i++) {
+                var aluno = alunos[i];
+                if (aluno.nota >= de && aluno.nota <= ate) {
+                    div_pesquisa.innerHTML += `O aluno ${aluno.nome} ficou com a nota ${aluno.nota} <br>`
+
+                    registros++;
+                    soma += aluno.nota;
+
+                    if (aluno.nota > maior) {
+                        maior = aluno.nota;
+                    }
+                    if (aluno.nota < anterior) {
+                        menor = aluno.nota;
+                    }
+
+                    if (anterior == 0) {
+                        menor = aluno.nota;
+                    }
+
+                    anterior = aluno.nota;
+                }
+            }
+
+            div_pesquisa.innerHTML +=
+                `
+            Total de alunos registrados: ${alunos.length} <br>
+
+            Total de alunos listado: ${registros} (com nota no intervalo informado) <br>
+
+            Maior Nota = ${maior} <br>
+
+            Menor Nota = ${menor} <br>
+
+            Média da Nota = ${soma / registros} <br>
+            `
+
+
+        }
+    }
+
+    function filtro() {
+        div_pesquisa.innerHTML = "";
+        var tipo = sel_filtro.value;
+        var filtro = in_filtro.value;
+        var de = Number(in_de.value);
+        var ate = Number(in_ate.value);
+
+        if (de != "" || ate != "") {
+
+            if (de < 0 || de > 10 || ate < 0 || ate > 10) {
+                alert("O campo “de” tem que estar entre 0 e 10, o campo “até” tem que estar entre 0 e 10")
+            } else if (ate < de) {
+                alert("campo “de” tem que ser menor ou igual ao campo “até”")
+            } else {
+                var registros = 0;
+                var maior = 0;
+                var menor = 0;
+                var anterior = 0;
+                var soma = 0;
+
+                if (tipo == 'nome') {
+                    for (var i = 0; i < alunos.length; i++) {
+                        var aluno = alunos[i];
+                        if (filtro == aluno.nome) {
+                            if (aluno.nota >= de && aluno.nota <= ate) {
+                                div_pesquisa.innerHTML += `O aluno ${aluno.nome} ficou com a nota ${aluno.nota} <br>`
+
+                                registros++;
+                                soma += aluno.nota;
+
+                                if (aluno.nota > maior) {
+                                    maior = aluno.nota;
+                                }
+                                if (aluno.nota < anterior) {
+                                    menor = aluno.nota;
+                                }
+
+                                if (anterior == 0) {
+                                    menor = aluno.nota;
+                                }
+
+                                anterior = aluno.nota;
+                            }
+                        }
+                    }
+                }
+                else if (tipo == 'maior_que') {
+                    for (var i = 0; i < alunos.length; i++) {
+                        var aluno = alunos[i];
+                        if (aluno.nota > filtro) {
+                            if (aluno.nota >= de && aluno.nota <= ate) {
+                                div_pesquisa.innerHTML += `O aluno ${aluno.nome} ficou com a nota ${aluno.nota} <br>`
+
+                                registros++;
+                                soma += aluno.nota;
+
+                                if (aluno.nota > maior) {
+                                    maior = aluno.nota;
+                                }
+                                if (aluno.nota < anterior) {
+                                    menor = aluno.nota;
+                                }
+
+                                if (anterior == 0) {
+                                    menor = aluno.nota;
+                                }
+
+                                anterior = aluno.nota;
+                            }
+                        }
+                    }
+                }
+                else {
+                    for (var i = 0; i < alunos.length; i++) {
+                        var aluno = alunos[i];
+                        if (aluno.nota < filtro) {
+                            if (aluno.nota >= de && aluno.nota <= ate) {
+                                div_pesquisa.innerHTML += `O aluno ${aluno.nome} ficou com a nota ${aluno.nota} <br>`
+
+                                registros++;
+                                soma += aluno.nota;
+
+                                if (aluno.nota > maior) {
+                                    maior = aluno.nota;
+                                }
+                                if (aluno.nota < anterior) {
+                                    menor = aluno.nota;
+                                }
+
+                                if (anterior == 0) {
+                                    menor = aluno.nota;
+                                }
+
+                                anterior = aluno.nota;
+                            }
+                        }
+                    }
+                }
+            }
+        } else {
+            var registros = 0;
+            var maior = 0;
+            var menor = 0;
+            var anterior = 0;
+            var soma = 0;
+
+            if (tipo == 'nome') {
+                for (var i = 0; i < alunos.length; i++) {
+                    var aluno = alunos[i];
+                    if (filtro == aluno.nome) {
+                        div_pesquisa.innerHTML += `O aluno ${aluno.nome} ficou com a nota ${aluno.nota} <br>`
+
+                        registros++;
+                        soma += aluno.nota;
+
+                        if (aluno.nota > maior) {
+                            maior = aluno.nota;
+                        }
+                        if (aluno.nota < anterior) {
+                            menor = aluno.nota;
+                        }
+
+                        if (anterior == 0) {
+                            menor = aluno.nota;
+                        }
+
+                        anterior = aluno.nota;
+                    }
+                }
+            }
+            else if (tipo == 'maior_que') {
+                for (var i = 0; i < alunos.length; i++) {
+                    var aluno = alunos[i];
+                    if (aluno.nota > filtro) {
+                        div_pesquisa.innerHTML += `O aluno ${aluno.nome} ficou com a nota ${aluno.nota} <br>`
+
+                        registros++;
+                        soma += aluno.nota;
+
+                        if (aluno.nota > maior) {
+                            maior = aluno.nota;
+                        }
+                        if (aluno.nota < anterior) {
+                            menor = aluno.nota;
+                        }
+
+                        if (anterior == 0) {
+                            menor = aluno.nota;
+                        }
+
+                        anterior = aluno.nota;
+                    }
+                }
+            }
+            else {
+                for (var i = 0; i < alunos.length; i++) {
+                    var aluno = alunos[i];
+                    if (aluno.nota < filtro) {
+                        div_pesquisa.innerHTML += `O aluno ${aluno.nome} ficou com a nota ${aluno.nota} <br>`
+
+                        registros++;
+                        soma += aluno.nota;
+
+                        if (aluno.nota > maior) {
+                            maior = aluno.nota;
+                        }
+                        if (aluno.nota < anterior) {
+                            menor = aluno.nota;
+                        }
+
+                        if (anterior == 0) {
+                            menor = aluno.nota;
+                        }
+
+                        anterior = aluno.nota;
+                    }
+                }
+            }
+        }
+
+        div_pesquisa.innerHTML +=
+            `
+            Total de alunos registrados: ${alunos.length} <br>
+
+            Total de alunos listado: ${registros} (com nota no intervalo informado) <br>
+
+            Maior Nota = ${maior} <br>
+
+            Menor Nota = ${menor} <br>
+
+            Média da Nota = ${soma / registros} <br>
+            `
+
+    }
+
+</script>
