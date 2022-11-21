@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 03</title>
+</head>
+
+<body>
+    <h2>Exercicio 03</h2>
+
+    Indique o resultado:
+    <select name="" id="sel_resultado">
+        <option value="V">Vitoria</option>
+        <option value="E">Empate</option>
+        <option value="D">Derrota</option>
+    </select>
+    <br>
+    <button onclick="registrar_jogo()">Registrar Jogo</button>
+    <br> <br>
+    <input placeholder="Indique qual jogo que saber resultado" onkeyup="pesquisar()" id="in_pesquisa">
+    <br> <br>
+
+    <div id="div_resultado"></div>
+    <div id="div_pesquisa"></div>
+
+</body>
+
+</html>
+<script>
+    var todosResultados = [];
+
+    var V = 0;
+    var E = 0;
+    var D = 0;
+
+    var pontos = 0;
+    var pontosPossiveis = 0;
+
+    function registrar_jogo() {
+        var resultado = sel_resultado.value;
+
+
+        if (resultado == 'V') {
+            todosResultados.push('ganhou');
+            V++
+            pontos += 3;
+        } else if (resultado == 'E') {
+            todosResultados.push('empatou');
+            E++
+            pontos += 1;
+        } else {
+            todosResultados.push('perdeu');
+            D++
+        }
+
+        pontosPossiveis += 3;
+
+        var aproveitamento = (pontos / pontosPossiveis) * 100;
+
+        div_resultado.innerHTML =
+            `
+                O time teve: ${V} vitórias, ${E} empates, ${D} derrotas <br>
+                Pontuação total: ${pontos} pontos <br>
+                Aproveitamento: ${aproveitamento}% <br>    
+                `;
+
+    }
+
+
+    function pesquisar() {
+        var pesquisa = Number(in_pesquisa.value);
+
+        if (pesquisa > todosResultados.length) {
+            div_pesquisa.innerHTML = `Não foi cadastrado um ${pesquisa}º jogo`
+        } else {
+            for (let i = 0; i < todosResultados.length; i++) {
+                if (i == pesquisa - 1) {
+                    div_pesquisa.innerHTML = `No ${i + 1}º jogo, o time ${todosResultados[i]}`
+                    break;
+                }
+            }
+        }
+    }
+</script>

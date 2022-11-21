@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 04</title>
+</head>
+
+<body>
+    <h2>Exercicio 04</h2>
+
+    Digite o nome do produto:<input type="text" id="in_nome">
+    <br>
+    Digite o preco do produto:<input type="text" id="in_preco">
+    <br> <br>
+    <button onclick="cadastrar()">cadastrar</button>
+    <button onclick="relatorio()">Relatório de estoque</button>
+    <br> <br>
+
+    <div id="div_resultado"></div>
+
+</body>
+
+</html>
+<script>
+    var produtos = [];
+
+    function cadastrar() {
+        var nome = in_nome.value;
+        var preco = Number(in_preco.value);
+
+        produtos.push({ nome, preco });
+    }
+
+    function relatorio() {
+
+        div_resultado.innerHTML = `Total de produtos: ${produtos.length} <br> <br>`
+        for (var i = 0; i < produtos.length; i++) {
+            var produto = produtos[i];
+
+            div_resultado.innerHTML +=
+                `
+                    Produto ${i + 1}: ${produto.nome} <br>
+                    Preço de compra: R$${produto.preco}. Vender por R$${produto.preco * 1.25} <br> <br>
+
+                `;
+
+        }
+
+    }
+
+</script>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 01</title>
+</head>
+
+<body>
+    <h2>Exercicio 01</h2>
+
+    Digite o preco do produto:<input type="text" id="in_preco">
+    <br>
+    <button onclick="cadastrar()">cadastrar</button>
+    <button onclick="atualizar_estoque()">Atualizar estoque</button>
+    <br> <br>
+
+    <div id="div_resultado"></div>
+
+</body>
+
+</html>
+<script>
+    var estoque = [];
+
+    function cadastrar() {
+        var preco = Number(in_preco.value);
+        estoque.push(preco);
+    }
+    function atualizar_estoque() {
+        var precoEstoque = 0;
+
+        for (var i = 0; i < estoque.length; i++) {
+            precoEstoque += estoque[i];
+        }
+
+        div_resultado.innerHTML =
+            `
+            Você tem ${estoque.length} produtos cadastrados em estoque. <br>
+            Seu estoque vale R$${precoEstoque.toFixed(2)}.
+            `;
+    }
+
+</script>

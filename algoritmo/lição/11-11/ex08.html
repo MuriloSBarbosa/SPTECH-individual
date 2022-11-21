@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 08</title>
+</head>
+
+<body>
+    <div id="div_parte1">
+        <h2>Analise de performance de Alunos - Registro</h2>
+
+        Entre com o nome do aluno:
+        <input type="text" id="in_nome">
+        <br>
+        <br>
+
+        Entre com a nota 1 do aluno:
+        <input type="text" id="in_nota1">
+        <br><br>
+
+        Entre com a nota 2 do aluno:
+        <input type="text" id="in_nota2">
+        <br><br>
+
+        Entre com a nota 3 do aluno:
+        <input type="text" id="in_nota3">
+        <br><br>
+
+        <button onclick="registrar()">Registrar</button>
+        <button onclick="analisar()">Analisar</button>
+        <br><br>
+
+        <div id="div_registrar"></div>
+    </div>
+
+
+</body>
+
+</html>
+<script>
+    var alunos = [];
+
+    function registrar() {
+        div_registrar.innerHTML = "";
+        var nome = in_nome.value;
+        var nota1 = Number(in_nota1.value);
+        var nota2 = Number(in_nota2.value);
+        var nota3 = Number(in_nota3.value);
+
+        if (nome == "" || nota1 < 0 || nota1 > 10 || nota2 < 0 || nota2 > 10 || nota3 < 0 || nota3 > 10) {
+            alert("nome” tem que estar preenchido e a “nota” tem que estar entre 0 e 10")
+        } else {
+            alunos.push(
+                {
+                    nome,
+                    nota1,
+                    nota2,
+                    nota3,
+                }
+            );
+            for (var i = alunos.length - 1; i >= 0; i--) {
+                var aluno = alunos[i];
+                div_registrar.innerHTML += `nome: ${aluno.nome}  <br> nota 1: ${aluno.nota1} <br> nota 2: ${aluno.nota2} <br> nota 3: ${aluno.nota3} <br> <br>`
+            }
+        }
+    }
+
+    function analisar() {
+        div_parte1.innerHTML =
+            `
+        <h2>Analise de performance de alunos - pesquisa</h2>
+        Entre com o intervalo de notas: <input id="in_de" placeholder="de"> <input id="in_ate" placeholder="ate">
+    <br>
+    Entre com a nota: <input id="in_especifica" placeholder="nota">
+    <br>
+    <button onclick="pesquisar()">pesquisar</button>
+    <button onclick="pesquisar1()">pesquisar</button> <br> <br>
+    <div id="div_pesquisa"></div>
+        `
+    }
+
+    function pesquisar() {
+        div_pesquisa.innerHTML = "";
+        var de = Number(in_de.value);
+        var ate = Number(in_ate.value);
+
+        if (de < 0 || de > 10 || ate < 0 || ate > 10) {
+            alert("O campo “de” tem que estar entre 0 e 10, o campo “até” tem que estar entre 0 e 10")
+        } else if (ate < de) {
+            alert("campo “de” tem que ser menor ou igual ao campo “até”")
+        } else {
+            var registros = 0;
+            var maior = 0;
+            var menor = 0;
+            var anterior = 0;
+            var soma = 0;
+            for (var i = 0; i < alunos.length; i++) {
+                var aluno = alunos[i];
+                if (aluno.nota1 >= de && aluno.nota1 <= ate) {
+                    div_pesquisa.innerHTML += `O aluno ${aluno.nome} ficou com a nota AC1: ${aluno.nota1} <br>`
+
+                    registros++;
+                    soma += aluno.nota1;
+
+                    if (aluno.nota1 > maior) {
+                        maior = aluno.nota1;
+                    }
+                    if (aluno.nota1 < anterior) {
+                        menor = aluno.nota1;
+                    }
+
+                    if (anterior == 0) {
+                        menor = aluno.nota1;
+                    }
+
+                    anterior = aluno.nota1;
+                }
+
+                if (aluno.nota2 >= de && aluno.nota2 <= ate) {
+                    div_pesquisa.innerHTML += `O aluno ${aluno.nome} ficou com a nota AC2: ${aluno.nota2} <br>`
+
+                    registros++;
+                    soma += aluno.nota2;
+
+                    if (aluno.nota2 > maior) {
+                        maior = aluno.nota2;
+                    }
+                    if (aluno.nota2 < anterior) {
+                        menor = aluno.nota2;
+                    }
+
+                    if (anterior == 0) {
+                        menor = aluno.nota2;
+                    }
+
+                    anterior = aluno.nota2;
+                }
+
+                if (aluno.nota3 >= de && aluno.nota3 <= ate) {
+                    div_pesquisa.innerHTML += `O aluno ${aluno.nome} ficou com a nota AC3: ${aluno.nota3} <br>`
+
+                    registros++;
+                    soma += aluno.nota3;
+
+                    if (aluno.nota3 > maior) {
+                        maior = aluno.nota3;
+                    }
+                    if (aluno.nota3 < anterior) {
+                        menor = aluno.nota3;
+                    }
+
+                    if (anterior == 0) {
+                        menor = aluno.nota3;
+                    }
+
+                    anterior = aluno.nota3;
+                }
+
+            }
+
+            div_pesquisa.innerHTML +=
+                `
+            Total de alunos registrados: ${alunos.length} <br>
+
+            Total de alunos listado: ${registros} (com nota no intervalo informado) <br>
+
+            Maior Nota = ${maior} <br>
+
+            Menor Nota = ${menor} <br>
+
+            Média da Nota = ${soma / registros} <br>
+            `
+
+
+        }
+
+    }
+
+    function pesquisar1() {
+        div_pesquisa.innerHTML = "";
+        var especifica = Number(in_especifica.value)
+        if (especifica < 0 || especifica > 10) {
+            alert("O campo nota tem que estar entre 0 e 10")
+        } else {
+            var registros = 0;
+            var maior = 0;
+            var menor = 0;
+            var anterior = 0;
+            var soma = 0;
+            for (var i = 0; i < alunos.length; i++) {
+                var aluno = alunos[i];
+                if (aluno.nota1 == especifica) {
+                    div_pesquisa.innerHTML += `O aluno ${aluno.nome} ficou com a nota AC1: ${aluno.nota1} <br>`
+
+                    registros++;
+                    soma += aluno.nota1;
+
+                    if (aluno.nota1 > maior) {
+                        maior = aluno.nota1;
+                    }
+                    if (aluno.nota1 < anterior) {
+                        menor = aluno.nota1;
+                    }
+
+                    if (anterior == 0) {
+                        menor = aluno.nota1;
+                    }
+
+                    anterior = aluno.nota1;
+                }
+
+                if (aluno.nota2 == especifica) {
+                    div_pesquisa.innerHTML += `O aluno ${aluno.nome} ficou com a nota AC2: ${aluno.nota2} <br>`
+
+                    registros++;
+                    soma += aluno.nota2;
+
+                    if (aluno.nota2 > maior) {
+                        maior = aluno.nota2;
+                    }
+                    if (aluno.nota2 < anterior) {
+                        menor = aluno.nota2;
+                    }
+
+                    if (anterior == 0) {
+                        menor = aluno.nota2;
+                    }
+
+                    anterior = aluno.nota2;
+                }
+
+                if (aluno.nota3 == especifica) {
+                    div_pesquisa.innerHTML += `O aluno ${aluno.nome} ficou com a nota AC3: ${aluno.nota3} <br>`
+
+                    registros++;
+                    soma += aluno.nota3;
+
+                    if (aluno.nota3 > maior) {
+                        maior = aluno.nota3;
+                    }
+                    if (aluno.nota3 < anterior) {
+                        menor = aluno.nota3;
+                    }
+
+                    if (anterior == 0) {
+                        menor = aluno.nota3;
+                    }
+
+                    anterior = aluno.nota3;
+                }
+
+            }
+
+            div_pesquisa.innerHTML +=
+                `
+            Total de alunos registrados: ${alunos.length} <br>
+
+            Total de alunos listado: ${registros} (com nota no intervalo informado) <br>
+
+            Maior Nota = ${maior} <br>
+
+            Menor Nota = ${menor} <br>
+
+            Média da Nota = ${soma / registros} <br>
+            `
+
+
+        }
+
+    }
+</script>

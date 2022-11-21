@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 06</title>
+</head>
+
+<body>
+    <h2>Exercicio 06</h2>
+
+    Digite um numero qualquer:<input type="text" id="in_numero">
+    <br>
+    <button onclick="historico()">Analizar historico</button>
+    <br><br>
+
+    <div id="div_resultado"></div>
+
+</body>
+
+</html>
+<script>
+    var numeros = [];
+
+    function historico() {
+        div_resultado.innerHTML = "";
+
+        numero = Number(in_numero.value);
+        numeros.push(numero);
+
+        var maior = 0;
+        var menor = 0;
+        var anterior = 0;
+
+        for (var i = 0; i < numeros.length; i++) {
+            var numeroAtual = numeros[i];
+
+            div_resultado.innerHTML += `${i + 1}º numero: ${numeroAtual}<br>`;
+
+            if (numeroAtual > maior) {
+                maior = numeroAtual
+            }
+            if (numeroAtual < anterior) {
+                menor = numeroAtual;
+            }
+
+            if (anterior == 0) {
+                menor = numeroAtual;
+            }
+
+            anterior = numeroAtual;
+
+        }
+
+        div_resultado.innerHTML += `<br> Maior: ${maior} <br> Menor: ${menor}`;
+    }
+
+</script>
