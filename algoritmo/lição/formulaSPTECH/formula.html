@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formula SPTECh</title>
+</head>
+
+<body>
+    <input type="text" id="in_nome">
+    <br><br>
+    <button onclick="registrar()">Registrar</button>
+    <button onclick="corrida()">Realizar corrida</button>
+
+    <div id="div_voltas"></div>
+    <div id="div_podio"></div>
+</body>
+
+</html>
+<script>
+    var pilotos = [];
+
+    function registrar() {
+        if (pilotos.length == 12) {
+            alert("Já foram cadastrados 12 pilotos!")
+            return false
+        }
+        pilotos.push({ nome: in_nome.value, combustivel: 75, tempo: 0, tempoTotal: 0, desclassificado: false });
+        in_nome.value = '';
+        in_nome.focus()
+    }
+
+    function corrida() {
+        div_voltas.innerHTML = '';
+
+        if (pilotos.length < 5 || pilotos.length > 12) {
+            alert("a quantide pilotoss não é o suficiente")
+            return false
+        }
+
+        var pista = 20;
+        for (var i = 0; i < 15; i++) {
+
+            for (var p = 0; p < pilotos.length; p++) {
+                var piloto = pilotos[p];
+                var velocidade = 210 + parseInt(Math.random() * (290 + 1 - 210))
+                var litroConsumido = velocidade / 50;
+                if (!piloto.desclassificado) {
+                    if (piloto.combustivel <= 0) {
+                        div_voltas.innerHTML += `Volta ${i + 1}: Piloto ${piloto.nome} desclassificado <br>`
+                        piloto.desclassificado = true;
+                    } else {
+                        piloto.combustivel -= litroConsumido
+                        piloto.tempo = (20 / velocidade) * 60;
+                        piloto.tempoTotal += piloto.tempo;
+
+                        div_voltas.innerHTML += `Volta ${i + 1}: Piloto: ${piloto.nome}, Velocidade: ${velocidade}, Combustível: ${litroConsumido}, Tempo: ${piloto.tempo} <br>`
+                    }
+                }
+            }
+
+            div_voltas.innerHTML += `<br>`
+
+        }
+
+        var classificados = []
+        
+        for (var i = 0; i < pilotos.length; i++) {
+            var piloto = pilotos[i]
+            if (!piloto.desclassificado) {
+                classificados.push(piloto)
+            }
+        }
+
+        var memoria;
+
+        for (var i = 0; i < classificados.length; i++) {
+            for (var i = 0; i < classificados.length - 1; i++) {
+                if (classificados[i].tempoTotal > classificados[i + 1].tempoTotal) {
+                    memoria = classificados[i];
+                    classificados[i] = classificados[i + 1];
+                    classificados[i + 1] = memoria;
+                }
+            }
+        }
+
+        div_podio.innerHTML += `1- Nome: ${classificados[0].nome}, Tempo: ${classificados[0].tempoTotal} <br> 
+                                2- Nome: ${classificados[1].nome}, Tempo: ${classificados[1].tempoTotal} <br> 
+                                3- Nome: ${classificados[2].nome}, Tempo: ${classificados[2].tempoTotal}`
+
+    }
+
+
+
+
+
+</script>

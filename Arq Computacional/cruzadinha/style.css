@@ -1,0 +1,182 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.content {
+    padding: 20px 0;
+}
+
+.content .container {
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.content .info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 5px 6px 10px rgba(0, 0, 0, 0.415);
+    padding: 50px 20px;
+}
+
+.info .titulo {
+    color: rgb(0, 145, 255);
+    font-weight: bold;
+    font-size: 35px;
+}
+
+button {
+    transition: 500ms;
+    cursor: pointer;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+button:active {
+    transform: scale(0.9);
+}
+
+.info button {
+    padding: 20px 20px;
+    background-color: #f5f5f5;
+    font-size: 20px;
+    margin: 50px 20px 0px 20px;
+}
+
+.info button:hover {
+    background-color: rgb(0, 200, 0);
+}
+
+.cruzadinha {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+
+input {
+    width: 25px;
+    height: 25px;
+    font-size: 15px;
+    padding: 3px;
+    text-align: center;
+}
+
+.column {
+    display: flex;
+}
+
+.number {
+    padding: 1px 3px;
+    font-size: 8px;
+    background-color: black;
+    position: absolute;
+    color: #fff;
+    margin-left: 13px;
+}
+
+.numberRow {
+    align-self: center;
+    margin-left: 0;
+}
+
+.perguntas {
+    position: fixed;
+    left: -40%;
+    width: 40%;
+    background-color: #f5f5f5;
+    z-index: 1;
+    height: 100vh;
+    padding: 20px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.323);
+    transition: 500ms;
+}
+
+.opened {
+    left: 0;
+}
+
+.opened .open {
+    left: 40%;
+}
+.opened .open img{
+    transition: 500ms;
+    transform: rotateZ(180deg);
+}
+.open {
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 46%;
+    background-color: rgb(0, 145, 255);
+    padding: 7px;
+    cursor: pointer;
+    transition: 500ms;
+}
+
+.open img {
+    height: 50px;
+}
+
+.perguntas .titulo {
+    color: rgb(0, 145, 255);
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.questoes {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.pergunta {
+    display: flex;
+    align-items: center;
+}
+
+.pergunta p {
+    font-size: 15px;
+    margin: 10px 0;
+}
+
+.numberQuestion {
+    font-weight: bold;
+    background-color: rgb(225, 0, 255);
+    color: #fff;
+    padding: 7px;
+    border-radius: 100%;
+}
+
+.check img {
+    height: 20px;
+    margin-left: 7px;
+}
