@@ -50,10 +50,10 @@ function verificar() {
     }
 
     let registradores = a[3] + b[3] + c[3] + d[3] + e[3] + f[3] + g[3] + h[3] + i[3] + j[3] + k[3] + l[3] + m[3] == 'registradores';
-    let i5 = d[3] + d[4] == 'i5'
-    let adress_bus = g[1] + g[2] + g[3] + g[4] + g[5] + g[6] + g[7] + g[8] + g[9] + g[10] == 'adress-buss'
+    let i5 = d[3] + d[4] == 'i5';
+    let adress_bus = g[1] + g[2] + g[3] + g[4] + g[5] + g[6] + g[7] + g[8] + g[9] + g[10] == 'adress-bus'
     let data_bus = h[0] + h[1] + h[2] + h[3] + h[4] + h[5] + h[6] + h[7] == 'data-bus';
-    let dual_core = h[0] + h[0] + i[0] + j[0] + k[0] + l[0] + m[0] + n[0] + o[0] + p[0] == 'dual-core';
+    let dual_core = h[0] + i[0] + j[0] + k[0] + l[0] + m[0] + n[0] + o[0] + p[0] == 'dual-core';
     let cpu = m[0] + m[1] + m[2] == 'cpu';
     let quad_core = l[2] + m[2] + n[2] + o[2] + p[2] + q[2] + r[2] + s[2] + t[2] == 'quad-core';
     let dma = q[3] + r[3] + s[3] == 'dma';
@@ -64,7 +64,7 @@ function verificar() {
     let i7 = r[8] + s[8] == 'i7';
     let flash = p[18] + q[18] + r[18] + s[18] + t[18] == 'flash';
     let ula = q[17] + q[18] + q[19] == 'ula';
-    let cs = s[17] + t[18] == 'cs';
+    let cs = s[17] + s[18] == 'cs';
 
     console.log(cpu);
     console.log(ula);
@@ -86,7 +86,7 @@ function verificar() {
     var check = document.getElementsByClassName('check');
 
     for (var cont = 0; cont < 16; cont++) {
-        check[cont].children[0].src = './close.png'
+        check[cont].children[0].src = './close.png';
     }
 
     if (cpu) { check[0].children[0].src = './accept.png'; }
@@ -100,7 +100,7 @@ function verificar() {
     if (dma) { check[8].children[0].src = './accept.png'; }
     if (cs) { check[9].children[0].src = './accept.png'; }
     if (adress_bus) { check[10].children[0].src = './accept.png'; }
-    if (data_bus) { check[10].children[0].src = './accept.png'; }
+    if (data_bus) { check[11].children[0].src = './accept.png'; }
     if (i5) { check[12].children[0].src = './accept.png'; }
     if (i7) { check[13].children[0].src = './accept.png'; }
     if (dual_core) { check[14].children[0].src = './accept.png'; }
